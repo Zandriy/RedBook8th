@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RedBook8th", "RedBook8th\RedBook8th.vcxproj", "{3803A25C-074F-4A91-A8E5-882F20636EAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3803A25C-074F-4A91-A8E5-882F20636EAB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3803A25C-074F-4A91-A8E5-882F20636EAB}.Debug|Win32.Build.0 = Debug|Win32
+		{3803A25C-074F-4A91-A8E5-882F20636EAB}.Release|Win32.ActiveCfg = Release|Win32
+		{3803A25C-074F-4A91-A8E5-882F20636EAB}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
