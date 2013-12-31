@@ -132,6 +132,7 @@ BOOL WinParent::InitInstance(int nCmdShow)
 
 	child->MoveAndUpdate(r.left, r.top, w, h, nCmdShow);
 	child->InitGL();
+	child->Display();
 
 	return TRUE; 
 }
@@ -139,14 +140,12 @@ BOOL WinParent::InitInstance(int nCmdShow)
 LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	OGLWindow *child = NULL;
-	const char *name;
 	for (std::map<HWND, OGLWindow*>::iterator it=m_childMap.begin(); it!=m_childMap.end(); ++it)
 	{
-		if (it->first == hWnd)
-		{
+// 		if (message == WM_KEYUP || it->first == hWnd)
+// 		{
 			child = it->second;
-			name = child->getName();
-		}
+/*		}*/
 	}
 
 	switch(message)
@@ -157,6 +156,8 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 		PostQuitMessage(0);
 		break;
 	case WM_PAINT:
+		if (child)
+			child->Display();
 		break;
 	case WM_SIZE:
 		break;;
@@ -178,6 +179,8 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 		case VK_INSERT:
 			break;
 		case VK_SPACE:
+			if (child)
+				child->Display();
 			break;
 		default:
 			break;

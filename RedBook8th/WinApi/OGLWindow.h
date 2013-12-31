@@ -22,8 +22,9 @@ public:
 	const char * getTitle() const {return m_WindowTitle;}
 
 	void MoveAndUpdate(int x, int y, int w, int h, int nCmdShow);
-	virtual void InitGL() = 0;
 
+	virtual void InitGL() = 0;
+	virtual void Display() = 0;
 protected:
 	void Swap();
 private:

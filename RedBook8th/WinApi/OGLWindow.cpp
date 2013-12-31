@@ -159,5 +159,5 @@ void OGLWindow::Swap()
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	return WinParent::Instance()->MainWindowLoop(hWnd, message, wParam, lParam);
+	return TRUE;//WinParent::Instance()->MainWindowLoop(hWnd, message, wParam, lParam);
 }
