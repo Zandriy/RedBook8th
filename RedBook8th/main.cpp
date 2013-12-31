@@ -1,3 +1,10 @@
+/*
+* main.cpp
+*
+* Created on: Dec 31, 2013
+* Author: Andrew Zhabura
+*/
+
 #include "WinApi/WinParent.h" 
 
 // Function prototypes. 

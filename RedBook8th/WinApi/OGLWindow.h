@@ -1,3 +1,10 @@
+/*
+* OGLWindow.h
+*
+* Created on: Dec 31, 2013
+* Author: Andrew Zhabura
+*/
+
 #ifndef OGLWindow_h
 #define OGLWindow_h
 

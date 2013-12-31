@@ -1,3 +1,10 @@
+/*
+* Ex01.h
+*
+* Created on: Dec 31, 2013
+* Author: Andrew Zhabura
+*/
+
 #ifndef Ex01_h
 #define Ex01_h
 

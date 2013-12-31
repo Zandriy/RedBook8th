@@ -1,3 +1,10 @@
+/*
+* glLoader.cpp
+*
+* Created on: Dec 31, 2013
+* Author: Andrew Zhabura
+*/
+
 #include "glLoader.h"
 
 // PFNGLCLEARPROC			pglClear = 0;

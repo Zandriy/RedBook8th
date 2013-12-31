@@ -1,3 +1,10 @@
+/*
+* glLoader.h
+*
+* Created on: Dec 31, 2013
+* Author: Andrew Zhabura
+*/
+
 #ifndef glLoader_h
 #define glLoader_h
 

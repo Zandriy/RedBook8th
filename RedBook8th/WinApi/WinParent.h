@@ -1,3 +1,10 @@
+/*
+* WinParent.h
+*
+* Created on: Dec 31, 2013
+* Author: Andrew Zhabura
+*/
+
 #ifndef WinParent_h
 #define WinParent_h
 
