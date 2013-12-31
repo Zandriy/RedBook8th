@@ -17,6 +17,8 @@ public:
 	void MoveAndUpdate(int x, int y, int w, int h, int nCmdShow);
 	virtual void InitGL() = 0;
 
+protected:
+	void Swap();
 private:
 	BOOL InitWindowClass(HINSTANCE hInstance);
 	HWND InitInstance(HINSTANCE hInstance, HWND hParent);

@@ -37,8 +37,8 @@ void Ex01::InitGL()
 		vertices, GL_STATIC_DRAW);
 
 	ShaderInfo  shaders[] = {
-		{ GL_VERTEX_SHADER, "triangles.vert" },
-		{ GL_FRAGMENT_SHADER, "triangles.frag" },
+		{ GL_VERTEX_SHADER, "Shaders/triangles.vert" },
+		{ GL_FRAGMENT_SHADER, "Shaders/triangles.frag" },
 		{ GL_NONE, NULL }
 	};
 
@@ -48,4 +48,16 @@ void Ex01::InitGL()
 	glVertexAttribPointer(vPosition, 2, GL_FLOAT,
 		GL_FALSE, 0, BUFFER_OFFSET(0));
 	glEnableVertexAttribArray(vPosition);
+
+	Display();
+}
+
+void Ex01::Display()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glBindVertexArray(VAOs[Triangles]);
+	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+
+	Swap();
 }

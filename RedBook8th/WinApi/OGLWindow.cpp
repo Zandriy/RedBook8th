@@ -94,11 +94,6 @@ void OGLWindow::MoveAndUpdate(int x, int y, int w, int h, int nCmdShow)
 	UpdateWindow(m_hWnd);
 
 	BOOL makeCurResult = wglMakeCurrent( m_hDC, m_Context );
-
-// 	glClearColor(1.0f, 0.0f, 0.0f, 1.5f);
-// 	glClear(GL_COLOR_BUFFER_BIT);
-// 	SwapBuffers(m_hDC);
-
 }
 
 bool OGLWindow::CreateContext()
@@ -148,6 +143,12 @@ bool OGLWindow::CreateContext()
 
 	return true;
 }
+
+void OGLWindow::Swap()
+{
+	SwapBuffers(m_hDC);
+}
+
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {

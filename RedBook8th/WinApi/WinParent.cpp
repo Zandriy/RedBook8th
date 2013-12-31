@@ -104,13 +104,21 @@ BOOL WinParent::InitInstance(int nCmdShow)
 	OGLWindow * child = new Ex01;
 	m_childMap[child->Init(m_hInstance, m_hwnd)] = child;
 
+	RECT mr;
+	GetWindowRect(m_hwnd, &mr);
+	RECT r;
+	GetClientRect(m_hwnd, &r);
+
+	int bound = ((mr.right - mr.left) - (r.right - r.left)) / 2;
+	int header = (mr.bottom - mr.top) - (r.bottom - r.top) - bound;
+	MoveWindow(m_hwnd, mr.left, mr.top, 512 + 2 * bound, 512 + header + bound, FALSE);
+
 	// Show the Window and send a WM_PAINT message to the Window 
 	// procedure. 
 	SetWindowText(m_hwnd, child->getName());
 	ShowWindow(m_hwnd, nCmdShow); 
 	UpdateWindow(m_hwnd); 
 
-	RECT r;
 	GetClientRect(m_hwnd, &r);
 	int w = (r.right - r.left);
 	int h = (r.bottom - r.top);

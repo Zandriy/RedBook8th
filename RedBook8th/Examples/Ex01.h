@@ -19,6 +19,7 @@ public:
 	Ex01();
 	void InitGL();
 private:
+	void Display();
 };
 
 #endif // Ex01_h
