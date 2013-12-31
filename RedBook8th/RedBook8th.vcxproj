@@ -66,15 +66,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Examples\Ex01.cpp" />
     <ClCompile Include="GL\glLoader.c" />
+    <ClCompile Include="GL\LoadShaders.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="WinApi\WinChild.cpp" />
+    <ClCompile Include="WinApi\OGLWindow.cpp" />
     <ClCompile Include="WinApi\WinParent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Examples\Ex01.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
-    <ClInclude Include="WinApi\WinChild.h" />
+    <ClInclude Include="GL\LoadShaders.h" />
+    <ClInclude Include="WinApi\OGLWindow.h" />
     <ClInclude Include="WinApi\WinParent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,5 +1,5 @@
 #include "winParent.h"
-#include "winChild.h"
+#include "Examples/Ex01.h"
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -24,7 +24,7 @@ WinParent::~WinParent()
 	delete [] m_ClassName;
 	delete [] m_WindowTitle;
 
-	for (std::map<HWND, WinChild*>::iterator it=m_childMap.begin(); it!=m_childMap.end(); ++it)
+	for (std::map<HWND, OGLWindow*>::iterator it=m_childMap.begin(); it!=m_childMap.end(); ++it)
 		delete it->second; 
 }
 
@@ -101,7 +101,7 @@ BOOL WinParent::InitInstance(int nCmdShow)
 	if (!m_hwnd) 
 		return FALSE;
 
-	WinChild * child = new WinChild("Example1", "Example 1");
+	OGLWindow * child = new Ex01;
 	m_childMap[child->Init(m_hInstance, m_hwnd)] = child;
 
 	// Show the Window and send a WM_PAINT message to the Window 
@@ -116,15 +116,16 @@ BOOL WinParent::InitInstance(int nCmdShow)
 	int h = (r.bottom - r.top);
 
 	child->MoveAndUpdate(r.left, r.top, w, h, nCmdShow);
+	child->InitGL();
 
 	return TRUE; 
 }
 
 LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	WinChild *child = NULL;
+	OGLWindow *child = NULL;
 	const char *name;
-	for (std::map<HWND, WinChild*>::iterator it=m_childMap.begin(); it!=m_childMap.end(); ++it)
+	for (std::map<HWND, OGLWindow*>::iterator it=m_childMap.begin(); it!=m_childMap.end(); ++it)
 	{
 		if (it->first == hWnd)
 		{

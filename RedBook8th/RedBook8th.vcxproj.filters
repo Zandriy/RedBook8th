@@ -19,13 +19,13 @@
     <Filter Include="GL">
       <UniqueIdentifier>{4110f0aa-7e13-4622-9ed6-fd152b6b160e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Examples">
+      <UniqueIdentifier>{7cd518a1-620f-40ac-a2c2-0ff3270e8b85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WinApi\WinChild.cpp">
-      <Filter>WinApi</Filter>
     </ClCompile>
     <ClCompile Include="WinApi\WinParent.cpp">
       <Filter>WinApi</Filter>
@@ -33,11 +33,17 @@
     <ClCompile Include="GL\glLoader.c">
       <Filter>GL</Filter>
     </ClCompile>
+    <ClCompile Include="WinApi\OGLWindow.cpp">
+      <Filter>WinApi</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex01.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="GL\LoadShaders.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WinApi\WinChild.h">
-      <Filter>WinApi</Filter>
-    </ClInclude>
     <ClInclude Include="WinApi\WinParent.h">
       <Filter>WinApi</Filter>
     </ClInclude>
@@ -45,6 +51,15 @@
       <Filter>GL</Filter>
     </ClInclude>
     <ClInclude Include="GL\glLoader.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="WinApi\OGLWindow.h">
+      <Filter>WinApi</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex01.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="GL\LoadShaders.h">
       <Filter>GL</Filter>
     </ClInclude>
   </ItemGroup>

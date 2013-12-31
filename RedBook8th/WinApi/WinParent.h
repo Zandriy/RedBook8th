@@ -5,7 +5,7 @@
 #include <tchar.h>
 #include <map>
 
-class WinChild;
+class OGLWindow;
 
 class WinParent
 {
@@ -29,7 +29,7 @@ private:
 	HINSTANCE m_hInstance;
 	HWND m_hwnd;
 
-	std::map<HWND, WinChild*> m_childMap;
+	std::map<HWND, OGLWindow*> m_childMap;
 
 	const char* m_ClassName;
 	const char* m_WindowTitle;
