@@ -55,6 +55,8 @@ void Ex01::InitGL()
 	glVertexAttribPointer(vPosition, 2, GL_FLOAT,
 		GL_FALSE, 0, BUFFER_OFFSET(0));
 	glEnableVertexAttribArray(vPosition);
+
+	glClearColor(0.4, 0.7, 0.7, 1.0);
 }
 
 void Ex01::Display()
@@ -64,5 +66,5 @@ void Ex01::Display()
 	glBindVertexArray(VAOs[Triangles]);
 	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
 
-	Swap();
+	glFlush();
 }

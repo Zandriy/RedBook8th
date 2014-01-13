@@ -109,7 +109,7 @@ BOOL WinParent::InitInstance(int nCmdShow)
 		return FALSE;
 
 	OGLWindow * child = new Ex01;
-	m_childMap[child->Init(m_hInstance, m_hwnd)] = child;
+	m_childMap[child->Init(m_hInstance, m_hwnd, false)] = child;
 
 	RECT mr;
 	GetWindowRect(m_hwnd, &mr);
@@ -142,10 +142,10 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 	OGLWindow *child = NULL;
 	for (std::map<HWND, OGLWindow*>::iterator it=m_childMap.begin(); it!=m_childMap.end(); ++it)
 	{
-// 		if (message == WM_KEYUP || it->first == hWnd)
-// 		{
+ 		if (message == WM_KEYUP || it->first == hWnd)
+ 		{
 			child = it->second;
-/*		}*/
+		}
 	}
 
 	switch(message)

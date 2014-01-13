@@ -29,12 +29,12 @@ OGLWindow::~OGLWindow(void)
 	DestroyWindow(m_hWnd);
 }
 
-HWND OGLWindow::Init(HINSTANCE hInstance, HWND hParent)
+HWND OGLWindow::Init(HINSTANCE hInstance, HWND hParent, bool doubleBuf)
 {
 	if ( !InitWindowClass(hInstance) )
 		return NULL;
 
-	return InitInstance(hInstance, hParent);
+	return InitInstance(hInstance, hParent, doubleBuf);
 }
 
 BOOL OGLWindow::InitWindowClass(HINSTANCE hInstance)
@@ -69,7 +69,7 @@ BOOL OGLWindow::InitWindowClass(HINSTANCE hInstance)
 	return RegisterClassEx(&wcx); 
 }
 
-HWND OGLWindow::InitInstance(HINSTANCE hInstance, HWND hParent)
+HWND OGLWindow::InitInstance(HINSTANCE hInstance, HWND hParent, bool doubleBuf)
 {
 	// Create the main Window.
 	m_hWnd = CreateWindow( 
@@ -85,7 +85,7 @@ HWND OGLWindow::InitInstance(HINSTANCE hInstance, HWND hParent)
 		hInstance,           // handle to application instance 
 		(LPVOID) NULL);      // no Window-creation data 
 
-	if ( !CreateContext() )
+	if ( !CreateContext(doubleBuf) )
 	{
 		DestroyWindow(m_hWnd);
 		m_hWnd = NULL;
@@ -103,7 +103,7 @@ void OGLWindow::MoveAndUpdate(int x, int y, int w, int h, int nCmdShow)
 	BOOL makeCurResult = wglMakeCurrent( m_hDC, m_Context );
 }
 
-bool OGLWindow::CreateContext()
+bool OGLWindow::CreateContext(bool doubleBuf)
 {
 	if ( m_Context )
 		return false;
@@ -115,8 +115,8 @@ bool OGLWindow::CreateContext()
 	ZeroMemory( &m_pfd, sizeof( m_pfd ) );
 	m_pfd.nSize = sizeof( m_pfd );
 	m_pfd.nVersion = 1;
-	m_pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL |
-		PFD_DOUBLEBUFFER;
+	m_pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL;
+	if (doubleBuf) m_pfd.dwFlags |= PFD_DOUBLEBUFFER;
 	m_pfd.iPixelType = PFD_TYPE_RGBA;
 	m_pfd.cColorBits = 24;
 	m_pfd.cDepthBits = 16;
