@@ -68,6 +68,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Examples\Ex01.cpp" />
+    <ClCompile Include="Examples\Ex02_04.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
     <ClCompile Include="main.cpp" />
@@ -76,11 +77,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Examples\Ex01.h" />
+    <ClInclude Include="Examples\Ex02_04.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
     <ClInclude Include="GL\LoadShaders.h" />
     <ClInclude Include="WinApi\OGLWindow.h" />
     <ClInclude Include="WinApi\WinParent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\sh02_04.frag" />
+    <None Include="Shaders\sh02_04.vert" />
+    <None Include="Shaders\triangles.frag" />
+    <None Include="Shaders\triangles.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

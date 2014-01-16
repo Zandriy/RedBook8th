@@ -7,6 +7,7 @@
 
 #include "winParent.h"
 #include "Examples/Ex01.h"
+#include "Examples/Ex02_04.h"
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -108,7 +109,7 @@ BOOL WinParent::InitInstance(int nCmdShow)
 	if (!m_hwnd) 
 		return FALSE;
 
-	OGLWindow * child = new Ex01;
+	OGLWindow * child = new Ex02_04;
 	m_childMap[child->Init(m_hInstance, m_hwnd, false)] = child;
 
 	RECT mr;
@@ -122,7 +123,7 @@ BOOL WinParent::InitInstance(int nCmdShow)
 
 	// Show the Window and send a WM_PAINT message to the Window 
 	// procedure. 
-	SetWindowText(m_hwnd, child->getName());
+	SetWindowText(m_hwnd, child->getTitle());
 	ShowWindow(m_hwnd, nCmdShow); 
 	UpdateWindow(m_hwnd); 
 

@@ -18,6 +18,19 @@
 // 	return glClear && glClearColor ? 1 : 0;
 // }
 
+PFNGLGENBUFFERSPROC					pglGenBuffers = 0;
+PFNGLBINDBUFFERPROC					pglBindBuffer = 0;
+PFNGLBUFFERDATAPROC					pglBufferData = 0;
+
+int GL_1_5_LoadFuncPointers()
+{
+	glGenBuffers = (PFNGLGENBUFFERSPROC)wglGetProcAddress("glGenBuffers");
+	glBindBuffer = (PFNGLBINDBUFFERPROC)wglGetProcAddress("glBindBuffer");
+	glBufferData = (PFNGLBUFFERDATAPROC)wglGetProcAddress("glBufferData");
+
+	return glGenBuffers ? 1 : 0;
+}
+
 /////////////////////////////// GL_VERSION_2_0 ////////////////////////////////
 
 PFNGLBLENDEQUATIONSEPARATEPROC			pglBlendEquationSeparate = 0;
@@ -230,26 +243,227 @@ int GL_2_0_LoadFuncPointers()
 		? 1 : 0;
 }
 
-PFNGLGENBUFFERSPROC					pglGenBuffers = 0;
-PFNGLBINDBUFFERPROC					pglBindBuffer = 0;
-PFNGLBUFFERDATAPROC					pglBufferData = 0;
+/////////////////////////////// GL_VERSION_3_0 ////////////////////////////////
 
-int GL_1_5_LoadFuncPointers()
-{
-	glGenBuffers = (PFNGLGENBUFFERSPROC)wglGetProcAddress("glGenBuffers");
-	glBindBuffer = (PFNGLBINDBUFFERPROC)wglGetProcAddress("glBindBuffer");
-	glBufferData = (PFNGLBUFFERDATAPROC)wglGetProcAddress("glBufferData");
-
-	return glGenBuffers ? 1 : 0;
-}
-
-PFNGLGENVERTEXARRAYSPROC		pglGenVertexArrays = 0;
-PFNGLBINDVERTEXARRAYPROC		pglBindVertexArray = 0;
+PFNGLCOLORMASKIPROC							pglColorMaski = 0;
+PFNGLGETBOOLEANI_VPROC						pglGetBooleani_v = 0;
+PFNGLGETINTEGERI_VPROC						pglGetIntegeri_v = 0;
+PFNGLENABLEIPROC								pglEnablei = 0;
+PFNGLDISABLEIPROC							pglDisablei = 0;
+PFNGLISENABLEDIPROC							pglIsEnabledi = 0;
+PFNGLBEGINTRANSFORMFEEDBACKPROC				pglBeginTransformFeedback = 0;
+PFNGLENDTRANSFORMFEEDBACKPROC				pglEndTransformFeedback = 0;
+PFNGLBINDBUFFERRANGEPROC						pglBindBufferRange = 0;
+PFNGLBINDBUFFERBASEPROC						pglBindBufferBase = 0;
+PFNGLTRANSFORMFEEDBACKVARYINGSPROC			pglTransformFeedbackVaryings = 0;
+PFNGLGETTRANSFORMFEEDBACKVARYINGPROC			pglGetTransformFeedbackVarying = 0;
+PFNGLCLAMPCOLORPROC							pglClampColor = 0;
+PFNGLBEGINCONDITIONALRENDERPROC				pglBeginConditionalRender = 0;
+PFNGLENDCONDITIONALRENDERPROC				pglEndConditionalRender = 0;
+PFNGLVERTEXATTRIBIPOINTERPROC				pglVertexAttribIPointer = 0;
+PFNGLGETVERTEXATTRIBIIVPROC					pglGetVertexAttribIiv = 0;
+PFNGLGETVERTEXATTRIBIUIVPROC					pglGetVertexAttribIuiv = 0;
+PFNGLVERTEXATTRIBI1IPROC						pglVertexAttribI1i = 0;
+PFNGLVERTEXATTRIBI2IPROC						pglVertexAttribI2i = 0;
+PFNGLVERTEXATTRIBI3IPROC						pglVertexAttribI3i = 0;
+PFNGLVERTEXATTRIBI4IPROC						pglVertexAttribI4i = 0;
+PFNGLVERTEXATTRIBI1UIPROC					pglVertexAttribI1ui = 0;
+PFNGLVERTEXATTRIBI2UIPROC					pglVertexAttribI2ui = 0;
+PFNGLVERTEXATTRIBI3UIPROC					pglVertexAttribI3ui = 0;
+PFNGLVERTEXATTRIBI4UIPROC					pglVertexAttribI4ui = 0;
+PFNGLVERTEXATTRIBI1IVPROC					pglVertexAttribI1iv = 0;
+PFNGLVERTEXATTRIBI2IVPROC					pglVertexAttribI2iv = 0;
+PFNGLVERTEXATTRIBI3IVPROC					pglVertexAttribI3iv = 0;
+PFNGLVERTEXATTRIBI4IVPROC					pglVertexAttribI4iv = 0;
+PFNGLVERTEXATTRIBI1UIVPROC					pglVertexAttribI1uiv = 0;
+PFNGLVERTEXATTRIBI2UIVPROC					pglVertexAttribI2uiv = 0;
+PFNGLVERTEXATTRIBI3UIVPROC					pglVertexAttribI3uiv = 0;
+PFNGLVERTEXATTRIBI4UIVPROC					pglVertexAttribI4uiv = 0;
+PFNGLVERTEXATTRIBI4BVPROC					pglVertexAttribI4bv = 0;
+PFNGLVERTEXATTRIBI4SVPROC					pglVertexAttribI4sv = 0;
+PFNGLVERTEXATTRIBI4UBVPROC					pglVertexAttribI4ubv = 0;
+PFNGLVERTEXATTRIBI4USVPROC					pglVertexAttribI4usv = 0;
+PFNGLGETUNIFORMUIVPROC						pglGetUniformuiv = 0;
+PFNGLBINDFRAGDATALOCATIONPROC				pglBindFragDataLocation = 0;
+PFNGLGETFRAGDATALOCATIONPROC					pglGetFragDataLocation = 0;
+PFNGLUNIFORM1UIPROC							pglUniform1ui = 0;
+PFNGLUNIFORM2UIPROC							pglUniform2ui = 0;
+PFNGLUNIFORM3UIPROC							pglUniform3ui = 0;
+PFNGLUNIFORM4UIPROC							pglUniform4ui = 0;
+PFNGLUNIFORM1UIVPROC							pglUniform1uiv = 0;
+PFNGLUNIFORM2UIVPROC							pglUniform2uiv = 0;
+PFNGLUNIFORM3UIVPROC							pglUniform3uiv = 0;
+PFNGLUNIFORM4UIVPROC							pglUniform4uiv = 0;
+PFNGLTEXPARAMETERIIVPROC						pglTexParameterIiv = 0;
+PFNGLTEXPARAMETERIUIVPROC					pglTexParameterIuiv = 0;
+PFNGLGETTEXPARAMETERIIVPROC					pglGetTexParameterIiv = 0;
+PFNGLGETTEXPARAMETERIUIVPROC					pglGetTexParameterIuiv = 0;
+PFNGLCLEARBUFFERIVPROC						pglClearBufferiv = 0;
+PFNGLCLEARBUFFERUIVPROC						pglClearBufferuiv = 0;
+PFNGLCLEARBUFFERFVPROC						pglClearBufferfv = 0;
+PFNGLCLEARBUFFERFIPROC						pglClearBufferfi = 0;
+PFNGLGETSTRINGIPROC							pglGetStringi = 0;
+PFNGLISRENDERBUFFERPROC						pglIsRenderbuffer = 0;
+PFNGLBINDRENDERBUFFERPROC					pglBindRenderbuffer = 0;
+PFNGLDELETERENDERBUFFERSPROC					pglDeleteRenderbuffers = 0;
+PFNGLGENRENDERBUFFERSPROC					pglGenRenderbuffers = 0;
+PFNGLRENDERBUFFERSTORAGEPROC					pglRenderbufferStorage = 0;
+PFNGLGETRENDERBUFFERPARAMETERIVPROC			pglGetRenderbufferParameteriv = 0;
+PFNGLISFRAMEBUFFERPROC						pglIsFramebuffer = 0;
+PFNGLBINDFRAMEBUFFERPROC						pglBindFramebuffer = 0;
+PFNGLDELETEFRAMEBUFFERSPROC					pglDeleteFramebuffers = 0;
+PFNGLGENFRAMEBUFFERSPROC						pglGenFramebuffers = 0;
+PFNGLCHECKFRAMEBUFFERSTATUSPROC				pglCheckFramebufferStatus = 0;
+PFNGLFRAMEBUFFERTEXTURE1DPROC				pglFramebufferTexture1D = 0;
+PFNGLFRAMEBUFFERTEXTURE2DPROC				pglFramebufferTexture2D = 0;
+PFNGLFRAMEBUFFERTEXTURE3DPROC				pglFramebufferTexture3D = 0;
+PFNGLFRAMEBUFFERRENDERBUFFERPROC				pglFramebufferRenderbuffer = 0;
+PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC	pglGetFramebufferAttachmentParameteriv = 0;
+PFNGLGENERATEMIPMAPPROC						pglGenerateMipmap = 0;
+PFNGLBLITFRAMEBUFFERPROC						pglBlitFramebuffer = 0;
+PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC		pglRenderbufferStorageMultisample = 0;
+PFNGLFRAMEBUFFERTEXTURELAYERPROC				pglFramebufferTextureLayer = 0;
+PFNGLMAPBUFFERRANGEPROC						pglMapBufferRange = 0;
+PFNGLFLUSHMAPPEDBUFFERRANGEPROC				pglFlushMappedBufferRange = 0;
+PFNGLBINDVERTEXARRAYPROC						pglBindVertexArray = 0;
+PFNGLDELETEVERTEXARRAYSPROC					pglDeleteVertexArrays = 0;
+PFNGLGENVERTEXARRAYSPROC						pglGenVertexArrays = 0;
+PFNGLISVERTEXARRAYPROC						pglIsVertexArray = 0;
 
 int GL_3_0_LoadFuncPointers()
 {
-	glGenVertexArrays = (PFNGLGENVERTEXARRAYSPROC)wglGetProcAddress("glGenVertexArrays");
+	glColorMaski = (PFNGLCOLORMASKIPROC)wglGetProcAddress("glColorMaski");
+	glGetBooleani_v = (PFNGLGETBOOLEANI_VPROC)wglGetProcAddress("glGetBooleani_v");
+	glGetIntegeri_v = (PFNGLGETINTEGERI_VPROC)wglGetProcAddress("glGetIntegeri_v");
+	glEnablei = (PFNGLENABLEIPROC)wglGetProcAddress("glEnablei");
+	glDisablei = (PFNGLDISABLEIPROC)wglGetProcAddress("glDisablei");
+	glIsEnabledi = (PFNGLISENABLEDIPROC)wglGetProcAddress("glIsEnabledi");
+	glBeginTransformFeedback = (PFNGLBEGINTRANSFORMFEEDBACKPROC)wglGetProcAddress("glBeginTransformFeedback");
+	glEndTransformFeedback = (PFNGLENDTRANSFORMFEEDBACKPROC)wglGetProcAddress("glEndTransformFeedback");
+	glBindBufferRange = (PFNGLBINDBUFFERRANGEPROC)wglGetProcAddress("glBindBufferRange");
+	glBindBufferBase = (PFNGLBINDBUFFERBASEPROC)wglGetProcAddress("glBindBufferBase");
+	glTransformFeedbackVaryings = (PFNGLTRANSFORMFEEDBACKVARYINGSPROC)wglGetProcAddress("glTransformFeedbackVaryings");
+	glGetTransformFeedbackVarying = (PFNGLGETTRANSFORMFEEDBACKVARYINGPROC)wglGetProcAddress("glGetTransformFeedbackVarying");
+	glClampColor = (PFNGLCLAMPCOLORPROC)wglGetProcAddress("glClampColor");
+	glBeginConditionalRender = (PFNGLBEGINCONDITIONALRENDERPROC)wglGetProcAddress("glBeginConditionalRender");
+	glEndConditionalRender = (PFNGLENDCONDITIONALRENDERPROC)wglGetProcAddress("glEndConditionalRender");
+	glVertexAttribIPointer = (PFNGLVERTEXATTRIBIPOINTERPROC)wglGetProcAddress("glVertexAttribIPointer");
+	glGetVertexAttribIiv = (PFNGLGETVERTEXATTRIBIIVPROC)wglGetProcAddress("glGetVertexAttribIiv");
+	glGetVertexAttribIuiv = (PFNGLGETVERTEXATTRIBIUIVPROC)wglGetProcAddress("glGetVertexAttribIuiv");
+	glVertexAttribI1i = (PFNGLVERTEXATTRIBI1IPROC)wglGetProcAddress("glVertexAttribI1i");
+	glVertexAttribI2i = (PFNGLVERTEXATTRIBI2IPROC)wglGetProcAddress("glVertexAttribI2i");
+	glVertexAttribI3i = (PFNGLVERTEXATTRIBI3IPROC)wglGetProcAddress("glVertexAttribI3i");
+	glVertexAttribI4i = (PFNGLVERTEXATTRIBI4IPROC)wglGetProcAddress("glVertexAttribI4i");
+	glVertexAttribI1ui = (PFNGLVERTEXATTRIBI1UIPROC)wglGetProcAddress("glVertexAttribI1ui");
+	glVertexAttribI2ui = (PFNGLVERTEXATTRIBI2UIPROC)wglGetProcAddress("glVertexAttribI2ui");
+	glVertexAttribI3ui = (PFNGLVERTEXATTRIBI3UIPROC)wglGetProcAddress("glVertexAttribI3ui");
+	glVertexAttribI4ui = (PFNGLVERTEXATTRIBI4UIPROC)wglGetProcAddress("glVertexAttribI4ui");
+	glVertexAttribI1iv = (PFNGLVERTEXATTRIBI1IVPROC)wglGetProcAddress("glVertexAttribI1iv");
+	glVertexAttribI2iv = (PFNGLVERTEXATTRIBI2IVPROC)wglGetProcAddress("glVertexAttribI2iv");
+	glVertexAttribI3iv = (PFNGLVERTEXATTRIBI3IVPROC)wglGetProcAddress("glVertexAttribI3iv");
+	glVertexAttribI4iv = (PFNGLVERTEXATTRIBI4IVPROC)wglGetProcAddress("glVertexAttribI4iv");
+	glVertexAttribI1uiv = (PFNGLVERTEXATTRIBI1UIVPROC)wglGetProcAddress("glVertexAttribI1uiv");
+	glVertexAttribI2uiv = (PFNGLVERTEXATTRIBI2UIVPROC)wglGetProcAddress("glVertexAttribI2uiv");
+	glVertexAttribI3uiv = (PFNGLVERTEXATTRIBI3UIVPROC)wglGetProcAddress("glVertexAttribI3uiv");
+	glVertexAttribI4uiv = (PFNGLVERTEXATTRIBI4UIVPROC)wglGetProcAddress("glVertexAttribI4uiv");
+	glVertexAttribI4bv = (PFNGLVERTEXATTRIBI4BVPROC)wglGetProcAddress("glVertexAttribI4bv");
+	glVertexAttribI4sv = (PFNGLVERTEXATTRIBI4SVPROC)wglGetProcAddress("glVertexAttribI4sv");
+	glVertexAttribI4ubv = (PFNGLVERTEXATTRIBI4UBVPROC)wglGetProcAddress("glVertexAttribI4ubv");
+	glVertexAttribI4usv = (PFNGLVERTEXATTRIBI4USVPROC)wglGetProcAddress("glVertexAttribI4usv");
+	glGetUniformuiv = (PFNGLGETUNIFORMUIVPROC)wglGetProcAddress("glGetUniformuiv");
+	glBindFragDataLocation = (PFNGLBINDFRAGDATALOCATIONPROC)wglGetProcAddress("glBindFragDataLocation");
+	glGetFragDataLocation = (PFNGLGETFRAGDATALOCATIONPROC)wglGetProcAddress("glGetFragDataLocation");
+	glUniform1ui = (PFNGLUNIFORM1UIPROC)wglGetProcAddress("glUniform1ui");
+	glUniform2ui = (PFNGLUNIFORM2UIPROC)wglGetProcAddress("glUniform2ui");
+	glUniform3ui = (PFNGLUNIFORM3UIPROC)wglGetProcAddress("glUniform3ui");
+	glUniform4ui = (PFNGLUNIFORM4UIPROC)wglGetProcAddress("glUniform4ui");
+	glUniform1uiv = (PFNGLUNIFORM1UIVPROC)wglGetProcAddress("glUniform1uiv");
+	glUniform2uiv = (PFNGLUNIFORM2UIVPROC)wglGetProcAddress("glUniform2uiv");
+	glUniform3uiv = (PFNGLUNIFORM3UIVPROC)wglGetProcAddress("glUniform3uiv");
+	glUniform4uiv = (PFNGLUNIFORM4UIVPROC)wglGetProcAddress("glUniform4uiv");
+	glTexParameterIiv = (PFNGLTEXPARAMETERIIVPROC)wglGetProcAddress("glTexParameterIiv");
+	glTexParameterIuiv = (PFNGLTEXPARAMETERIUIVPROC)wglGetProcAddress("glTexParameterIuiv");
+	glGetTexParameterIiv = (PFNGLGETTEXPARAMETERIIVPROC)wglGetProcAddress("glGetTexParameterIiv");
+	glGetTexParameterIuiv = (PFNGLGETTEXPARAMETERIUIVPROC)wglGetProcAddress("glGetTexParameterIuiv");
+	glClearBufferiv = (PFNGLCLEARBUFFERIVPROC)wglGetProcAddress("glClearBufferiv");
+	glClearBufferuiv = (PFNGLCLEARBUFFERUIVPROC)wglGetProcAddress("glClearBufferuiv");
+	glClearBufferfv = (PFNGLCLEARBUFFERFVPROC)wglGetProcAddress("glClearBufferfv");
+	glClearBufferfi = (PFNGLCLEARBUFFERFIPROC)wglGetProcAddress("glClearBufferfi");
+	glGetStringi = (PFNGLGETSTRINGIPROC)wglGetProcAddress("glGetStringi");
+	glIsRenderbuffer = (PFNGLISRENDERBUFFERPROC)wglGetProcAddress("glIsRenderbuffer");
+	glBindRenderbuffer = (PFNGLBINDRENDERBUFFERPROC)wglGetProcAddress("glBindRenderbuffer");
+	glDeleteRenderbuffers = (PFNGLDELETERENDERBUFFERSPROC)wglGetProcAddress("glDeleteRenderbuffers");
+	glGenRenderbuffers = (PFNGLGENRENDERBUFFERSPROC)wglGetProcAddress("glGenRenderbuffers");
+	glRenderbufferStorage = (PFNGLRENDERBUFFERSTORAGEPROC)wglGetProcAddress("glRenderbufferStorage");
+	glGetRenderbufferParameteriv = (PFNGLGETRENDERBUFFERPARAMETERIVPROC)wglGetProcAddress("glGetRenderbufferParameteriv");
+	glIsFramebuffer = (PFNGLISFRAMEBUFFERPROC)wglGetProcAddress("glIsFramebuffer");
+	glBindFramebuffer = (PFNGLBINDFRAMEBUFFERPROC)wglGetProcAddress("glBindFramebuffer");
+	glDeleteFramebuffers = (PFNGLDELETEFRAMEBUFFERSPROC)wglGetProcAddress("glDeleteFramebuffers");
+	glGenFramebuffers = (PFNGLGENFRAMEBUFFERSPROC)wglGetProcAddress("glGenFramebuffers");
+	glCheckFramebufferStatus = (PFNGLCHECKFRAMEBUFFERSTATUSPROC)wglGetProcAddress("glCheckFramebufferStatus");
+	glFramebufferTexture1D = (PFNGLFRAMEBUFFERTEXTURE1DPROC)wglGetProcAddress("glFramebufferTexture1D");
+	glFramebufferTexture2D = (PFNGLFRAMEBUFFERTEXTURE2DPROC)wglGetProcAddress("glFramebufferTexture2D");
+	glFramebufferTexture3D = (PFNGLFRAMEBUFFERTEXTURE3DPROC)wglGetProcAddress("glFramebufferTexture3D");
+	glFramebufferRenderbuffer = (PFNGLFRAMEBUFFERRENDERBUFFERPROC)wglGetProcAddress("glFramebufferRenderbuffer");
+	glGetFramebufferAttachmentParameteriv = (PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC)wglGetProcAddress("glGetFramebufferAttachmentParameteriv");
+	glGenerateMipmap = (PFNGLGENERATEMIPMAPPROC)wglGetProcAddress("glGenerateMipmap");
+	glBlitFramebuffer = (PFNGLBLITFRAMEBUFFERPROC)wglGetProcAddress("glBlitFramebuffer");
+	glRenderbufferStorageMultisample = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC)wglGetProcAddress("glRenderbufferStorageMultisample");
+	glFramebufferTextureLayer = (PFNGLFRAMEBUFFERTEXTURELAYERPROC)wglGetProcAddress("glFramebufferTextureLayer");
+	glMapBufferRange = (PFNGLMAPBUFFERRANGEPROC)wglGetProcAddress("glMapBufferRange");
+	glFlushMappedBufferRange = (PFNGLFLUSHMAPPEDBUFFERRANGEPROC)wglGetProcAddress("glFlushMappedBufferRange");
 	glBindVertexArray = (PFNGLBINDVERTEXARRAYPROC)wglGetProcAddress("glBindVertexArray");
+	glDeleteVertexArrays = (PFNGLDELETEVERTEXARRAYSPROC)wglGetProcAddress("glDeleteVertexArrays");
+	glGenVertexArrays = (PFNGLGENVERTEXARRAYSPROC)wglGetProcAddress("glGenVertexArrays");
+	glIsVertexArray = (PFNGLISVERTEXARRAYPROC)wglGetProcAddress("glIsVertexArray");
 
-	return glGenVertexArrays && glBindVertexArray ? 1 : 0;
+	return (glColorMaski && glGetBooleani_v && glGetIntegeri_v && glEnablei && glDisablei && glIsEnabledi && glBeginTransformFeedback
+		&& glEndTransformFeedback && glBindBufferRange && glBindBufferBase && glTransformFeedbackVaryings && glGetTransformFeedbackVarying
+		&& glClampColor && glBeginConditionalRender && glEndConditionalRender && glVertexAttribIPointer && glGetVertexAttribIiv
+		&& glGetVertexAttribIuiv && glVertexAttribI1i && glVertexAttribI2i && glVertexAttribI3i && glVertexAttribI4i && glVertexAttribI1ui
+		&& glVertexAttribI2ui && glVertexAttribI3ui && glVertexAttribI4ui && glVertexAttribI1iv && glVertexAttribI2iv && glVertexAttribI3iv
+		&& glVertexAttribI4iv && glVertexAttribI1uiv && glVertexAttribI2uiv && glVertexAttribI3uiv && glVertexAttribI4uiv && glVertexAttribI4bv
+		&& glVertexAttribI4sv && glVertexAttribI4ubv && glVertexAttribI4usv && glGetUniformuiv && glBindFragDataLocation && glGetFragDataLocation
+		&& glUniform1ui && glUniform2ui && glUniform3ui && glUniform4ui && glUniform1uiv && glUniform2uiv && glUniform3uiv && glUniform4uiv
+		&& glTexParameterIiv && glTexParameterIuiv && glGetTexParameterIiv && glGetTexParameterIuiv && glClearBufferiv && glClearBufferuiv
+		&& glClearBufferfv && glClearBufferfi && glGetStringi && glIsRenderbuffer && glBindRenderbuffer && glDeleteRenderbuffers && glGenRenderbuffers
+		&& glRenderbufferStorage && glGetRenderbufferParameteriv && glIsFramebuffer && glBindFramebuffer && glDeleteFramebuffers && glGenFramebuffers
+		&& glCheckFramebufferStatus && glFramebufferTexture1D && glFramebufferTexture2D && glFramebufferTexture3D && glFramebufferRenderbuffer
+		&& glGetFramebufferAttachmentParameteriv && glGenerateMipmap && glBlitFramebuffer && glRenderbufferStorageMultisample && glFramebufferTextureLayer
+		&& glMapBufferRange && glFlushMappedBufferRange && glBindVertexArray && glDeleteVertexArrays && glGenVertexArrays && glIsVertexArray) ? 1 : 0;
+}
+
+/////////////////////////////// GL_VERSION_3_1 ////////////////////////////////
+
+PFNGLDRAWARRAYSINSTANCEDPROC					pglDrawArraysInstanced = 0;
+PFNGLDRAWELEMENTSINSTANCEDPROC				pglDrawElementsInstanced = 0;
+PFNGLTEXBUFFERPROC							pglTexBuffer = 0;
+PFNGLPRIMITIVERESTARTINDEXPROC				pglPrimitiveRestartIndex = 0;
+PFNGLCOPYBUFFERSUBDATAPROC					pglCopyBufferSubData = 0;
+PFNGLGETUNIFORMINDICESPROC					pglGetUniformIndices = 0;
+PFNGLGETACTIVEUNIFORMSIVPROC					pglGetActiveUniformsiv = 0;
+PFNGLGETACTIVEUNIFORMNAMEPROC				pglGetActiveUniformName = 0;
+PFNGLGETUNIFORMBLOCKINDEXPROC				pglGetUniformBlockIndex = 0;
+PFNGLGETACTIVEUNIFORMBLOCKIVPROC				pglGetActiveUniformBlockiv = 0;
+PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC			pglGetActiveUniformBlockName = 0;
+PFNGLUNIFORMBLOCKBINDINGPROC					pglUniformBlockBinding = 0;
+
+int GL_3_1_LoadFuncPointers()
+{
+	glDrawArraysInstanced = (PFNGLDRAWARRAYSINSTANCEDPROC)wglGetProcAddress("glDrawArraysInstanced");
+	glDrawElementsInstanced = (PFNGLDRAWELEMENTSINSTANCEDPROC)wglGetProcAddress("glDrawElementsInstanced");
+	glTexBuffer = (PFNGLTEXBUFFERPROC)wglGetProcAddress("glTexBuffer");
+	glPrimitiveRestartIndex = (PFNGLPRIMITIVERESTARTINDEXPROC)wglGetProcAddress("glPrimitiveRestartIndex");
+	glCopyBufferSubData = (PFNGLCOPYBUFFERSUBDATAPROC)wglGetProcAddress("glCopyBufferSubData");
+	glGetUniformIndices = (PFNGLGETUNIFORMINDICESPROC)wglGetProcAddress("glGetUniformIndices");
+	glGetActiveUniformsiv = (PFNGLGETACTIVEUNIFORMSIVPROC)wglGetProcAddress("glGetActiveUniformsiv");
+	glGetActiveUniformName = (PFNGLGETACTIVEUNIFORMNAMEPROC)wglGetProcAddress("glGetActiveUniformName");
+	glGetUniformBlockIndex = (PFNGLGETUNIFORMBLOCKINDEXPROC)wglGetProcAddress("glGetUniformBlockIndex");
+	glGetActiveUniformBlockiv = (PFNGLGETACTIVEUNIFORMBLOCKIVPROC)wglGetProcAddress("glGetActiveUniformBlockiv");
+	glGetActiveUniformBlockName = (PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC)wglGetProcAddress("glGetActiveUniformBlockName");
+	glUniformBlockBinding = (PFNGLUNIFORMBLOCKBINDINGPROC)wglGetProcAddress("glUniformBlockBinding");
+
+	return (glDrawArraysInstanced && glDrawElementsInstanced && glTexBuffer && glPrimitiveRestartIndex && glCopyBufferSubData
+		&& glGetUniformIndices && glGetActiveUniformsiv && glGetActiveUniformName && glGetUniformBlockIndex
+		&& glGetActiveUniformBlockiv && glGetActiveUniformBlockName && glUniformBlockBinding) ? 1 : 0;
 }
