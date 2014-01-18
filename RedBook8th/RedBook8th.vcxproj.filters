@@ -45,6 +45,9 @@
     <ClCompile Include="Examples\Ex02_04.cpp">
       <Filter>Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\Ex03_01.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WinApi\WinParent.h">
@@ -68,6 +71,9 @@
     <ClInclude Include="Examples\Ex02_04.h">
       <Filter>Examples</Filter>
     </ClInclude>
+    <ClInclude Include="Examples\Ex03_01.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\triangles.frag">
@@ -80,6 +86,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Shaders\sh02_04.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\sh03_01.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\sh03_01.vert">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

@@ -18,17 +18,54 @@
 // 	return glClear && glClearColor ? 1 : 0;
 // }
 
-PFNGLGENBUFFERSPROC					pglGenBuffers = 0;
-PFNGLBINDBUFFERPROC					pglBindBuffer = 0;
-PFNGLBUFFERDATAPROC					pglBufferData = 0;
+/////////////////////////////// GL_VERSION_1_5 ////////////////////////////////
+
+PFNGLGENQUERIESPROC				pglGenQueries = 0;
+PFNGLDELETEQUERIESPROC			pglDeleteQueries = 0;
+PFNGLISQUERYPROC					pglIsQuery = 0;
+PFNGLBEGINQUERYPROC				pglBeginQuery = 0;
+PFNGLENDQUERYPROC				pglEndQuery = 0;
+PFNGLGETQUERYIVPROC				pglGetQueryiv = 0;
+PFNGLGETQUERYOBJECTIVPROC		pglGetQueryObjectiv = 0;
+PFNGLGETQUERYOBJECTUIVPROC		pglGetQueryObjectuiv = 0;
+PFNGLBINDBUFFERPROC				pglBindBuffer = 0;
+PFNGLDELETEBUFFERSPROC			pglDeleteBuffers = 0;
+PFNGLGENBUFFERSPROC				pglGenBuffers = 0;
+PFNGLISBUFFERPROC				pglIsBuffer = 0;
+PFNGLBUFFERDATAPROC				pglBufferData = 0;
+PFNGLBUFFERSUBDATAPROC			pglBufferSubData = 0;
+PFNGLGETBUFFERSUBDATAPROC		pglGetBufferSubData = 0;
+PFNGLMAPBUFFERPROC				pglMapBuffer = 0;
+PFNGLUNMAPBUFFERPROC				pglUnmapBuffer = 0;
+PFNGLGETBUFFERPARAMETERIVPROC	pglGetBufferParameteriv = 0;
+PFNGLGETBUFFERPOINTERVPROC		pglGetBufferPointerv = 0;
 
 int GL_1_5_LoadFuncPointers()
 {
-	glGenBuffers = (PFNGLGENBUFFERSPROC)wglGetProcAddress("glGenBuffers");
+	glGenQueries = (PFNGLGENQUERIESPROC)wglGetProcAddress("glGenQueries");
+	glDeleteQueries = (PFNGLDELETEQUERIESPROC)wglGetProcAddress("glDeleteQueries");
+	glIsQuery = (PFNGLISQUERYPROC)wglGetProcAddress("glIsQuery");
+	glBeginQuery = (PFNGLBEGINQUERYPROC)wglGetProcAddress("glBeginQuery");
+	glEndQuery = (PFNGLENDQUERYPROC)wglGetProcAddress("glEndQuery");
+	glGetQueryiv = (PFNGLGETQUERYIVPROC)wglGetProcAddress("glGetQueryiv");
+	glGetQueryObjectiv = (PFNGLGETQUERYOBJECTIVPROC)wglGetProcAddress("glGetQueryObjectiv");
+	glGetQueryObjectuiv = (PFNGLGETQUERYOBJECTUIVPROC)wglGetProcAddress("glGetQueryObjectuiv");
 	glBindBuffer = (PFNGLBINDBUFFERPROC)wglGetProcAddress("glBindBuffer");
+	glDeleteBuffers = (PFNGLDELETEBUFFERSPROC)wglGetProcAddress("glDeleteBuffers");
+	glGenBuffers = (PFNGLGENBUFFERSPROC)wglGetProcAddress("glGenBuffers");
+	glIsBuffer = (PFNGLISBUFFERPROC)wglGetProcAddress("glIsBuffer");
 	glBufferData = (PFNGLBUFFERDATAPROC)wglGetProcAddress("glBufferData");
+	glBufferSubData = (PFNGLBUFFERSUBDATAPROC)wglGetProcAddress("glBufferSubData");
+	glGetBufferSubData = (PFNGLGETBUFFERSUBDATAPROC)wglGetProcAddress("glGetBufferSubData");
+	glMapBuffer = (PFNGLMAPBUFFERPROC)wglGetProcAddress("glMapBuffer");
+	glUnmapBuffer = (PFNGLUNMAPBUFFERPROC)wglGetProcAddress("glUnmapBuffer");
+	glGetBufferParameteriv = (PFNGLGETBUFFERPARAMETERIVPROC)wglGetProcAddress("glGetBufferParameteriv");
+	glGetBufferPointerv = (PFNGLGETBUFFERPOINTERVPROC)wglGetProcAddress("glGetBufferPointerv");
 
-	return glGenBuffers ? 1 : 0;
+	return (glGenQueries && glDeleteQueries && glIsQuery && glBeginQuery && glEndQuery && glGetQueryiv
+		&& glGetQueryObjectiv && glGetQueryObjectuiv && glBindBuffer && glDeleteBuffers && glGenBuffers
+		&& glIsBuffer && glBufferData && glBufferSubData && glGetBufferSubData && glMapBuffer && glUnmapBuffer
+		&& glGetBufferParameteriv && glGetBufferPointerv) ? 1 : 0;
 }
 
 /////////////////////////////// GL_VERSION_2_0 ////////////////////////////////

@@ -69,6 +69,7 @@
   <ItemGroup>
     <ClCompile Include="Examples\Ex01.cpp" />
     <ClCompile Include="Examples\Ex02_04.cpp" />
+    <ClCompile Include="Examples\Ex03_01.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
     <ClCompile Include="main.cpp" />
@@ -78,6 +79,7 @@
   <ItemGroup>
     <ClInclude Include="Examples\Ex01.h" />
     <ClInclude Include="Examples\Ex02_04.h" />
+    <ClInclude Include="Examples\Ex03_01.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
     <ClInclude Include="GL\LoadShaders.h" />
@@ -87,6 +89,8 @@
   <ItemGroup>
     <None Include="Shaders\sh02_04.frag" />
     <None Include="Shaders\sh02_04.vert" />
+    <None Include="Shaders\sh03_01.frag" />
+    <None Include="Shaders\sh03_01.vert" />
     <None Include="Shaders\triangles.frag" />
     <None Include="Shaders\triangles.vert" />
   </ItemGroup>

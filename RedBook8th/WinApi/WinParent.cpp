@@ -8,6 +8,7 @@
 #include "winParent.h"
 #include "Examples/Ex01.h"
 #include "Examples/Ex02_04.h"
+#include "Examples/Ex03_01.h"
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -109,7 +110,7 @@ BOOL WinParent::InitInstance(int nCmdShow)
 	if (!m_hwnd) 
 		return FALSE;
 
-	OGLWindow * child = new Ex02_04;
+	OGLWindow * child = new Ex03_01;
 	m_childMap[child->Init(m_hInstance, m_hwnd, false)] = child;
 
 	RECT mr;

@@ -34,13 +34,47 @@ extern "C" {
 	// 
 	// 	int GL_1_0_LoadFuncPointers();
 
-	extern PFNGLGENBUFFERSPROC		pglGenBuffers;
-	extern PFNGLBINDBUFFERPROC		pglBindBuffer;
-	extern PFNGLBUFFERDATAPROC		pglBufferData;
+	/////////////////////////////// GL_VERSION_1_5 ////////////////////////////////
 
-#define glGenBuffers				pglGenBuffers
-#define glBindBuffer				pglBindBuffer
-#define glBufferData				pglBufferData
+	extern PFNGLGENQUERIESPROC				pglGenQueries;
+	extern PFNGLDELETEQUERIESPROC			pglDeleteQueries;
+	extern PFNGLISQUERYPROC					pglIsQuery;
+	extern PFNGLBEGINQUERYPROC				pglBeginQuery;
+	extern PFNGLENDQUERYPROC				pglEndQuery;
+	extern PFNGLGETQUERYIVPROC				pglGetQueryiv;
+	extern PFNGLGETQUERYOBJECTIVPROC		pglGetQueryObjectiv;
+	extern PFNGLGETQUERYOBJECTUIVPROC		pglGetQueryObjectuiv;
+	extern PFNGLBINDBUFFERPROC				pglBindBuffer;
+	extern PFNGLDELETEBUFFERSPROC			pglDeleteBuffers;
+	extern PFNGLGENBUFFERSPROC				pglGenBuffers;
+	extern PFNGLISBUFFERPROC				pglIsBuffer;
+	extern PFNGLBUFFERDATAPROC				pglBufferData;
+	extern PFNGLBUFFERSUBDATAPROC			pglBufferSubData;
+	extern PFNGLGETBUFFERSUBDATAPROC		pglGetBufferSubData;
+	extern PFNGLMAPBUFFERPROC				pglMapBuffer;
+	extern PFNGLUNMAPBUFFERPROC				pglUnmapBuffer;
+	extern PFNGLGETBUFFERPARAMETERIVPROC	pglGetBufferParameteriv;
+	extern PFNGLGETBUFFERPOINTERVPROC		pglGetBufferPointerv;
+
+#define glGenQueries			pglGenQueries
+#define glDeleteQueries			pglDeleteQueries
+#define glIsQuery				pglIsQuery
+#define glBeginQuery			pglBeginQuery
+#define glEndQuery				pglEndQuery
+#define glGetQueryiv			pglGetQueryiv
+#define glGetQueryObjectiv		pglGetQueryObjectiv
+#define glGetQueryObjectuiv		pglGetQueryObjectuiv
+#define glBindBuffer			pglBindBuffer
+#define glDeleteBuffers			pglDeleteBuffers
+#define glGenBuffers			pglGenBuffers
+#define glIsBuffer				pglIsBuffer
+#define glBufferData			pglBufferData
+#define glBufferSubData			pglBufferSubData
+#define glGetBufferSubData		pglGetBufferSubData
+#define glMapBuffer				pglMapBuffer
+#define glUnmapBuffer			pglUnmapBuffer
+#define glGetBufferParameteriv	pglGetBufferParameteriv
+#define glGetBufferPointerv		pglGetBufferPointerv
 
 	int GL_1_5_LoadFuncPointers();
 
@@ -322,7 +356,7 @@ extern "C" {
 	extern PFNGLDELETEVERTEXARRAYSPROC					pglDeleteVertexArrays;
 	extern PFNGLGENVERTEXARRAYSPROC						pglGenVertexArrays;
 	extern PFNGLISVERTEXARRAYPROC						pglIsVertexArray;
-	
+
 #define glColorMaski							pglColorMaski
 #define glGetBooleani_v							pglGetBooleani_v
 #define glGetIntegeri_v							pglGetIntegeri_v
@@ -411,19 +445,19 @@ extern "C" {
 	int GL_3_0_LoadFuncPointers();
 
 	/////////////////////////////// GL_VERSION_3_1 ////////////////////////////////
-	
-extern PFNGLDRAWARRAYSINSTANCEDPROC					pglDrawArraysInstanced;
-extern PFNGLDRAWELEMENTSINSTANCEDPROC				pglDrawElementsInstanced;
-extern PFNGLTEXBUFFERPROC							pglTexBuffer;
-extern PFNGLPRIMITIVERESTARTINDEXPROC				pglPrimitiveRestartIndex;
-extern PFNGLCOPYBUFFERSUBDATAPROC					pglCopyBufferSubData;
-extern PFNGLGETUNIFORMINDICESPROC					pglGetUniformIndices;
-extern PFNGLGETACTIVEUNIFORMSIVPROC					pglGetActiveUniformsiv;
-extern PFNGLGETACTIVEUNIFORMNAMEPROC				pglGetActiveUniformName;
-extern PFNGLGETUNIFORMBLOCKINDEXPROC				pglGetUniformBlockIndex;
-extern PFNGLGETACTIVEUNIFORMBLOCKIVPROC				pglGetActiveUniformBlockiv;
-extern PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC			pglGetActiveUniformBlockName;
-extern PFNGLUNIFORMBLOCKBINDINGPROC					pglUniformBlockBinding;
+
+	extern PFNGLDRAWARRAYSINSTANCEDPROC					pglDrawArraysInstanced;
+	extern PFNGLDRAWELEMENTSINSTANCEDPROC				pglDrawElementsInstanced;
+	extern PFNGLTEXBUFFERPROC							pglTexBuffer;
+	extern PFNGLPRIMITIVERESTARTINDEXPROC				pglPrimitiveRestartIndex;
+	extern PFNGLCOPYBUFFERSUBDATAPROC					pglCopyBufferSubData;
+	extern PFNGLGETUNIFORMINDICESPROC					pglGetUniformIndices;
+	extern PFNGLGETACTIVEUNIFORMSIVPROC					pglGetActiveUniformsiv;
+	extern PFNGLGETACTIVEUNIFORMNAMEPROC				pglGetActiveUniformName;
+	extern PFNGLGETUNIFORMBLOCKINDEXPROC				pglGetUniformBlockIndex;
+	extern PFNGLGETACTIVEUNIFORMBLOCKIVPROC				pglGetActiveUniformBlockiv;
+	extern PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC			pglGetActiveUniformBlockName;
+	extern PFNGLUNIFORMBLOCKBINDINGPROC					pglUniformBlockBinding;
 
 #define glDrawArraysInstanced					pglDrawArraysInstanced
 #define glDrawElementsInstanced					pglDrawElementsInstanced
