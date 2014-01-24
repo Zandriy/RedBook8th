@@ -42,6 +42,9 @@
     <ClCompile Include="GL\LoadShaders.cpp">
       <Filter>GL</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\Ex02.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WinApi\WinParent.h">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="GL\LoadShaders.h">
       <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex02.h">
+      <Filter>Examples</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

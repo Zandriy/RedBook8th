@@ -6,7 +6,13 @@
 */
 
 #include "winParent.h"
+#include <algorithm>
+
 #include "Examples/Ex01.h"
+#include "Examples/Ex02.h"
+
+#define EXAMPLES_QTY 2
+#define CUR_EXAMPLE 0
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -23,7 +29,14 @@ WinParent* WinParent::Instance()
 WinParent::WinParent()
 : m_ClassName("MainWindow")
 , m_WindowTitle("Main Window Title")
+, m_hwnd(NULL)
+, m_curChild(NULL)
 {
+}
+
+void deleteOGL (OGLWindow* win)
+{
+	delete win;
 }
 
 WinParent::~WinParent()
@@ -31,8 +44,7 @@ WinParent::~WinParent()
 	delete [] m_ClassName;
 	delete [] m_WindowTitle;
 
-	for (std::map<HWND, OGLWindow*>::iterator it=m_childMap.begin(); it!=m_childMap.end(); ++it)
-		delete it->second; 
+	for_each (m_childArr.begin(), m_childArr.end(), deleteOGL);
 }
 
 BOOL WinParent::Init(HINSTANCE hInstance, int nCmdShow)
@@ -108,9 +120,6 @@ BOOL WinParent::InitInstance(int nCmdShow)
 	if (!m_hwnd) 
 		return FALSE;
 
-	OGLWindow * child = new Ex01;
-	m_childMap[child->Init(m_hInstance, m_hwnd)] = child;
-
 	RECT mr;
 	GetWindowRect(m_hwnd, &mr);
 	RECT r;
@@ -122,31 +131,48 @@ BOOL WinParent::InitInstance(int nCmdShow)
 
 	// Show the Window and send a WM_PAINT message to the Window 
 	// procedure. 
-	SetWindowText(m_hwnd, child->getName());
 	ShowWindow(m_hwnd, nCmdShow); 
 	UpdateWindow(m_hwnd); 
 
-	GetClientRect(m_hwnd, &r);
-	int w = (r.right - r.left);
-	int h = (r.bottom - r.top);
-
-	child->MoveAndUpdate(r.left, r.top, w, h, nCmdShow);
-	child->InitGL();
-	child->Display();
+	m_curChild = InitChilds(nCmdShow);
+	SetWindowText(m_hwnd, m_childArr[m_curChild]->getName());
+	m_childArr[m_curChild]->Show();
 
 	return TRUE; 
 }
 
+int WinParent::InitChilds(int nCmdShow)
+{
+	RECT r;
+	GetClientRect(m_hwnd, &r);
+
+	OGLWindow * child = new Ex01;
+	InitChild(child, r);
+	child = new Ex02;
+	InitChild(child, r);
+
+	if (m_childArr.size() != EXAMPLES_QTY)
+		exit(1);
+
+	return CUR_EXAMPLE;
+}
+
+void WinParent::InitChild(OGLWindow * child, RECT &r)
+{
+	child->Init(m_hInstance, m_hwnd, r.left, r.top, r.right - r.left, r.bottom - r.top);
+	child->InitGL();
+	m_childArr.push_back(child);
+}
+
 LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	OGLWindow *child = NULL;
-	for (std::map<HWND, OGLWindow*>::iterator it=m_childMap.begin(); it!=m_childMap.end(); ++it)
-	{
-// 		if (message == WM_KEYUP || it->first == hWnd)
-// 		{
-			child = it->second;
-/*		}*/
-	}
+// 	for (std::map<HWND, OGLWindow*>::iterator it=m_childArr.begin(); it!=m_childArr.end(); ++it)
+// 	{
+// // 		if (message == WM_KEYUP || it->first == hWnd)
+// // 		{
+// 			child = it->second;
+// /*		}*/
+// 	}
 
 	switch(message)
 	{
@@ -156,8 +182,7 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 		PostQuitMessage(0);
 		break;
 	case WM_PAINT:
-		if (child)
-			child->Display();
+		m_childArr[m_curChild]->Display();
 		break;
 	case WM_SIZE:
 		break;;
@@ -179,8 +204,7 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 		case VK_INSERT:
 			break;
 		case VK_SPACE:
-			if (child)
-				child->Display();
+			m_childArr[m_curChild]->Display();
 			break;
 		default:
 			break;

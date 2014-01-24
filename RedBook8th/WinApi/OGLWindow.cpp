@@ -29,12 +29,12 @@ OGLWindow::~OGLWindow(void)
 	DestroyWindow(m_hWnd);
 }
 
-HWND OGLWindow::Init(HINSTANCE hInstance, HWND hParent)
+HWND OGLWindow::Init(HINSTANCE hInstance, HWND hParent, int x, int y, int w, int h)
 {
 	if ( !InitWindowClass(hInstance) )
 		return NULL;
 
-	return InitInstance(hInstance, hParent);
+	return InitInstance(hInstance, hParent, x, y, w, h);
 }
 
 BOOL OGLWindow::InitWindowClass(HINSTANCE hInstance)
@@ -69,7 +69,7 @@ BOOL OGLWindow::InitWindowClass(HINSTANCE hInstance)
 	return RegisterClassEx(&wcx); 
 }
 
-HWND OGLWindow::InitInstance(HINSTANCE hInstance, HWND hParent)
+HWND OGLWindow::InitInstance(HINSTANCE hInstance, HWND hParent, int x, int y, int w, int h)
 {
 	// Create the main Window.
 	m_hWnd = CreateWindow( 
@@ -91,16 +91,30 @@ HWND OGLWindow::InitInstance(HINSTANCE hInstance, HWND hParent)
 		m_hWnd = NULL;
 	}
 
+	MoveWindow(m_hWnd, x, y, w, h, FALSE);
+	ShowWindow(m_hWnd, SW_HIDE); 
+
+	BOOL makeCurResult = wglMakeCurrent( m_hDC, m_Context );
+
 	return m_hWnd; 
 }
 
-void OGLWindow::MoveAndUpdate(int x, int y, int w, int h, int nCmdShow)
+void OGLWindow::Show()
 {
-	MoveWindow(m_hWnd, x, y, w, h, FALSE);
-	ShowWindow(m_hWnd, nCmdShow); 
+	ShowWindow(m_hWnd, SW_SHOW); 
 	UpdateWindow(m_hWnd);
 
 	BOOL makeCurResult = wglMakeCurrent( m_hDC, m_Context );
+	if (makeCurResult == TRUE)
+		Display();
+}
+
+void OGLWindow::Hide()
+{
+	BOOL makeCurResult = wglMakeCurrent( NULL, NULL );
+
+	ShowWindow(m_hWnd, SW_HIDE); 
+	UpdateWindow(m_hWnd);
 }
 
 bool OGLWindow::CreateContext()

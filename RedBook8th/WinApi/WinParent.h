@@ -10,7 +10,7 @@
 
 #include <windows.h>
 #include <tchar.h>
-#include <map>
+#include <vector>
 
 class OGLWindow;
 
@@ -32,11 +32,15 @@ private:
 
 	BOOL InitApplication(); 
 	BOOL InitInstance(int nCmdShow); 
+	int InitChilds(int nCmdShow);
+
+	void InitChild(OGLWindow * child, RECT &r);
 
 	HINSTANCE m_hInstance;
 	HWND m_hwnd;
+	int m_curChild;
 
-	std::map<HWND, OGLWindow*> m_childMap;
+	std::vector<OGLWindow*> m_childArr;
 
 	const char* m_ClassName;
 	const char* m_WindowTitle;
