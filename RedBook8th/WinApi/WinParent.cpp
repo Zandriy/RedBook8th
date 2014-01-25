@@ -9,10 +9,11 @@
 #include <algorithm>
 
 #include "Examples/Ex01.h"
-#include "Examples/Ex02.h"
+#include "Examples/Ex02_04.h"
+#include "Examples/Ex03_01.h"
 
 #define EXAMPLES_QTY 2
-#define CUR_EXAMPLE 0
+#define CUR_EXAMPLE 1
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -148,7 +149,9 @@ int WinParent::InitChilds(int nCmdShow)
 
 	OGLWindow * child = new Ex01;
 	InitChild(child, r);
-	child = new Ex02;
+// 	child = new Ex02_04;
+// 	InitChild(child, r);
+	child = new Ex03_01;
 	InitChild(child, r);
 
 	if (m_childArr.size() != EXAMPLES_QTY)
@@ -159,7 +162,7 @@ int WinParent::InitChilds(int nCmdShow)
 
 void WinParent::InitChild(OGLWindow * child, RECT &r)
 {
-	child->Init(m_hInstance, m_hwnd, r.left, r.top, r.right - r.left, r.bottom - r.top);
+	child->Init(m_hInstance, m_hwnd, false, r.left, r.top, r.right - r.left, r.bottom - r.top);
 	child->InitGL();
 	m_childArr.push_back(child);
 }
@@ -173,7 +176,14 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 // 			child = it->second;
 // /*		}*/
 // 	}
-
+// 	OGLWindow *child = NULL;
+// 	for (std::map<HWND, OGLWindow*>::iterator it=m_childMap.begin(); it!=m_childMap.end(); ++it)
+// 	{
+//  		if (message == WM_KEYUP || it->first == hWnd)
+//  		{
+// 			child = it->second;
+// 		}
+// 
 	switch(message)
 	{
 	case WM_CREATE:

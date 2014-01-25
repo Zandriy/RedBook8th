@@ -17,7 +17,8 @@ public:
 	OGLWindow(const char* name, const char* title = "OpenGL Window");
 	virtual ~OGLWindow(void);
 
-	HWND Init(HINSTANCE hInstance, HWND hParent, int x, int y, int w, int h);
+	HWND Init(HINSTANCE hInstance, HWND hParent, bool doubleBuf, int x, int y, int w, int h);
+
 	const char * getName() const {return m_ClassName;}
 	const char * getTitle() const {return m_WindowTitle;}
 	HWND getHWND() const { return m_hWnd; }
@@ -31,8 +32,8 @@ protected:
 	void Swap();
 private:
 	BOOL InitWindowClass(HINSTANCE hInstance);
-	HWND InitInstance(HINSTANCE hInstance, HWND hParent, int x, int y, int w, int h);
-	bool CreateContext();
+	HWND InitInstance(HINSTANCE hInstance, HWND hParent, bool doubleBuf, int x, int y, int w, int h);
+	bool CreateContext(bool doubleBuf);
 
 	const char* m_ClassName;
 	const char* m_WindowTitle;
