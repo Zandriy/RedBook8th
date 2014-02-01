@@ -12,8 +12,8 @@
 #include "Examples/Ex02_04.h"
 #include "Examples/Ex03_01.h"
 
-#define EXAMPLES_QTY 2
-#define CUR_EXAMPLE 1
+#define EXAMPLES_QTY 3
+#define CUR_EXAMPLE EXAMPLES_QTY-1
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -133,7 +133,6 @@ BOOL WinParent::InitInstance(int nCmdShow)
 	// Show the Window and send a WM_PAINT message to the Window 
 	// procedure. 
 	ShowWindow(m_hwnd, nCmdShow); 
-	UpdateWindow(m_hwnd); 
 
 	m_curChild = InitChilds(nCmdShow);
 	SetWindowText(m_hwnd, m_childArr[m_curChild]->getName());
@@ -149,8 +148,8 @@ int WinParent::InitChilds(int nCmdShow)
 
 	OGLWindow * child = new Ex01;
 	InitChild(child, r);
-// 	child = new Ex02_04;
-// 	InitChild(child, r);
+	child = new Ex02_04;
+	InitChild(child, r);
 	child = new Ex03_01;
 	InitChild(child, r);
 
@@ -199,6 +198,9 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 	case WM_KEYUP:
 		switch(wParam)
 		{
+		case VK_ESCAPE:
+			exit(EXIT_SUCCESS);
+			break;
 		case VK_UP:
 			break;
 		case VK_DOWN:
@@ -214,6 +216,12 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 		case VK_INSERT:
 			break;
 		case VK_SPACE:
+			m_childArr[m_curChild]->Hide();
+			m_curChild++;
+			if (m_curChild >= EXAMPLES_QTY)
+				m_curChild = 0;
+			SetWindowText(m_hwnd, m_childArr[m_curChild]->getName());
+			m_childArr[m_curChild]->Show();
 			m_childArr[m_curChild]->Display();
 			break;
 		default:

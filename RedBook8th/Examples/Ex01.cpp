@@ -16,15 +16,8 @@ Ex01::Ex01()
 
 void Ex01::InitGL()
 {
-//	bool b10 = GL_1_0_LoadFuncPointers();
-	bool b15 = GL_1_5_LoadFuncPointers();
-	bool b20 = GL_2_0_LoadFuncPointers();
-	bool b30 = GL_3_0_LoadFuncPointers();
-
-//	if (!b10) return;
- 	if (!b15) return;
-	if (!b20) return;
- 	if (!b30) return;
+	if (! LoadGL() )
+		return;
 
 	glGenVertexArrays(NumVAOs, VAOs);
 	glBindVertexArray(VAOs[Triangles]);

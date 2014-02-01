@@ -30,6 +30,7 @@ public:
 	virtual void Display() = 0;
 protected:
 	void Swap();
+	bool LoadGL();
 private:
 	BOOL InitWindowClass(HINSTANCE hInstance);
 	HWND InitInstance(HINSTANCE hInstance, HWND hParent, bool doubleBuf, int x, int y, int w, int h);
@@ -43,6 +44,7 @@ private:
 	HGLRC m_Context;
 	int m_curPixelFormat;
 	PIXELFORMATDESCRIPTOR m_pfd;
+	bool m_glLoaded;
 };
 
 #endif // OGLWindow

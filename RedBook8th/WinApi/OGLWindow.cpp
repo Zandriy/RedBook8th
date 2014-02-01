@@ -19,6 +19,7 @@ OGLWindow::OGLWindow(const char* name, const char* title)
 	, m_hDC(NULL)
 	, m_Context(NULL)
 	, m_curPixelFormat(0)
+	, m_glLoaded(false)
 {
 }
 
@@ -168,6 +169,21 @@ bool OGLWindow::CreateContext(bool doubleBuf)
 void OGLWindow::Swap()
 {
 	SwapBuffers(m_hDC);
+}
+
+bool OGLWindow::LoadGL()
+{
+	if (!m_glLoaded)
+	{
+		//	bool b10 = GL_1_0_LoadFuncPointers();
+		bool b15 = GL_1_5_LoadFuncPointers();
+		bool b20 = GL_2_0_LoadFuncPointers();
+		bool b30 = GL_3_0_LoadFuncPointers();
+		bool b31 = GL_3_1_LoadFuncPointers();
+
+		m_glLoaded = /*b10 &&*/ b15 && b20 && b30 && b31;
+	}
+	 return m_glLoaded;
 }
 
 

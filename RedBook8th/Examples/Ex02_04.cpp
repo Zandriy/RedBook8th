@@ -60,17 +60,8 @@ Ex02_04::Ex02_04()
 
 void Ex02_04::InitGL()
 {
-	//	bool b10 = GL_1_0_LoadFuncPointers();
-	bool b15 = GL_1_5_LoadFuncPointers();
-	bool b20 = GL_2_0_LoadFuncPointers();
-	bool b30 = GL_3_0_LoadFuncPointers();
-	bool b31 = GL_3_1_LoadFuncPointers();
-
-	//	if (!b10) return;
-	if (!b15) return;
-	if (!b20) return;
-	if (!b30) return;
-	if (!b31) return;
+	if (! LoadGL() )
+		return;
 
 	GLuint program;
 	glClearColor(0.7, 0.7, 0.9, 1.0);
@@ -103,10 +94,10 @@ void Ex02_04::InitGL()
 		GLfloat scale = 0.5;
 		GLfloat translation[] = { 0.1, 0.1, 0.0 };
 		GLfloat rotation[] = { 30, 0.0, 0.0, 1.0 };
-		GLboolean enabled = GL_TRUE;
+		GLint enabled = GL_TRUE;
 		/* Since we know the names of the uniforms
 		** in our block, make an array of those values */
-		const char* names[NumUniforms] = {
+		const GLchar* names[NumUniforms] = {
 			"translation",
 			"scale",
 			"rotation",
@@ -118,7 +109,7 @@ void Ex02_04::InitGL()
 		GLuint indices[NumUniforms];
 		GLint size[NumUniforms];
 		GLint offset[NumUniforms];
-		GLint type[NumUniforms] = {0};
+		GLint type[NumUniforms];
 		glGetUniformIndices(program, NumUniforms, names, indices);
 		glGetActiveUniformsiv(program, NumUniforms, indices,
 			GL_UNIFORM_OFFSET, offset);
@@ -128,7 +119,7 @@ void Ex02_04::InitGL()
 			GL_UNIFORM_TYPE, type);
 		/* Copy the uniform values into the buffer */
 		memcpy((char*)buffer + offset[Scale], &scale,
-			size[Scale] * TypeSize(type[Scale]));
+   			size[Scale] * TypeSize(type[Scale]));
 		memcpy((char*)buffer + offset[Translation], &translation,
 			size[Translation] * TypeSize(type[Translation]));
 		memcpy((char*)buffer + offset[Rotation], &rotation,
@@ -139,7 +130,7 @@ void Ex02_04::InitGL()
 		/* Create the uniform buffer object, initialize
 		** its storage, and associated it with the shader
 		** program */
-		glGenBuffers(1, &ubo);
+  		glGenBuffers(1, &ubo);
 		glBindBuffer(GL_UNIFORM_BUFFER, ubo);
 		glBufferData(GL_UNIFORM_BUFFER, uboSize,
 			buffer, GL_STATIC_DRAW);
