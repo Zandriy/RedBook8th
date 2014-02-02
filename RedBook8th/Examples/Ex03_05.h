@@ -26,11 +26,9 @@ public:
 	Ex03_05();
 	~Ex03_05();
 	void InitGL();
-	void Reshape(int width, int height);
 private:
 	void Display();
 
-	float aspect;
 	GLuint render_prog;
 	GLuint vao[1];
 	GLuint vbo[1];

@@ -40,8 +40,8 @@ void Ex03_05::InitGL()
 	glUseProgram(render_prog);
 
 	// "model_matrix" is actually an array of 4 matrices
-	render_model_matrix_loc = glGetUniformLocation(render_prog, "model_matrix");
 	render_projection_matrix_loc = glGetUniformLocation(render_prog, "projection_matrix");
+	render_model_matrix_loc = glGetUniformLocation(render_prog, "model_matrix");
 
 	// A single triangle
 	static const GLfloat vertex_positions[] =
@@ -87,22 +87,12 @@ void Ex03_05::InitGL()
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 
-	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
 void Ex03_05::Display()
 {
-	float t = float(GetTickCount() & 0x1FFF) / float(0x1FFF);
-	static float q = 0.0f;
-	static const vmath::vec3 X(1.0f, 0.0f, 0.0f);
-	static const vmath::vec3 Y(0.0f, 1.0f, 0.0f);
-	static const vmath::vec3 Z(0.0f, 0.0f, 1.0f);
-
 	vmath::mat4 model_matrix;
-
-	// Setup
-	glEnable(GL_CULL_FACE);
-	glDisable(GL_DEPTH_TEST);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -110,8 +100,15 @@ void Ex03_05::Display()
 	glUseProgram(render_prog);
 
 	// Set up the model and projection matrix
-	vmath::mat4 projection_matrix(vmath::frustum(-1.0f, 1.0f, -aspect, aspect, 1.0f, 500.0f));
-	glUniformMatrix4fv(render_projection_matrix_loc, 1, GL_FALSE, projection_matrix);
+	static const GLfloat projection_mat[] =
+	{
+		0.2f, 0.0f, 0.0f, 0.0f,
+		0.0f, 0.2f, 0.0f, 0.0f,
+		0.0f, 0.0f, 0.2f, 0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f,
+	};
+
+	glUniformMatrix4fv(render_projection_matrix_loc, 1, GL_FALSE, projection_mat);
 
 	// Set up for a glDrawElements call
 	glBindVertexArray(vao[0]);
@@ -119,29 +116,24 @@ void Ex03_05::Display()
 
 	// Draw Arrays...
 	model_matrix = vmath::translate(-3.0f, 0.0f, -5.0f);
-	glUniformMatrix4fv(render_model_matrix_loc, 4, GL_FALSE, model_matrix);
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	glUniformMatrix4fv(render_model_matrix_loc, 1, GL_FALSE, model_matrix);
+	glDrawArrays(GL_TRIANGLES, 0, 4);
 
 	// DrawElements
 	model_matrix = vmath::translate(-1.0f, 0.0f, -5.0f);
-	glUniformMatrix4fv(render_model_matrix_loc, 4, GL_FALSE, model_matrix);
+	glUniformMatrix4fv(render_model_matrix_loc, 1, GL_FALSE, model_matrix);
 	glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT, NULL);
 
 	// DrawElementsBaseVertex
 	model_matrix = vmath::translate(1.0f, 0.0f, -5.0f);
-	glUniformMatrix4fv(render_model_matrix_loc, 4, GL_FALSE, model_matrix);
+	glUniformMatrix4fv(render_model_matrix_loc, 1, GL_FALSE, model_matrix);
 	glDrawElementsBaseVertex(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT, NULL, 1);
 
 	// DrawArraysInstanced
 	model_matrix = vmath::translate(3.0f, 0.0f, -5.0f);
-	glUniformMatrix4fv(render_model_matrix_loc, 4, GL_FALSE, model_matrix);
+	glUniformMatrix4fv(render_model_matrix_loc, 1, GL_FALSE, model_matrix);
 	glDrawArraysInstanced(GL_TRIANGLES, 0, 3, 1);
 
 	glFlush();
-}
-
-void Ex03_05::Reshape(int width, int height)
-{
-	aspect = float(height) / float(width);
-	OGLWindow::Reshape(width, height);
 }
