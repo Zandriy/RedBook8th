@@ -474,6 +474,50 @@ extern "C" {
 
 	int GL_3_1_LoadFuncPointers();
 
+	/////////////////////////////// GL_VERSION_3_2 ////////////////////////////////
+
+	extern PFNGLDRAWELEMENTSBASEVERTEXPROC				pglDrawElementsBaseVertex;
+	extern PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC			pglDrawRangeElementsBaseVertex;
+	extern PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC		pglDrawElementsInstancedBaseVertex;
+	extern PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC			pglMultiDrawElementsBaseVertex;
+	extern PFNGLPROVOKINGVERTEXPROC						pglProvokingVertex;
+	extern PFNGLFENCESYNCPROC							pglFenceSync;
+	extern PFNGLISSYNCPROC								pglIsSync;
+	extern PFNGLDELETESYNCPROC							pglDeleteSync;
+	extern PFNGLCLIENTWAITSYNCPROC						pglClientWaitSync;
+	extern PFNGLWAITSYNCPROC							pglWaitSync;
+	extern PFNGLGETINTEGER64VPROC						pglGetInteger64v;
+	extern PFNGLGETSYNCIVPROC							pglGetSynciv;
+	extern PFNGLGETINTEGER64I_VPROC						pglGetInteger64i_v;
+	extern PFNGLGETBUFFERPARAMETERI64VPROC				pglGetBufferParameteri64v;
+	extern PFNGLFRAMEBUFFERTEXTUREPROC					pglFramebufferTexture;
+	extern PFNGLTEXIMAGE2DMULTISAMPLEPROC				pglTexImage2DMultisample;
+	extern PFNGLTEXIMAGE3DMULTISAMPLEPROC				pglTexImage3DMultisample;
+	extern PFNGLGETMULTISAMPLEFVPROC					pglGetMultisamplefv;
+	extern PFNGLSAMPLEMASKIPROC							pglSampleMaski;
+
+#define glDrawElementsBaseVertex			pglDrawElementsBaseVertex
+#define glDrawRangeElementsBaseVertex		pglDrawRangeElementsBaseVertex
+#define glDrawElementsInstancedBaseVertex	pglDrawElementsInstancedBaseVertex
+#define glMultiDrawElementsBaseVertex		pglMultiDrawElementsBaseVertex
+#define glProvokingVertex					pglProvokingVertex
+#define glFenceSync							pglFenceSync
+#define glIsSync							pglIsSync
+#define glDeleteSync						pglDeleteSync
+#define glClientWaitSync					pglClientWaitSync
+#define glWaitSync							pglWaitSync
+#define glGetInteger64v						pglGetInteger64v
+#define glGetSynciv							pglGetSynciv
+#define glGetInteger64i_v					pglGetInteger64i_v
+#define glGetBufferParameteri64v			pglGetBufferParameteri64v
+#define glFramebufferTexture				pglFramebufferTexture
+#define glTexImage2DMultisample				pglTexImage2DMultisample
+#define glTexImage3DMultisample				pglTexImage3DMultisample
+#define glGetMultisamplefv					pglGetMultisamplefv
+#define glSampleMaski						pglSampleMaski
+
+	int GL_3_2_LoadFuncPointers();
+
 #ifdef __cplusplus
 }
 #endif

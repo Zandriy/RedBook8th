@@ -28,6 +28,10 @@ public:
 
 	virtual void InitGL() = 0;
 	virtual void Display() = 0;
+
+	virtual void Reshape(int width, int height);
+	int getWidth() { return m_width; }
+	int getHeight() { return m_height; }
 protected:
 	void Swap();
 	bool LoadGL();
@@ -45,6 +49,8 @@ private:
 	int m_curPixelFormat;
 	PIXELFORMATDESCRIPTOR m_pfd;
 	bool m_glLoaded;
+	int m_width;
+	int m_height;
 };
 
 #endif // OGLWindow

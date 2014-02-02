@@ -92,6 +92,9 @@ HWND OGLWindow::InitInstance(HINSTANCE hInstance, HWND hParent, bool doubleBuf, 
 		m_hWnd = NULL;
 	}
 
+	m_width = w;
+	m_height = h;
+
 	MoveWindow(m_hWnd, x, y, w, h, FALSE);
 	ShowWindow(m_hWnd, SW_HIDE); 
 
@@ -102,12 +105,16 @@ HWND OGLWindow::InitInstance(HINSTANCE hInstance, HWND hParent, bool doubleBuf, 
 
 void OGLWindow::Show()
 {
+	MoveWindow(m_hWnd, 0, 0, m_width, m_height, FALSE);
 	ShowWindow(m_hWnd, SW_SHOW); 
 	UpdateWindow(m_hWnd);
 
 	BOOL makeCurResult = wglMakeCurrent( m_hDC, m_Context );
 	if (makeCurResult == TRUE)
+	{
+		glViewport(0, 0, m_width, m_height);
 		Display();
+	}
 }
 
 void OGLWindow::Hide()
@@ -116,6 +123,12 @@ void OGLWindow::Hide()
 
 	ShowWindow(m_hWnd, SW_HIDE); 
 	UpdateWindow(m_hWnd);
+}
+
+void OGLWindow::Reshape(int width, int height)
+{
+	m_width = width;
+	m_height = height;
 }
 
 bool OGLWindow::CreateContext(bool doubleBuf)
@@ -180,8 +193,9 @@ bool OGLWindow::LoadGL()
 		bool b20 = GL_2_0_LoadFuncPointers();
 		bool b30 = GL_3_0_LoadFuncPointers();
 		bool b31 = GL_3_1_LoadFuncPointers();
+		bool b32 = GL_3_2_LoadFuncPointers();
 
-		m_glLoaded = /*b10 &&*/ b15 && b20 && b30 && b31;
+		m_glLoaded = /*b10 &&*/ b15 && b20 && b30 && b31 && b32;
 	}
 	 return m_glLoaded;
 }

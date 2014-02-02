@@ -11,8 +11,9 @@
 #include "Examples/Ex01.h"
 #include "Examples/Ex02_04.h"
 #include "Examples/Ex03_01.h"
+#include "Examples/Ex03_05.h"
 
-#define EXAMPLES_QTY 3
+#define EXAMPLES_QTY 4
 #define CUR_EXAMPLE EXAMPLES_QTY-1
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -28,10 +29,10 @@ WinParent* WinParent::Instance()
 }
 
 WinParent::WinParent()
-: m_ClassName("MainWindow")
-, m_WindowTitle("Main Window Title")
-, m_hwnd(NULL)
-, m_curChild(NULL)
+	: m_ClassName("MainWindow")
+	, m_WindowTitle("Main Window Title")
+	, m_hwnd(NULL)
+	, m_curChild(-1)
 {
 }
 
@@ -152,6 +153,8 @@ int WinParent::InitChilds(int nCmdShow)
 	InitChild(child, r);
 	child = new Ex03_01;
 	InitChild(child, r);
+	child = new Ex03_05;
+	InitChild(child, r);
 
 	if (m_childArr.size() != EXAMPLES_QTY)
 		exit(1);
@@ -168,21 +171,21 @@ void WinParent::InitChild(OGLWindow * child, RECT &r)
 
 LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-// 	for (std::map<HWND, OGLWindow*>::iterator it=m_childArr.begin(); it!=m_childArr.end(); ++it)
-// 	{
-// // 		if (message == WM_KEYUP || it->first == hWnd)
-// // 		{
-// 			child = it->second;
-// /*		}*/
-// 	}
-// 	OGLWindow *child = NULL;
-// 	for (std::map<HWND, OGLWindow*>::iterator it=m_childMap.begin(); it!=m_childMap.end(); ++it)
-// 	{
-//  		if (message == WM_KEYUP || it->first == hWnd)
-//  		{
-// 			child = it->second;
-// 		}
-// 
+	// 	for (std::map<HWND, OGLWindow*>::iterator it=m_childArr.begin(); it!=m_childArr.end(); ++it)
+	// 	{
+	// // 		if (message == WM_KEYUP || it->first == hWnd)
+	// // 		{
+	// 			child = it->second;
+	// /*		}*/
+	// 	}
+	// 	OGLWindow *child = NULL;
+	// 	for (std::map<HWND, OGLWindow*>::iterator it=m_childMap.begin(); it!=m_childMap.end(); ++it)
+	// 	{
+	//  		if (message == WM_KEYUP || it->first == hWnd)
+	//  		{
+	// 			child = it->second;
+	// 		}
+	// 
 	switch(message)
 	{
 	case WM_CREATE:
@@ -194,7 +197,14 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 		m_childArr[m_curChild]->Display();
 		break;
 	case WM_SIZE:
-		break;;
+		{
+			if (m_curChild < 0) break;
+			int nWidth = LOWORD(lParam);
+			int nHight = HIWORD(lParam);
+			m_childArr[m_curChild]->Reshape(nWidth, nHight);
+			m_childArr[m_curChild]->Show();
+		}
+		break;
 	case WM_KEYUP:
 		switch(wParam)
 		{
@@ -216,19 +226,30 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 		case VK_INSERT:
 			break;
 		case VK_SPACE:
-			m_childArr[m_curChild]->Hide();
-			m_curChild++;
-			if (m_curChild >= EXAMPLES_QTY)
-				m_curChild = 0;
-			SetWindowText(m_hwnd, m_childArr[m_curChild]->getName());
-			m_childArr[m_curChild]->Show();
-			m_childArr[m_curChild]->Display();
+			{
+				int nWidth = m_childArr[m_curChild]->getWidth();
+				int nHight = m_childArr[m_curChild]->getHeight();
+				m_childArr[m_curChild]->Hide();
+				m_curChild++;
+				if (m_curChild >= EXAMPLES_QTY)
+					m_curChild = 0;
+				SetWindowText(m_hwnd, m_childArr[m_curChild]->getName());
+				m_childArr[m_curChild]->Reshape(nWidth, nHight);
+				m_childArr[m_curChild]->Show();
+			}
 			break;
 		default:
 			break;
 		}
 		break;
 	case WM_SIZING:
+		{
+// 			if (m_curChild < 0) break;
+// 			int nWidth = LOWORD(lParam);
+// 			int nHight = HIWORD(lParam);
+// 			m_childArr[m_curChild]->Reshape(nWidth, nHight);
+// 			m_childArr[m_curChild]->Show();
+		}
 		break;
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);

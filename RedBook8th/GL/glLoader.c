@@ -504,3 +504,53 @@ int GL_3_1_LoadFuncPointers()
 		&& glGetUniformIndices && glGetActiveUniformsiv && glGetActiveUniformName && glGetUniformBlockIndex
 		&& glGetActiveUniformBlockiv && glGetActiveUniformBlockName && glUniformBlockBinding) ? 1 : 0;
 }
+
+/////////////////////////////// GL_VERSION_3_2 ////////////////////////////////
+
+PFNGLDRAWELEMENTSBASEVERTEXPROC				pglDrawElementsBaseVertex = 0;
+PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC			pglDrawRangeElementsBaseVertex = 0;
+PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC		pglDrawElementsInstancedBaseVertex = 0;
+PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC			pglMultiDrawElementsBaseVertex = 0;
+PFNGLPROVOKINGVERTEXPROC						pglProvokingVertex = 0;
+PFNGLFENCESYNCPROC							pglFenceSync = 0;
+PFNGLISSYNCPROC								pglIsSync = 0;
+PFNGLDELETESYNCPROC							pglDeleteSync = 0;
+PFNGLCLIENTWAITSYNCPROC						pglClientWaitSync = 0;
+PFNGLWAITSYNCPROC							pglWaitSync = 0;
+PFNGLGETINTEGER64VPROC						pglGetInteger64v = 0;
+PFNGLGETSYNCIVPROC							pglGetSynciv = 0;
+PFNGLGETINTEGER64I_VPROC						pglGetInteger64i_v = 0;
+PFNGLGETBUFFERPARAMETERI64VPROC				pglGetBufferParameteri64v = 0;
+PFNGLFRAMEBUFFERTEXTUREPROC					pglFramebufferTexture = 0;
+PFNGLTEXIMAGE2DMULTISAMPLEPROC				pglTexImage2DMultisample = 0;
+PFNGLTEXIMAGE3DMULTISAMPLEPROC				pglTexImage3DMultisample = 0;
+PFNGLGETMULTISAMPLEFVPROC					pglGetMultisamplefv = 0;
+PFNGLSAMPLEMASKIPROC							pglSampleMaski = 0;
+
+int GL_3_2_LoadFuncPointers()
+{
+	glDrawElementsBaseVertex = (PFNGLDRAWELEMENTSBASEVERTEXPROC)wglGetProcAddress("glDrawElementsBaseVertex");
+	glDrawRangeElementsBaseVertex = (PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC)wglGetProcAddress("glDrawRangeElementsBaseVertex");
+	glDrawElementsInstancedBaseVertex = (PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC)wglGetProcAddress("glDrawElementsInstancedBaseVertex");
+	glMultiDrawElementsBaseVertex = (PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC)wglGetProcAddress("glMultiDrawElementsBaseVertex");
+	glProvokingVertex = (PFNGLPROVOKINGVERTEXPROC)wglGetProcAddress("glProvokingVertex");
+	glFenceSync = (PFNGLFENCESYNCPROC)wglGetProcAddress("glFenceSync");
+	glIsSync = (PFNGLISSYNCPROC)wglGetProcAddress("glIsSync");
+	glDeleteSync = (PFNGLDELETESYNCPROC)wglGetProcAddress("glDeleteSync");
+	glClientWaitSync = (PFNGLCLIENTWAITSYNCPROC)wglGetProcAddress("glClientWaitSync");
+	glWaitSync = (PFNGLWAITSYNCPROC)wglGetProcAddress("glWaitSync");
+	glGetInteger64v = (PFNGLGETINTEGER64VPROC)wglGetProcAddress("glGetInteger64v");
+	glGetSynciv = (PFNGLGETSYNCIVPROC)wglGetProcAddress("glGetSynciv");
+	glGetInteger64i_v = (PFNGLGETINTEGER64I_VPROC)wglGetProcAddress("glGetInteger64i_v");
+	glGetBufferParameteri64v = (PFNGLGETBUFFERPARAMETERI64VPROC)wglGetProcAddress("glGetBufferParameteri64v");
+	glFramebufferTexture = (PFNGLFRAMEBUFFERTEXTUREPROC)wglGetProcAddress("glFramebufferTexture");
+	glTexImage2DMultisample = (PFNGLTEXIMAGE2DMULTISAMPLEPROC)wglGetProcAddress("glTexImage2DMultisample");
+	glTexImage3DMultisample = (PFNGLTEXIMAGE3DMULTISAMPLEPROC)wglGetProcAddress("glTexImage3DMultisample");
+	glGetMultisamplefv = (PFNGLGETMULTISAMPLEFVPROC)wglGetProcAddress("glGetMultisamplefv");
+	glSampleMaski = (PFNGLSAMPLEMASKIPROC)wglGetProcAddress("glSampleMaski");
+
+	return (glDrawElementsBaseVertex && glDrawRangeElementsBaseVertex && glDrawElementsInstancedBaseVertex && glMultiDrawElementsBaseVertex && 
+		glProvokingVertex && glFenceSync && glIsSync && glDeleteSync && glClientWaitSync && glWaitSync && glGetInteger64v && 
+		glGetSynciv && glGetInteger64i_v && glGetBufferParameteri64v && glFramebufferTexture && glTexImage2DMultisample && 
+		glTexImage3DMultisample && glGetMultisamplefv && glSampleMaski) ? 1 : 0;
+}

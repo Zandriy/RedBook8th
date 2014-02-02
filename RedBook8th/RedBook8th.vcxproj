@@ -70,6 +70,7 @@
     <ClCompile Include="Examples\Ex01.cpp" />
     <ClCompile Include="Examples\Ex02_04.cpp" />
     <ClCompile Include="Examples\Ex03_01.cpp" />
+    <ClCompile Include="Examples\Ex03_05.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
     <ClCompile Include="main.cpp" />
@@ -77,9 +78,11 @@
     <ClCompile Include="WinApi\WinParent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Auxiliary\vmath.h" />
     <ClInclude Include="Examples\Ex01.h" />
     <ClInclude Include="Examples\Ex02_04.h" />
     <ClInclude Include="Examples\Ex03_01.h" />
+    <ClInclude Include="Examples\Ex03_05.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
     <ClInclude Include="GL\LoadShaders.h" />
@@ -87,6 +90,8 @@
     <ClInclude Include="WinApi\WinParent.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Shaders\primitive_restart.fs.glsl" />
+    <None Include="Shaders\primitive_restart.vs.glsl" />
     <None Include="Shaders\sh02_04.frag" />
     <None Include="Shaders\sh02_04.vert" />
     <None Include="Shaders\sh03_01.frag" />
