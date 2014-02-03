@@ -12,8 +12,9 @@
 #include "Examples/Ex02_04.h"
 #include "Examples/Ex03_01.h"
 #include "Examples/Ex03_05.h"
+#include "Examples/Ex03_07.h"
 
-#define EXAMPLES_QTY 4
+#define EXAMPLES_QTY 5
 #define CUR_EXAMPLE EXAMPLES_QTY-1
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -155,6 +156,8 @@ int WinParent::InitChilds(int nCmdShow)
 	InitChild(child, r);
 	child = new Ex03_05;
 	InitChild(child, r);
+	child = new Ex03_07;
+	InitChild(child, r);
 
 	if (m_childArr.size() != EXAMPLES_QTY)
 		exit(1);
@@ -224,8 +227,6 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 		case VK_F2:
 			break;
 		case VK_INSERT:
-			break;
-		case VK_SPACE:
 			{
 				int nWidth = m_childArr[m_curChild]->getWidth();
 				int nHight = m_childArr[m_curChild]->getHeight();
@@ -237,6 +238,9 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 				m_childArr[m_curChild]->Reshape(nWidth, nHight);
 				m_childArr[m_curChild]->Show();
 			}
+			break;
+		case VK_SPACE:
+			m_childArr[m_curChild]->Display();
 			break;
 		default:
 			break;

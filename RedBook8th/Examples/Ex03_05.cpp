@@ -99,16 +99,11 @@ void Ex03_05::Display()
 	// Activate simple shading program
 	glUseProgram(render_prog);
 
-	// Set up the model and projection matrix
-	static const GLfloat projection_mat[] =
-	{
-		0.2f, 0.0f, 0.0f, 0.0f,
-		0.0f, 0.2f, 0.0f, 0.0f,
-		0.0f, 0.0f, 0.2f, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f,
-	};
+	float aspect = float(getHeight()) / getWidth();
 
-	glUniformMatrix4fv(render_projection_matrix_loc, 1, GL_FALSE, projection_mat);
+	// Set up the model and projection matrix
+	vmath::mat4 projection_matrix(vmath::frustum(-1.0f, 1.0f, -aspect, aspect, 1.0f, 500.0f));
+	glUniformMatrix4fv(render_projection_matrix_loc, 1, GL_FALSE, projection_matrix);
 
 	// Set up for a glDrawElements call
 	glBindVertexArray(vao[0]);
