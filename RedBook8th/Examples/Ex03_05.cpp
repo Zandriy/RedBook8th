@@ -118,7 +118,7 @@ void Ex03_05::Display()
 	model_matrix = vmath::translate(-3.0f, 0.0f, -5.0f);
 
 	glUniformMatrix4fv(render_model_matrix_loc, 1, GL_FALSE, model_matrix);
-	glDrawArrays(GL_TRIANGLES, 0, 4);
+	glDrawArrays(GL_TRIANGLES, 0, 3);
 
 	// DrawElements
 	model_matrix = vmath::translate(-1.0f, 0.0f, -5.0f);
