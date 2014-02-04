@@ -518,6 +518,68 @@ extern "C" {
 
 	int GL_3_2_LoadFuncPointers();
 
+	/////////////////////////////// GL_VERSION_3_3 ////////////////////////////////
+
+	extern PFNGLBINDFRAGDATALOCATIONINDEXEDPROC		pglBindFragDataLocationIndexed;
+	extern PFNGLGETFRAGDATAINDEXPROC				pglGetFragDataIndex;
+	extern PFNGLGENSAMPLERSPROC						pglGenSamplers;
+	extern PFNGLDELETESAMPLERSPROC					pglDeleteSamplers;
+	extern PFNGLISSAMPLERPROC						pglIsSampler;
+	extern PFNGLBINDSAMPLERPROC						pglBindSampler;
+	extern PFNGLSAMPLERPARAMETERIPROC				pglSamplerParameteri;
+	extern PFNGLSAMPLERPARAMETERIVPROC				pglSamplerParameteriv;
+	extern PFNGLSAMPLERPARAMETERFPROC				pglSamplerParameterf;
+	extern PFNGLSAMPLERPARAMETERFVPROC				pglSamplerParameterfv;
+	extern PFNGLSAMPLERPARAMETERIIVPROC				pglSamplerParameterIiv;
+	extern PFNGLSAMPLERPARAMETERIUIVPROC			pglSamplerParameterIuiv;
+	extern PFNGLGETSAMPLERPARAMETERIVPROC			pglGetSamplerParameteriv;
+	extern PFNGLGETSAMPLERPARAMETERIIVPROC			pglGetSamplerParameterIiv;
+	extern PFNGLGETSAMPLERPARAMETERFVPROC			pglGetSamplerParameterfv;
+	extern PFNGLGETSAMPLERPARAMETERIUIVPROC			pglGetSamplerParameterIuiv;
+	extern PFNGLQUERYCOUNTERPROC					pglQueryCounter;
+	extern PFNGLGETQUERYOBJECTI64VPROC				pglGetQueryObjecti64v;
+	extern PFNGLGETQUERYOBJECTUI64VPROC				pglGetQueryObjectui64v;
+	extern PFNGLVERTEXATTRIBDIVISORPROC				pglVertexAttribDivisor;
+	extern PFNGLVERTEXATTRIBP1UIPROC				pglVertexAttribP1ui;
+	extern PFNGLVERTEXATTRIBP1UIVPROC				pglVertexAttribP1uiv;
+	extern PFNGLVERTEXATTRIBP2UIPROC				pglVertexAttribP2ui;
+	extern PFNGLVERTEXATTRIBP2UIVPROC				pglVertexAttribP2uiv;
+	extern PFNGLVERTEXATTRIBP3UIPROC				pglVertexAttribP3ui;
+	extern PFNGLVERTEXATTRIBP3UIVPROC				pglVertexAttribP3uiv;
+	extern PFNGLVERTEXATTRIBP4UIPROC				pglVertexAttribP4ui;
+	extern PFNGLVERTEXATTRIBP4UIVPROC				pglVertexAttribP4uiv;
+
+#define glBindFragDataLocationIndexed	pglBindFragDataLocationIndexed
+#define glGetFragDataIndex				pglGetFragDataIndex
+#define glGenSamplers					pglGenSamplers
+#define glDeleteSamplers				pglDeleteSamplers
+#define glIsSampler						pglIsSampler
+#define glBindSampler					pglBindSampler
+#define glSamplerParameteri				pglSamplerParameteri
+#define glSamplerParameteriv			pglSamplerParameteriv
+#define glSamplerParameterf				pglSamplerParameterf
+#define glSamplerParameterfv			pglSamplerParameterfv
+#define glSamplerParameterIiv			pglSamplerParameterIiv
+#define glSamplerParameterIuiv			pglSamplerParameterIuiv
+#define glGetSamplerParameteriv			pglGetSamplerParameteriv
+#define glGetSamplerParameterIiv		pglGetSamplerParameterIiv
+#define glGetSamplerParameterfv			pglGetSamplerParameterfv
+#define glGetSamplerParameterIuiv		pglGetSamplerParameterIuiv
+#define glQueryCounter 					pglQueryCounter
+#define glGetQueryObjecti64v			pglGetQueryObjecti64v
+#define glGetQueryObjectui64v			pglGetQueryObjectui64v
+#define glVertexAttribDivisor			pglVertexAttribDivisor
+#define glVertexAttribP1ui				pglVertexAttribP1ui
+#define glVertexAttribP1uiv				pglVertexAttribP1uiv
+#define glVertexAttribP2ui				pglVertexAttribP2ui
+#define glVertexAttribP2uiv				pglVertexAttribP2uiv
+#define glVertexAttribP3ui				pglVertexAttribP3ui
+#define glVertexAttribP3uiv				pglVertexAttribP3uiv
+#define glVertexAttribP4ui				pglVertexAttribP4ui
+#define glVertexAttribP4uiv				pglVertexAttribP4uiv
+
+	int GL_3_3_LoadFuncPointers();
+
 #ifdef __cplusplus
 }
 #endif

@@ -554,3 +554,74 @@ int GL_3_2_LoadFuncPointers()
 		glGetSynciv && glGetInteger64i_v && glGetBufferParameteri64v && glFramebufferTexture && glTexImage2DMultisample && 
 		glTexImage3DMultisample && glGetMultisamplefv && glSampleMaski) ? 1 : 0;
 }
+
+/////////////////////////////// GL_VERSION_3_3 ////////////////////////////////
+
+PFNGLBINDFRAGDATALOCATIONINDEXEDPROC		pglBindFragDataLocationIndexed = 0;
+PFNGLGETFRAGDATAINDEXPROC				pglGetFragDataIndex = 0;
+PFNGLGENSAMPLERSPROC						pglGenSamplers = 0;
+PFNGLDELETESAMPLERSPROC					pglDeleteSamplers = 0;
+PFNGLISSAMPLERPROC						pglIsSampler = 0;
+PFNGLBINDSAMPLERPROC						pglBindSampler = 0;
+PFNGLSAMPLERPARAMETERIPROC				pglSamplerParameteri = 0;
+PFNGLSAMPLERPARAMETERIVPROC				pglSamplerParameteriv = 0;
+PFNGLSAMPLERPARAMETERFPROC				pglSamplerParameterf = 0;
+PFNGLSAMPLERPARAMETERFVPROC				pglSamplerParameterfv = 0;
+PFNGLSAMPLERPARAMETERIIVPROC				pglSamplerParameterIiv = 0;
+PFNGLSAMPLERPARAMETERIUIVPROC			pglSamplerParameterIuiv = 0;
+PFNGLGETSAMPLERPARAMETERIVPROC			pglGetSamplerParameteriv = 0;
+PFNGLGETSAMPLERPARAMETERIIVPROC			pglGetSamplerParameterIiv = 0;
+PFNGLGETSAMPLERPARAMETERFVPROC			pglGetSamplerParameterfv = 0;
+PFNGLGETSAMPLERPARAMETERIUIVPROC			pglGetSamplerParameterIuiv = 0;
+PFNGLQUERYCOUNTERPROC					pglQueryCounter = 0;
+PFNGLGETQUERYOBJECTI64VPROC				pglGetQueryObjecti64v = 0;
+PFNGLGETQUERYOBJECTUI64VPROC				pglGetQueryObjectui64v = 0;
+PFNGLVERTEXATTRIBDIVISORPROC				pglVertexAttribDivisor = 0;
+PFNGLVERTEXATTRIBP1UIPROC				pglVertexAttribP1ui = 0;
+PFNGLVERTEXATTRIBP1UIVPROC				pglVertexAttribP1uiv = 0;
+PFNGLVERTEXATTRIBP2UIPROC				pglVertexAttribP2ui = 0;
+PFNGLVERTEXATTRIBP2UIVPROC				pglVertexAttribP2uiv = 0;
+PFNGLVERTEXATTRIBP3UIPROC				pglVertexAttribP3ui = 0;
+PFNGLVERTEXATTRIBP3UIVPROC				pglVertexAttribP3uiv = 0;
+PFNGLVERTEXATTRIBP4UIPROC				pglVertexAttribP4ui = 0;
+PFNGLVERTEXATTRIBP4UIVPROC				pglVertexAttribP4uiv = 0;
+
+int GL_3_3_LoadFuncPointers()
+{
+	glBindFragDataLocationIndexed = (PFNGLBINDFRAGDATALOCATIONINDEXEDPROC)wglGetProcAddress("glBindFragDataLocationIndexed");
+	glGetFragDataIndex = (PFNGLGETFRAGDATAINDEXPROC)wglGetProcAddress("glGetFragDataIndex");
+	glGenSamplers = (PFNGLGENSAMPLERSPROC)wglGetProcAddress("glGenSamplers");
+	glDeleteSamplers = (PFNGLDELETESAMPLERSPROC)wglGetProcAddress("glDeleteSamplers");
+	glIsSampler = (PFNGLISSAMPLERPROC)wglGetProcAddress("glIsSampler");
+	glBindSampler = (PFNGLBINDSAMPLERPROC)wglGetProcAddress("glBindSampler");
+	glSamplerParameteri = (PFNGLSAMPLERPARAMETERIPROC)wglGetProcAddress("glSamplerParameteri");
+	glSamplerParameteriv = (PFNGLSAMPLERPARAMETERIVPROC)wglGetProcAddress("glSamplerParameteriv");
+	glSamplerParameterf = (PFNGLSAMPLERPARAMETERFPROC)wglGetProcAddress("glSamplerParameterf");
+	glSamplerParameterfv = (PFNGLSAMPLERPARAMETERFVPROC)wglGetProcAddress("glSamplerParameterfv");
+	glSamplerParameterIiv = (PFNGLSAMPLERPARAMETERIIVPROC)wglGetProcAddress("glSamplerParameterIiv");
+	glSamplerParameterIuiv = (PFNGLSAMPLERPARAMETERIUIVPROC)wglGetProcAddress("glSamplerParameterIuiv");
+	glGetSamplerParameteriv = (PFNGLGETSAMPLERPARAMETERIVPROC)wglGetProcAddress("glGetSamplerParameteriv");
+	glGetSamplerParameterIiv = (PFNGLGETSAMPLERPARAMETERIIVPROC)wglGetProcAddress("glGetSamplerParameterIiv");
+	glGetSamplerParameterfv = (PFNGLGETSAMPLERPARAMETERFVPROC)wglGetProcAddress("glGetSamplerParameterfv");
+	glGetSamplerParameterIuiv = (PFNGLGETSAMPLERPARAMETERIUIVPROC)wglGetProcAddress("glGetSamplerParameterIuiv");
+	glQueryCounter  = (PFNGLQUERYCOUNTERPROC)wglGetProcAddress("glQueryCounter");
+	glGetQueryObjecti64v = (PFNGLGETQUERYOBJECTI64VPROC)wglGetProcAddress("glGetQueryObjecti64v");
+	glGetQueryObjectui64v = (PFNGLGETQUERYOBJECTUI64VPROC)wglGetProcAddress("glGetQueryObjectui64v");
+	glVertexAttribDivisor = (PFNGLVERTEXATTRIBDIVISORPROC)wglGetProcAddress("glVertexAttribDivisor");
+	glVertexAttribP1ui = (PFNGLVERTEXATTRIBP1UIPROC)wglGetProcAddress("glVertexAttribP1ui");
+	glVertexAttribP1uiv = (PFNGLVERTEXATTRIBP1UIVPROC)wglGetProcAddress("glVertexAttribP1uiv");
+	glVertexAttribP2ui = (PFNGLVERTEXATTRIBP2UIPROC)wglGetProcAddress("glVertexAttribP2ui");
+	glVertexAttribP2uiv = (PFNGLVERTEXATTRIBP2UIVPROC)wglGetProcAddress("glVertexAttribP2uiv");
+	glVertexAttribP3ui = (PFNGLVERTEXATTRIBP3UIPROC)wglGetProcAddress("glVertexAttribP3ui");
+	glVertexAttribP3uiv = (PFNGLVERTEXATTRIBP3UIVPROC)wglGetProcAddress("glVertexAttribP3uiv");
+	glVertexAttribP4ui = (PFNGLVERTEXATTRIBP4UIPROC)wglGetProcAddress("glVertexAttribP4ui");
+	glVertexAttribP4uiv = (PFNGLVERTEXATTRIBP4UIVPROC)wglGetProcAddress("glVertexAttribP4uiv");
+
+	return (glBindFragDataLocationIndexed && glGetFragDataIndex && glGenSamplers && glDeleteSamplers && glIsSampler && 
+		glBindSampler && glSamplerParameteri && glSamplerParameteriv && glSamplerParameterf && 
+		glSamplerParameterfv && glSamplerParameterIiv && glSamplerParameterIuiv && glGetSamplerParameteriv && 
+		glGetSamplerParameterIiv && glGetSamplerParameterfv && glGetSamplerParameterIuiv && glQueryCounter  && 
+		glGetQueryObjecti64v && glGetQueryObjectui64v && glVertexAttribDivisor && glVertexAttribP1ui && 
+		glVertexAttribP1uiv && glVertexAttribP2ui && glVertexAttribP2uiv && glVertexAttribP3ui && 
+		glVertexAttribP3uiv && glVertexAttribP4ui && glVertexAttribP4uiv) ? 1 : 0;
+}
