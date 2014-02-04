@@ -121,7 +121,7 @@ void Ex03_07::Display()
 	// Activate simple shading program
 	glUseProgram(render_prog);
 
-	float aspect = float(getHeight()) / getWidth() / 2;
+	float aspect = float(getHeight()) / getWidth() / 1.5;
 
 	// Set up the model and projection matrix
  	vmath::mat4 projection_matrix(vmath::frustum(-aspect, aspect, -aspect, aspect, 1.0f, 500.0f));

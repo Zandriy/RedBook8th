@@ -7,16 +7,34 @@
 
 #include "glLoader.h"
 
-// PFNGLCLEARPROC			pglClear = 0;
-// PFNGLCLEARCOLORPROC		pglClearColor = 0;
-// 
-// int GL_1_0_LoadFuncPointers()
-// {
-// 	glClear = (PFNGLCLEARPROC)wglGetProcAddress("glClear");
-// 	glClearColor = (PFNGLCLEARPROC)wglGetProcAddress("glClearColor");
-// 
-// 	return glClear && glClearColor ? 1 : 0;
-// }
+/////////////////////////////// GL_VERSION_1_3 ////////////////////////////////
+
+PFNGLACTIVETEXTUREPROC				pglActiveTexture = 0;
+PFNGLSAMPLECOVERAGEPROC				pglSampleCoverage = 0;
+PFNGLCOMPRESSEDTEXIMAGE3DPROC		pglCompressedTexImage3D = 0;
+PFNGLCOMPRESSEDTEXIMAGE2DPROC		pglCompressedTexImage2D = 0;
+PFNGLCOMPRESSEDTEXIMAGE1DPROC		pglCompressedTexImage1D = 0;
+PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC		pglCompressedTexSubImage3D = 0;
+PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC		pglCompressedTexSubImage2D = 0;
+PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC		pglCompressedTexSubImage1D = 0;
+PFNGLGETCOMPRESSEDTEXIMAGEPROC		pglGetCompressedTexImage = 0;
+
+
+int GL_1_3_LoadFuncPointers()
+{
+	glActiveTexture				 = (PFNGLACTIVETEXTUREPROC)wglGetProcAddress("glActiveTexture");
+	glSampleCoverage			 = (PFNGLSAMPLECOVERAGEPROC)wglGetProcAddress("glSampleCoverage");
+	glCompressedTexImage3D		 = (PFNGLCOMPRESSEDTEXIMAGE3DPROC)wglGetProcAddress("glCompressedTexImage3D");
+	glCompressedTexImage2D		 = (PFNGLCOMPRESSEDTEXIMAGE2DPROC)wglGetProcAddress("glCompressedTexImage2D");
+	glCompressedTexImage1D		 = (PFNGLCOMPRESSEDTEXIMAGE1DPROC)wglGetProcAddress("glCompressedTexImage1D");
+	glCompressedTexSubImage3D	 = (PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC)wglGetProcAddress("glCompressedTexSubImage3D");
+	glCompressedTexSubImage2D	 = (PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC)wglGetProcAddress("glCompressedTexSubImage2D");
+	glCompressedTexSubImage1D	 = (PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC)wglGetProcAddress("glCompressedTexSubImage1D");
+	glGetCompressedTexImage		 = (PFNGLGETCOMPRESSEDTEXIMAGEPROC)wglGetProcAddress("glGetCompressedTexImage");
+
+	return (glActiveTexture && glSampleCoverage && glCompressedTexImage3D && glCompressedTexImage2D && 	glCompressedTexImage1D
+		&& glCompressedTexSubImage3D && glCompressedTexSubImage2D && glCompressedTexSubImage1D && glGetCompressedTexImage) ? 1 : 0;
+}
 
 /////////////////////////////// GL_VERSION_1_5 ////////////////////////////////
 

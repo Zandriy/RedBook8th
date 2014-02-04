@@ -30,16 +30,15 @@ public:
 private:
 	void Display();
 
-	GLuint render_prog;
-	GLuint vao[1];
-	GLuint vbo[1];
-	GLuint ebo[1];
-	VBObject object;
-	GLuint weight_vbo;
-	GLuint color_vbo;
-
-	GLint render_model_matrix_loc;
-	GLint render_projection_matrix_loc;
+ 	GLuint render_prog;
+ 	GLuint vao[1];
+ 	GLuint vbo[1];
+ 	VBObject object;
+ 	GLuint weight_vbo;
+ 	GLuint color_vbo;
+ 
+ 	GLint render_model_matrix_loc;
+ 	GLint render_projection_matrix_loc;
 };
 
 #endif // Ex03_10_h

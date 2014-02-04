@@ -146,7 +146,7 @@ void Ex03_10::Display()
 
 	glUniformMatrix4fv(render_model_matrix_loc, 4, GL_FALSE, model_matrix[0]);
 
-	float aspect = float(getHeight()) / getWidth() / 4;
+	float aspect = float(getHeight()) / getWidth() / 2;
 
 	// Set up the projection matrix
 	vmath::mat4 projection_matrix(vmath::frustum(-aspect, aspect, -aspect, aspect, 1.0f, 5000.0f) * vmath::translate(0.0f, 0.0f, -100.0f));

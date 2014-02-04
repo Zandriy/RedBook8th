@@ -31,17 +31,14 @@ private:
 	void Display();
 
 	GLuint render_prog;
-	GLuint vao[1];
-	GLuint vbo[1];
-	GLuint ebo[1];
-	VBObject object;
-	GLuint weight_vbo;
-	GLuint color_vbo;
-
-	GLint render_view_matrix_loc;
-	GLint render_projection_matrix_loc;
-	GLuint color_buffer;
-	GLuint model_matrix_buffer;
+ 	GLuint vao[1];
+ 	GLuint vbo[1];
+ 	VBObject object;
+ 
+ 	GLint render_view_matrix_loc;
+ 	GLint render_projection_matrix_loc;
+ 	GLuint color_buffer;
+ 	GLuint model_matrix_buffer;
 };
 
 #endif // Ex03_11_h

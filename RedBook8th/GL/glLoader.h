@@ -26,13 +26,29 @@
 extern "C" {
 #endif
 
-	// 	extern PFNGLCLEARPROC			pglClear;
-	// 	extern PFNGLCLEARCOLORPROC		pglClearColor;
-	// 
-	// #define glClear					pglClear
-	// #define glClearColor			pglClearColor
-	// 
-	// 	int GL_1_0_LoadFuncPointers();
+	/////////////////////////////// GL_VERSION_1_3 ////////////////////////////////
+
+	extern PFNGLACTIVETEXTUREPROC				pglActiveTexture;
+	extern PFNGLSAMPLECOVERAGEPROC				pglSampleCoverage;
+	extern PFNGLCOMPRESSEDTEXIMAGE3DPROC		pglCompressedTexImage3D;
+	extern PFNGLCOMPRESSEDTEXIMAGE2DPROC		pglCompressedTexImage2D;
+	extern PFNGLCOMPRESSEDTEXIMAGE1DPROC		pglCompressedTexImage1D;
+	extern PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC		pglCompressedTexSubImage3D;
+	extern PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC		pglCompressedTexSubImage2D;
+	extern PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC		pglCompressedTexSubImage1D;
+	extern PFNGLGETCOMPRESSEDTEXIMAGEPROC		pglGetCompressedTexImage;
+
+#define glActiveTexture					pglActiveTexture
+#define glSampleCoverage				pglSampleCoverage
+#define glCompressedTexImage3D			pglCompressedTexImage3D
+#define glCompressedTexImage2D			pglCompressedTexImage2D
+#define glCompressedTexImage1D			pglCompressedTexImage1D
+#define glCompressedTexSubImage3D		pglCompressedTexSubImage3D
+#define glCompressedTexSubImage2D		pglCompressedTexSubImage2D
+#define glCompressedTexSubImage1D		pglCompressedTexSubImage1D
+#define glGetCompressedTexImage			pglGetCompressedTexImage
+
+	int GL_1_3_LoadFuncPointers();
 
 	/////////////////////////////// GL_VERSION_1_5 ////////////////////////////////
 

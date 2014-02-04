@@ -110,6 +110,8 @@
     <None Include="Shaders\sh03_10.vert" />
     <None Include="Shaders\sh03_11.frag" />
     <None Include="Shaders\sh03_11.vert" />
+    <None Include="Shaders\sh03_12.frag" />
+    <None Include="Shaders\sh03_12.vert" />
     <None Include="Shaders\triangles.frag" />
     <None Include="Shaders\triangles.vert" />
   </ItemGroup>
