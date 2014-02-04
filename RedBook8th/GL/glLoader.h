@@ -26,6 +26,20 @@
 extern "C" {
 #endif
 
+		/////////////////////////////// GL_VERSION_1_2 ////////////////////////////////
+
+	extern PFNGLDRAWRANGEELEMENTSPROC		pglDrawRangeElements;
+	extern PFNGLTEXIMAGE3DPROC				pglTexImage3D;
+	extern PFNGLTEXSUBIMAGE3DPROC			pglTexSubImage3D;
+	extern PFNGLCOPYTEXSUBIMAGE3DPROC		pglCopyTexSubImage3D;
+
+#define glDrawRangeElements		pglDrawRangeElements
+#define glTexImage3D			pglTexImage3D
+#define glTexSubImage3D			pglTexSubImage3D
+#define glCopyTexSubImage3D		pglCopyTexSubImage3D
+	
+	int GL_1_2_LoadFuncPointers();
+
 	/////////////////////////////// GL_VERSION_1_3 ////////////////////////////////
 
 	extern PFNGLACTIVETEXTUREPROC				pglActiveTexture;
@@ -49,6 +63,29 @@ extern "C" {
 #define glGetCompressedTexImage			pglGetCompressedTexImage
 
 	int GL_1_3_LoadFuncPointers();
+
+	/////////////////////////////// GL_VERSION_1_4 ////////////////////////////////
+
+	extern PFNGLBLENDFUNCSEPARATEPROC		pglBlendFuncSeparate;
+	extern PFNGLMULTIDRAWARRAYSPROC			pglMultiDrawArrays;
+	extern PFNGLMULTIDRAWELEMENTSPROC		pglMultiDrawElements;
+	extern PFNGLPOINTPARAMETERFPROC			pglPointParameterf;
+	extern PFNGLPOINTPARAMETERFVPROC		pglPointParameterfv;
+	extern PFNGLPOINTPARAMETERIPROC			pglPointParameteri;
+	extern PFNGLPOINTPARAMETERIVPROC		pglPointParameteriv;
+	extern PFNGLBLENDCOLORPROC				pglBlendColor;
+	extern PFNGLBLENDEQUATIONPROC			pglBlendEquation;
+
+#define glBlendFuncSeparate			pglBlendFuncSeparate
+#define glMultiDrawArrays			pglMultiDrawArrays
+#define glMultiDrawElements			pglMultiDrawElements
+#define glPointParameterf			pglPointParameterf
+#define glPointParameterfv			pglPointParameterfv
+#define glPointParameteri			pglPointParameteri
+#define glPointParameteriv			pglPointParameteriv
+#define glBlendColor				pglBlendColor
+#define glBlendEquation				pglBlendEquation
+	int GL_1_4_LoadFuncPointers();
 
 	/////////////////////////////// GL_VERSION_1_5 ////////////////////////////////
 

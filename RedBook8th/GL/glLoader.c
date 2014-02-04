@@ -7,6 +7,24 @@
 
 #include "glLoader.h"
 
+/////////////////////////////// GL_VERSION_1_2 ////////////////////////////////
+
+PFNGLDRAWRANGEELEMENTSPROC		pglDrawRangeElements = 0;
+PFNGLTEXIMAGE3DPROC				pglTexImage3D = 0;
+PFNGLTEXSUBIMAGE3DPROC			pglTexSubImage3D = 0;
+PFNGLCOPYTEXSUBIMAGE3DPROC		pglCopyTexSubImage3D = 0;
+
+int GL_1_2_LoadFuncPointers()
+{
+	glDrawRangeElements	= (PFNGLDRAWRANGEELEMENTSPROC)wglGetProcAddress("glDrawRangeElements");
+	glTexImage3D		= (PFNGLTEXIMAGE3DPROC)wglGetProcAddress("glTexImage3D");
+	glTexSubImage3D		= (PFNGLTEXSUBIMAGE3DPROC)wglGetProcAddress("glTexSubImage3D");
+	glCopyTexSubImage3D	= (PFNGLCOPYTEXSUBIMAGE3DPROC)wglGetProcAddress("glCopyTexSubImage3D");
+
+	return (glDrawRangeElements && glTexImage3D && glTexSubImage3D && glCopyTexSubImage3D) ? 1 : 0;
+}
+
+
 /////////////////////////////// GL_VERSION_1_3 ////////////////////////////////
 
 PFNGLACTIVETEXTUREPROC				pglActiveTexture = 0;
@@ -35,6 +53,31 @@ int GL_1_3_LoadFuncPointers()
 	return (glActiveTexture && glSampleCoverage && glCompressedTexImage3D && glCompressedTexImage2D && 	glCompressedTexImage1D
 		&& glCompressedTexSubImage3D && glCompressedTexSubImage2D && glCompressedTexSubImage1D && glGetCompressedTexImage) ? 1 : 0;
 }
+
+/////////////////////////////// GL_VERSION_1_4 ////////////////////////////////
+
+PFNGLBLENDFUNCSEPARATEPROC		pglBlendFuncSeparate = 0;
+PFNGLMULTIDRAWARRAYSPROC			pglMultiDrawArrays = 0;
+PFNGLMULTIDRAWELEMENTSPROC		pglMultiDrawElements = 0;
+PFNGLPOINTPARAMETERFPROC			pglPointParameterf = 0;
+PFNGLPOINTPARAMETERFVPROC		pglPointParameterfv = 0;
+PFNGLPOINTPARAMETERIPROC			pglPointParameteri = 0;
+PFNGLPOINTPARAMETERIVPROC		pglPointParameteriv = 0;
+PFNGLBLENDCOLORPROC				pglBlendColor = 0;
+PFNGLBLENDEQUATIONPROC			pglBlendEquation = 0;
+int GL_1_4_LoadFuncPointers()
+{
+	glBlendFuncSeparate	= (PFNGLBLENDFUNCSEPARATEPROC)wglGetProcAddress("glBlendFuncSeparate");
+	glMultiDrawArrays	= (PFNGLMULTIDRAWARRAYSPROC)wglGetProcAddress("glMultiDrawArrays");
+	glMultiDrawElements	= (PFNGLMULTIDRAWELEMENTSPROC)wglGetProcAddress("glMultiDrawElements");
+	glPointParameterf	= (PFNGLPOINTPARAMETERFPROC)wglGetProcAddress("glPointParameterf");
+	glPointParameterfv	= (PFNGLPOINTPARAMETERFVPROC)wglGetProcAddress("glPointParameterfv");
+	glPointParameteri	= (PFNGLPOINTPARAMETERIPROC)wglGetProcAddress("glPointParameteri");
+	glPointParameteriv	= (PFNGLPOINTPARAMETERIVPROC)wglGetProcAddress("glPointParameteriv");
+	glBlendColor		= (PFNGLBLENDCOLORPROC)wglGetProcAddress("glBlendColor");
+	glBlendEquation		= (PFNGLBLENDEQUATIONPROC)wglGetProcAddress("glBlendEquation");
+	return (glBlendFuncSeparate && glMultiDrawArrays && glMultiDrawElements /*&& glPointParameter*/ && glPointParameterfv && 
+		glPointParameteri && glPointParameteriv && glBlendColor && glBlendEquation) ? 1 : 0;}
 
 /////////////////////////////// GL_VERSION_1_5 ////////////////////////////////
 

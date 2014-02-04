@@ -188,7 +188,9 @@ bool OGLWindow::LoadGL()
 {
 	if (!m_glLoaded)
 	{
+		bool b12 = GL_1_2_LoadFuncPointers();
 		bool b13 = GL_1_3_LoadFuncPointers();
+		bool b14 = GL_1_4_LoadFuncPointers();
 		bool b15 = GL_1_5_LoadFuncPointers();
 		bool b20 = GL_2_0_LoadFuncPointers();
 		bool b30 = GL_3_0_LoadFuncPointers();
@@ -196,7 +198,7 @@ bool OGLWindow::LoadGL()
 		bool b32 = GL_3_2_LoadFuncPointers();
 		bool b33 = GL_3_3_LoadFuncPointers();
 
-		m_glLoaded = b13 && b15 && b20 && b30 && b31 && b32 && b33;
+		m_glLoaded = b12 && b13 && b14 && b15 && b20 && b30 && b31 && b32 && b33;
 	}
 	 return m_glLoaded;
 }
