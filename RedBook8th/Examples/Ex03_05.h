@@ -13,15 +13,6 @@
 
 class Ex03_05 : public OGLWindow
 {
-private:
-	enum VAO_IDs { Triangles, NumVAOs };
-	enum Buffer_IDs { ArrayBuffer, NumBuffers };
-	enum Attrib_IDs { vPosition = 0, fPosition = 1 };
-
-	GLuint  VAOs[NumVAOs];
-	GLuint  Buffers[NumBuffers];
-
-	static const GLuint  NumVertices = 4;
 public:
 	Ex03_05();
 	~Ex03_05();

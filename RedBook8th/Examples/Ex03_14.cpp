@@ -1,23 +1,23 @@
 /*
-* Ex03_12.cpp
+* Ex03_14.cpp
 *
 * Created on: Feb 04, 2014
 * Author: Andrew Zhabura
 */
 
-#include "Ex03_12.h"
+#include "Ex03_14.h"
 
 #include "GL/LoadShaders.h"
 #include "Auxiliary/vmath.h"
 
 #define INSTANCE_COUNT 100
 
-Ex03_12::Ex03_12()
-	: OGLWindow("Example03_12", "Example 3.12")
+Ex03_14::Ex03_14()
+	: OGLWindow("Example03_14", "Example 3.14")
 {
 }
 
-Ex03_12::~Ex03_12()
+Ex03_14::~Ex03_14()
 {
 	glUseProgram(0);
 	glDeleteProgram(render_prog);
@@ -25,15 +25,15 @@ Ex03_12::~Ex03_12()
 	glDeleteBuffers(1, vbo);
 }
 
-void Ex03_12::InitGL()
+void Ex03_14::InitGL()
 {
 	if (! LoadGL() )
 		return;
 
 	ShaderInfo shader_info[] =
 	{
-		{ GL_VERTEX_SHADER, "Shaders/sh03_12.vert" },
-		{ GL_FRAGMENT_SHADER, "Shaders/sh03_12.frag" },
+		{ GL_VERTEX_SHADER, "Shaders/sh03_14.vert" },
+		{ GL_FRAGMENT_SHADER, "Shaders/sh03_14.frag" },
 		{ GL_NONE, NULL }
 	};
 
@@ -125,7 +125,7 @@ void Ex03_12::InitGL()
     glActiveTexture(GL_TEXTURE0);
 }
 
-void Ex03_12::Display()
+void Ex03_14::Display()
 {
 	float t = float(GetTickCount() & 0x3FFF) / float(0x3FFF);
 	static float q = 0.0f;

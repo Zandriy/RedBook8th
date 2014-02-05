@@ -1,31 +1,22 @@
 /*
-* Ex03_12.h
+* Ex03_14.h
 *
 * Created on: Feb 04, 2014
 * Author: Andrew Zhabura
 */
 
-#ifndef Ex03_12_h
-#define Ex03_12_h
+#ifndef Ex03_14_h
+#define Ex03_14_h
 
 #include "WinApi/OGLWindow.h"
 #include <GL/glLoader.h>
 #include "Auxiliary/vbm.h"
 
-class Ex03_12 : public OGLWindow
+class Ex03_14 : public OGLWindow
 {
-private:
-	enum VAO_IDs { Triangles, NumVAOs };
-	enum Buffer_IDs { ArrayBuffer, NumBuffers };
-	enum Attrib_IDs { vPosition = 0, fPosition = 1 };
-
-	GLuint  VAOs[NumVAOs];
-	GLuint  Buffers[NumBuffers];
-
-	static const GLuint  NumVertices = 4;
 public:
-	Ex03_12();
-	~Ex03_12();
+	Ex03_14();
+	~Ex03_14();
 	void InitGL();
 private:
 	void Display();
@@ -43,4 +34,4 @@ private:
  	GLuint model_matrix_buffer;
 };
 
-#endif // Ex03_12_h
+#endif // Ex03_14_h
