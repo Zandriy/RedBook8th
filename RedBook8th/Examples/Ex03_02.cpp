@@ -9,6 +9,8 @@
 
 #include "GL/LoadShaders.h"
 #include "Auxiliary/vmath.h"
+#include "Auxiliary/libtarga.h"
+
 #define POINT_COUNT 4
 
 Ex03_02::Ex03_02()
@@ -43,13 +45,26 @@ void Ex03_02::InitGL()
 	glGenTextures(1, &sprite_texture);
 	glBindTexture(GL_TEXTURE_2D, sprite_texture);
 
-	//data = vtarga::load_targa("../../03/ch03_pointsprites/sprite.tga", format, width, height);
+	//data = vtarga::load_targa("Media/sprite.tga", format, width, height);
+	data = (unsigned char *)(tga_load("Media/sprite3.tga", &width, &height, TGA_TRUECOLOR_32));
+	format = GL_RGBA;
 
-	//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+	//////////////////////
+	unsigned char ch1, ch2, ch3, ch4;
+	for(int i = 0; i < width*height*4; i+=4)
+	{
+		ch1 = data[i];
+		ch2 = data[++i];
+		ch3 = data[++i];
+		ch4 = data[++i];
+ 	}
+	//////////////////////
 
-	//delete [] data;
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, format, GL_UNSIGNED_BYTE, data);
 
-	//glGenerateMipmap(GL_TEXTURE_2D);
+	delete [] data;
+
+	glGenerateMipmap(GL_TEXTURE_2D);
 
 	static ShaderInfo shader_info[] =
 	{

@@ -67,6 +67,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Auxiliary\libtarga.cpp" />
     <ClCompile Include="Auxiliary\vbm.cpp" />
     <ClCompile Include="Examples\Ex01.cpp" />
     <ClCompile Include="Examples\Ex02_04.cpp" />
@@ -84,6 +85,7 @@
     <ClCompile Include="WinApi\WinParent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Auxiliary\libtarga.h" />
     <ClInclude Include="Auxiliary\vbm.h" />
     <ClInclude Include="Auxiliary\vmath.h" />
     <ClInclude Include="Examples\Ex01.h" />
