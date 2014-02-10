@@ -17,9 +17,11 @@
 #include "Examples/Ex03_10.h"
 #include "Examples/Ex03_11.h"
 #include "Examples/Ex03_14.h"
+#include "Examples/Ex04_01.h"
+#include "Examples/Ex04_02.h"
 
-#define EXAMPLES_QTY 9
-#define CUR_EXAMPLE EXAMPLES_QTY-6
+#define EXAMPLES_QTY 11
+#define CUR_EXAMPLE EXAMPLES_QTY-1
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -170,6 +172,10 @@ int WinParent::InitChilds(int nCmdShow)
 	InitChild(child, r);
 	child = new Ex03_14;
 	InitChild(child, r);
+	child = new Ex04_01;
+	InitChild(child, r);
+	child = new Ex04_02;
+	InitChild(child, r);
 
 	if (m_childArr.size() != EXAMPLES_QTY)
 		exit(1);
@@ -253,6 +259,9 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 			break;
 		case VK_SPACE:
 			m_childArr[m_curChild]->Display();
+			break;
+		case 0x4D:
+			m_childArr[m_curChild]->keyboard('m', 0, 0);
 			break;
 		default:
 			break;

@@ -78,6 +78,8 @@
     <ClCompile Include="Examples\Ex03_10.cpp" />
     <ClCompile Include="Examples\Ex03_11.cpp" />
     <ClCompile Include="Examples\Ex03_14.cpp" />
+    <ClCompile Include="Examples\Ex04_01.cpp" />
+    <ClCompile Include="Examples\Ex04_02.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
     <ClCompile Include="main.cpp" />
@@ -97,6 +99,8 @@
     <ClInclude Include="Examples\Ex03_10.h" />
     <ClInclude Include="Examples\Ex03_11.h" />
     <ClInclude Include="Examples\Ex03_14.h" />
+    <ClInclude Include="Examples\Ex04_01.h" />
+    <ClInclude Include="Examples\Ex04_02.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
     <ClInclude Include="GL\LoadShaders.h" />
@@ -104,6 +108,8 @@
     <ClInclude Include="WinApi\WinParent.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Shaders\gouraud.frag" />
+    <None Include="Shaders\gouraud.vert" />
     <None Include="Shaders\pointsprites.fs.glsl" />
     <None Include="Shaders\pointsprites.vs.glsl" />
     <None Include="Shaders\primitive_restart.fs.glsl" />
