@@ -11,7 +11,7 @@
 #include "Auxiliary/vmath.h"
 #include "Auxiliary/libtarga.h"
 
-#define POINT_COUNT 4
+#define POINT_COUNT 16
 
 Ex03_02::Ex03_02()
 	: OGLWindow("Example03_02", "Example 3.2")
@@ -45,20 +45,8 @@ void Ex03_02::InitGL()
 	glGenTextures(1, &sprite_texture);
 	glBindTexture(GL_TEXTURE_2D, sprite_texture);
 
-	//data = vtarga::load_targa("Media/sprite.tga", format, width, height);
-	data = (unsigned char *)(tga_load("Media/sprite3.tga", &width, &height, TGA_TRUECOLOR_32));
+	data = (unsigned char *)(tga_load("Media/sprite.tga", &width, &height, TGA_TRUECOLOR_32));
 	format = GL_RGBA;
-
-	//////////////////////
-	unsigned char ch1, ch2, ch3, ch4;
-	for(int i = 0; i < width*height*4; i+=4)
-	{
-		ch1 = data[i];
-		ch2 = data[++i];
-		ch3 = data[++i];
-		ch4 = data[++i];
- 	}
-	//////////////////////
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, format, GL_UNSIGNED_BYTE, data);
 
@@ -135,12 +123,11 @@ void Ex03_02::Display()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_ONE, GL_ONE);
 	glEnable(GL_PROGRAM_POINT_SIZE);
-	glPointSize(32.0f);
 
 	// Draw Arrays...
 	model_matrix = vmath::translate(0.0f, 0.0f, -2.0f) *
 		vmath::rotate(t * 360.0f, Y) * vmath::rotate(t * 720.0f, Z);
-	glUniformMatrix4fv(render_model_matrix_loc, 4, GL_FALSE, model_matrix);
+	glUniformMatrix4fv(render_model_matrix_loc, 1, GL_FALSE, model_matrix);
 	glDrawArrays(GL_POINTS, 0, POINT_COUNT);
 
 	glFlush();

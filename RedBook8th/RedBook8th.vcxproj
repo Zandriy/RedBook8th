@@ -104,6 +104,8 @@
     <ClInclude Include="WinApi\WinParent.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Shaders\pointsprites.fs.glsl" />
+    <None Include="Shaders\pointsprites.vs.glsl" />
     <None Include="Shaders\primitive_restart.fs.glsl" />
     <None Include="Shaders\primitive_restart.vs.glsl" />
     <None Include="Shaders\sh02_04.frag" />
