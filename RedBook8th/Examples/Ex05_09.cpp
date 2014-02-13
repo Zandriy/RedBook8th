@@ -223,3 +223,13 @@ void Ex05_09::Display()
 
 	glFlush();
 }
+
+void Ex05_09::keyboard( unsigned char key, int x, int y )
+{
+	switch( key ) {
+	case 'm': 
+		for (int i = 0; i < 1000; ++i)
+			Display();
+		break;
+	}
+}
