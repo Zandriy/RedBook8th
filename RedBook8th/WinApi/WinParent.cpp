@@ -19,8 +19,9 @@
 #include "Examples/Ex03_14.h"
 #include "Examples/Ex04_01.h"
 #include "Examples/Ex04_02.h"
+#include "Examples/Ex05_09.h"
 
-#define EXAMPLES_QTY 11
+#define EXAMPLES_QTY 12
 #define CUR_EXAMPLE EXAMPLES_QTY-1
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -175,6 +176,8 @@ int WinParent::InitChilds(int nCmdShow)
 	child = new Ex04_01;
 	InitChild(child, r);
 	child = new Ex04_02;
+	InitChild(child, r);
+	child = new Ex05_09;
 	InitChild(child, r);
 
 	if (m_childArr.size() != EXAMPLES_QTY)
