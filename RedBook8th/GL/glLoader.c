@@ -686,3 +686,38 @@ int GL_3_3_LoadFuncPointers()
 		glVertexAttribP1uiv && glVertexAttribP2ui && glVertexAttribP2uiv && glVertexAttribP3ui && 
 		glVertexAttribP3uiv && glVertexAttribP4ui && glVertexAttribP4uiv) ? 1 : 0;
 }
+
+/////////////////////////////// GL_VERSION_4_2 ////////////////////////////////
+
+PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC					pglDrawArraysInstancedBaseInstance = 0;
+PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC				pglDrawElementsInstancedBaseInstance = 0;
+PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC		pglDrawElementsInstancedBaseVertexBaseInstance = 0;
+PFNGLGETINTERNALFORMATIVPROC								pglGetInternalformativ = 0;
+PFNGLGETACTIVEATOMICCOUNTERBUFFERIVPROC					pglGetActiveAtomicCounterBufferiv = 0;
+PFNGLBINDIMAGETEXTUREPROC								pglBindImageTexture = 0;
+PFNGLMEMORYBARRIERPROC									pglMemoryBarrier = 0;
+PFNGLTEXSTORAGE1DPROC									pglTexStorage1D = 0;
+PFNGLTEXSTORAGE2DPROC									pglTexStorage2D = 0;
+PFNGLTEXSTORAGE3DPROC									pglTexStorage3D = 0;
+PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC					pglDrawTransformFeedbackInstanced = 0;
+PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC			pglDrawTransformFeedbackStreamInstanced = 0;
+
+int GL_4_2_LoadFuncPointers()
+{
+	glDrawArraysInstancedBaseInstance = (PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC)wglGetProcAddress("glDrawArraysInstancedBaseInstance");
+	glDrawElementsInstancedBaseInstance = (PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC)wglGetProcAddress("glDrawElementsInstancedBaseInstance");
+	glDrawElementsInstancedBaseVertexBaseInstance = (PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC)wglGetProcAddress("glDrawElementsInstancedBaseVertexBaseInstance");
+	glGetInternalformativ = (PFNGLGETINTERNALFORMATIVPROC)wglGetProcAddress("glGetInternalformativ");
+	glGetActiveAtomicCounterBufferiv = (PFNGLGETACTIVEATOMICCOUNTERBUFFERIVPROC)wglGetProcAddress("glGetActiveAtomicCounterBufferiv");
+	glBindImageTexture = (PFNGLBINDIMAGETEXTUREPROC)wglGetProcAddress("glBindImageTexture");
+	glMemoryBarrier = (PFNGLMEMORYBARRIERPROC)wglGetProcAddress("glMemoryBarrier");
+	glTexStorage1D = (PFNGLTEXSTORAGE1DPROC)wglGetProcAddress("glTexStorage1D");
+	glTexStorage2D = (PFNGLTEXSTORAGE2DPROC)wglGetProcAddress("glTexStorage2D");
+	glTexStorage3D = (PFNGLTEXSTORAGE3DPROC)wglGetProcAddress("glTexStorage3D");
+	glDrawTransformFeedbackInstanced = (PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC)wglGetProcAddress("glDrawTransformFeedbackInstanced");
+	glDrawTransformFeedbackStreamInstanced = (PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC)wglGetProcAddress("glDrawTransformFeedbackStreamInstanced");
+
+	return (glDrawArraysInstancedBaseInstance && glDrawElementsInstancedBaseInstance && glDrawElementsInstancedBaseVertexBaseInstance && 
+		glGetInternalformativ && glGetActiveAtomicCounterBufferiv && glBindImageTexture && glMemoryBarrier && glTexStorage1D && 
+		glTexStorage2D && glTexStorage3D && glDrawTransformFeedbackInstanced && glDrawTransformFeedbackStreamInstanced) ? 1 : 0;
+}

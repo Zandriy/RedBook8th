@@ -26,7 +26,7 @@
 extern "C" {
 #endif
 
-		/////////////////////////////// GL_VERSION_1_2 ////////////////////////////////
+	/////////////////////////////// GL_VERSION_1_2 ////////////////////////////////
 
 	extern PFNGLDRAWRANGEELEMENTSPROC		pglDrawRangeElements;
 	extern PFNGLTEXIMAGE3DPROC				pglTexImage3D;
@@ -37,7 +37,7 @@ extern "C" {
 #define glTexImage3D			pglTexImage3D
 #define glTexSubImage3D			pglTexSubImage3D
 #define glCopyTexSubImage3D		pglCopyTexSubImage3D
-	
+
 	int GL_1_2_LoadFuncPointers();
 
 	/////////////////////////////// GL_VERSION_1_3 ////////////////////////////////
@@ -632,6 +632,36 @@ extern "C" {
 #define glVertexAttribP4uiv				pglVertexAttribP4uiv
 
 	int GL_3_3_LoadFuncPointers();
+
+	/////////////////////////////// GL_VERSION_4_2 ////////////////////////////////
+
+	extern PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC					pglDrawArraysInstancedBaseInstance;
+	extern PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC				pglDrawElementsInstancedBaseInstance;
+	extern PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC		pglDrawElementsInstancedBaseVertexBaseInstance;
+	extern PFNGLGETINTERNALFORMATIVPROC								pglGetInternalformativ;
+	extern PFNGLGETACTIVEATOMICCOUNTERBUFFERIVPROC					pglGetActiveAtomicCounterBufferiv;
+	extern PFNGLBINDIMAGETEXTUREPROC								pglBindImageTexture;
+	extern PFNGLMEMORYBARRIERPROC									pglMemoryBarrier;
+	extern PFNGLTEXSTORAGE1DPROC									pglTexStorage1D;
+	extern PFNGLTEXSTORAGE2DPROC									pglTexStorage2D;
+	extern PFNGLTEXSTORAGE3DPROC									pglTexStorage3D;
+	extern PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC					pglDrawTransformFeedbackInstanced;
+	extern PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC			pglDrawTransformFeedbackStreamInstanced;
+
+#define glDrawArraysInstancedBaseInstance				pglDrawArraysInstancedBaseInstance
+#define glDrawElementsInstancedBaseInstance				pglDrawElementsInstancedBaseInstance
+#define glDrawElementsInstancedBaseVertexBaseInstance	pglDrawElementsInstancedBaseVertexBaseInstance
+#define glGetInternalformativ							pglGetInternalformativ
+#define glGetActiveAtomicCounterBufferiv				pglGetActiveAtomicCounterBufferiv
+#define glBindImageTexture								pglBindImageTexture
+#define glMemoryBarrier									pglMemoryBarrier
+#define glTexStorage1D									pglTexStorage1D
+#define glTexStorage2D									pglTexStorage2D
+#define glTexStorage3D									pglTexStorage3D
+#define glDrawTransformFeedbackInstanced				pglDrawTransformFeedbackInstanced
+#define glDrawTransformFeedbackStreamInstanced			pglDrawTransformFeedbackStreamInstanced
+
+	int GL_4_2_LoadFuncPointers();
 
 #ifdef __cplusplus
 }
