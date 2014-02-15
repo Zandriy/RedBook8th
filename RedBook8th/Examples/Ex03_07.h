@@ -17,6 +17,7 @@ public:
 	Ex03_07();
 	~Ex03_07();
 	void InitGL();
+	virtual void keyboard( unsigned char key, int x, int y );
 private:
 	void Display();
 

@@ -82,6 +82,7 @@
     <ClCompile Include="Examples\Ex04_02.cpp" />
     <ClCompile Include="Examples\Ex05_09.cpp" />
     <ClCompile Include="Examples\Ex06_02.cpp" />
+    <ClCompile Include="Examples\Ex06_03.cpp" />
     <ClCompile Include="Examples\Ex06_04.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
@@ -106,6 +107,7 @@
     <ClInclude Include="Examples\Ex04_02.h" />
     <ClInclude Include="Examples\Ex05_09.h" />
     <ClInclude Include="Examples\Ex06_02.h" />
+    <ClInclude Include="Examples\Ex06_03.h" />
     <ClInclude Include="Examples\Ex06_04.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />

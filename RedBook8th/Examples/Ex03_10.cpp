@@ -13,7 +13,7 @@
 #define INSTANCE_COUNT 200
 
 Ex03_10::Ex03_10()
-	: OGLWindow("Example03_10", "Example 3.10")
+	: OGLWindow("Example03_10", "Example 3.10 (M)")
 {
 }
 
@@ -157,4 +157,17 @@ void Ex03_10::Display()
 	object.Render(0, INSTANCE_COUNT);
 
 	glFlush();
+}
+
+void Ex03_10::keyboard( unsigned char key, int x, int y )
+{
+	switch( key ) {
+	case 'M': 
+		for (int i = 0; i < 1000; ++i)
+			Display();
+		break;
+	default:
+		OGLWindow::keyboard(key, x, y);
+		break;
+	}
 }

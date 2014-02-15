@@ -21,9 +21,10 @@
 #include "Examples/Ex04_02.h"
 #include "Examples/Ex05_09.h"
 #include "Examples/Ex06_02.h"
+#include "Examples/Ex06_03.h"
 #include "Examples/Ex06_04.h"
 
-#define EXAMPLES_QTY 14
+#define EXAMPLES_QTY 15
 #define CUR_EXAMPLE EXAMPLES_QTY-2
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -183,6 +184,8 @@ int WinParent::InitChilds(int nCmdShow)
 	InitChild(child, r);
 	child = new Ex06_02;
 	InitChild(child, r);
+	child = new Ex06_03;
+	InitChild(child, r);
 	child = new Ex06_04;
 	InitChild(child, r);
 
@@ -242,6 +245,19 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 			exit(EXIT_SUCCESS);
 			break;
 		case VK_F2:
+			{
+				int nWidth = m_childArr[m_curChild]->getWidth();
+				int nHight = m_childArr[m_curChild]->getHeight();
+				m_childArr[m_curChild]->Hide();
+				m_curChild--;
+				if (m_curChild < 0)
+					m_curChild = EXAMPLES_QTY-1;
+				SetWindowText(m_hwnd, m_childArr[m_curChild]->getTitle());
+				m_childArr[m_curChild]->Reshape(nWidth, nHight);
+				m_childArr[m_curChild]->Show();
+			}
+			break;
+		case VK_F3:
 			{
 				int nWidth = m_childArr[m_curChild]->getWidth();
 				int nHight = m_childArr[m_curChild]->getHeight();

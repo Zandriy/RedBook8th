@@ -14,7 +14,7 @@
 #define POINT_COUNT 16
 
 Ex03_02::Ex03_02()
-	: OGLWindow("Example03_02", "Example 3.2")
+	: OGLWindow("Example03_02", "Example 3.2 (M)")
 {
 }
 
@@ -131,4 +131,17 @@ void Ex03_02::Display()
 	glDrawArrays(GL_POINTS, 0, POINT_COUNT);
 
 	glFlush();
+}
+
+void Ex03_02::keyboard( unsigned char key, int x, int y )
+{
+	switch( key ) {
+	case 'M': 
+		for (int i = 0; i < 5000; ++i)
+			Display();
+		break;
+	default:
+		OGLWindow::keyboard(key, x, y);
+		break;
+	}
 }

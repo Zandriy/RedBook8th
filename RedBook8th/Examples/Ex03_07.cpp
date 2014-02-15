@@ -13,7 +13,7 @@
 #define USE_PRIMITIVE_RESTART 1
 
 Ex03_07::Ex03_07()
-	: OGLWindow("Example03_07", "Example 3.7")
+	: OGLWindow("Example03_07", "Example 3.7 (M)")
 {
 }
 
@@ -146,4 +146,17 @@ void Ex03_07::Display()
 #endif
 
 	glFlush();
+}
+
+void Ex03_07::keyboard( unsigned char key, int x, int y )
+{
+	switch( key ) {
+	case 'M': 
+		for (int i = 0; i < 5000; ++i)
+			Display();
+		break;
+	default:
+		OGLWindow::keyboard(key, x, y);
+		break;
+	}
 }

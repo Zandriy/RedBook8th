@@ -13,7 +13,7 @@
 #define INSTANCE_COUNT 200
 
 Ex03_11::Ex03_11()
-	: OGLWindow("Example03_11", "Example 3.11")
+	: OGLWindow("Example03_11", "Example 3.11 (M)")
 {
 }
 
@@ -184,4 +184,17 @@ void Ex03_11::Display()
 	vmath::lookat(vmath::vec3(0.0f, 0.0f, 0.0f), vmath::vec3(1.0f, 0.0f, 0.0f), vmath::vec3(0.0f, 1.0f, 0.0f));
 
 	glFlush();
+}
+
+void Ex03_11::keyboard( unsigned char key, int x, int y )
+{
+	switch( key ) {
+	case 'M': 
+		for (int i = 0; i < 1000; ++i)
+			Display();
+		break;
+	default:
+		OGLWindow::keyboard(key, x, y);
+		break;
+	}
 }
