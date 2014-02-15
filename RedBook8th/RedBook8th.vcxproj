@@ -68,7 +68,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Auxiliary\libtarga.cpp" />
+    <ClCompile Include="Auxiliary\loadtexture.cpp" />
     <ClCompile Include="Auxiliary\vbm.cpp" />
+    <ClCompile Include="Auxiliary\vdds.cpp" />
     <ClCompile Include="Examples\Ex01.cpp" />
     <ClCompile Include="Examples\Ex02_04.cpp" />
     <ClCompile Include="Examples\Ex03_01.cpp" />
@@ -93,6 +95,7 @@
   <ItemGroup>
     <ClInclude Include="Auxiliary\libtarga.h" />
     <ClInclude Include="Auxiliary\vbm.h" />
+    <ClInclude Include="Auxiliary\vermilion.h" />
     <ClInclude Include="Auxiliary\vmath.h" />
     <ClInclude Include="Examples\Ex01.h" />
     <ClInclude Include="Examples\Ex02_04.h" />

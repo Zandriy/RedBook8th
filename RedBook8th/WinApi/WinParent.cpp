@@ -25,7 +25,7 @@
 #include "Examples/Ex06_04.h"
 
 #define EXAMPLES_QTY 15
-#define CUR_EXAMPLE EXAMPLES_QTY-2
+#define CUR_EXAMPLE EXAMPLES_QTY-1
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
