@@ -42,7 +42,7 @@ static inline int min(int a, int b)
 }
 
 Ex05_09::Ex05_09()
-	: OGLWindow("Example05_09", "Example 5.9")
+	: OGLWindow("Example05_09", "Example 5.9 (M)")
 {
 }
 
@@ -227,9 +227,12 @@ void Ex05_09::Display()
 void Ex05_09::keyboard( unsigned char key, int x, int y )
 {
 	switch( key ) {
-	case 'm': 
+	case 'M': 
 		for (int i = 0; i < 1000; ++i)
 			Display();
+		break;
+	default:
+		OGLWindow::keyboard(key, x, y);
 		break;
 	}
 }

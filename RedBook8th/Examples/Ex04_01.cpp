@@ -10,7 +10,7 @@
 #include "GL/LoadShaders.h"
 
 Ex04_01::Ex04_01()
-	: OGLWindow("Example04_01", "Example 4.1")
+	: OGLWindow("Example04_01", "Example 4.1 (M)")
 {
 }
 
@@ -73,12 +73,15 @@ void Ex04_01::Display()
 void Ex04_01::keyboard( unsigned char key, int x, int y )
 {
 	switch( key ) {
-	case 'm': {
+	case 'M': {
 		static GLenum  mode = GL_FILL;
 
 		mode = ( mode == GL_FILL ? GL_LINE : GL_FILL );
 		glPolygonMode( GL_FRONT_AND_BACK, mode );
 		Display();
 			  } break;
+	default:
+		OGLWindow::keyboard(key, x, y);
+		break;
 	}
 }

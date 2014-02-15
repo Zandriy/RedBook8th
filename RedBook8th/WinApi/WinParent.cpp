@@ -20,11 +20,11 @@
 #include "Examples/Ex04_01.h"
 #include "Examples/Ex04_02.h"
 #include "Examples/Ex05_09.h"
-#include "Examples/Ex06_01.h"
+#include "Examples/Ex06_02.h"
 #include "Examples/Ex06_04.h"
 
 #define EXAMPLES_QTY 14
-#define CUR_EXAMPLE EXAMPLES_QTY-1
+#define CUR_EXAMPLE EXAMPLES_QTY-2
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -146,7 +146,7 @@ BOOL WinParent::InitInstance(int nCmdShow)
 	ShowWindow(m_hwnd, nCmdShow); 
 
 	m_curChild = InitChilds(nCmdShow);
-	SetWindowText(m_hwnd, m_childArr[m_curChild]->getName());
+	SetWindowText(m_hwnd, m_childArr[m_curChild]->getTitle());
 	m_childArr[m_curChild]->Show();
 
 	return TRUE; 
@@ -181,7 +181,7 @@ int WinParent::InitChilds(int nCmdShow)
 	InitChild(child, r);
 	child = new Ex05_09;
 	InitChild(child, r);
-	child = new Ex06_01;
+	child = new Ex06_02;
 	InitChild(child, r);
 	child = new Ex06_04;
 	InitChild(child, r);
@@ -241,19 +241,7 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 		case VK_ESCAPE:
 			exit(EXIT_SUCCESS);
 			break;
-		case VK_UP:
-			break;
-		case VK_DOWN:
-			break;
-		case VK_LEFT:
-			break;
-		case VK_RIGHT:
-			break;
-		case VK_F1:
-			break;
 		case VK_F2:
-			break;
-		case VK_INSERT:
 			{
 				int nWidth = m_childArr[m_curChild]->getWidth();
 				int nHight = m_childArr[m_curChild]->getHeight();
@@ -261,18 +249,13 @@ LRESULT WinParent::MainWindowLoop(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 				m_curChild++;
 				if (m_curChild >= EXAMPLES_QTY)
 					m_curChild = 0;
-				SetWindowText(m_hwnd, m_childArr[m_curChild]->getName());
+				SetWindowText(m_hwnd, m_childArr[m_curChild]->getTitle());
 				m_childArr[m_curChild]->Reshape(nWidth, nHight);
 				m_childArr[m_curChild]->Show();
 			}
 			break;
-		case VK_SPACE:
-			m_childArr[m_curChild]->Display();
-			break;
-		case 0x4D:
-			m_childArr[m_curChild]->keyboard('m', 0, 0);
-			break;
 		default:
+			m_childArr[m_curChild]->keyboard(wParam, 0, 0);
 			break;
 		}
 		break;

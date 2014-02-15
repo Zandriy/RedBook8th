@@ -33,7 +33,7 @@ public:
 	int getWidth() { return m_width; }
 	int getHeight() { return m_height; }
 
-	virtual void keyboard( unsigned char key, int x, int y ) {}
+	virtual void keyboard( unsigned char key, int x, int y );
 protected:
 	void Swap();
 	bool LoadGL();

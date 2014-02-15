@@ -206,6 +206,28 @@ bool OGLWindow::LoadGL()
 	 return m_glLoaded;
 }
 
+void OGLWindow::keyboard( unsigned char key, int x, int y ) 
+{
+	switch(key)
+	{
+	case VK_UP:
+		break;
+	case VK_DOWN:
+		break;
+	case VK_LEFT:
+		break;
+	case VK_RIGHT:
+		break;
+	case VK_INSERT:
+		break;
+	case VK_SPACE:
+		Display();
+		break;
+	default:
+		break;
+	}
+}
+
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
