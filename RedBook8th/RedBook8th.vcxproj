@@ -89,6 +89,7 @@
     <ClCompile Include="Examples\Ex06_10.cpp" />
     <ClCompile Include="Examples\Ex06_14.cpp" />
     <ClCompile Include="Examples\Ex06_16.cpp" />
+    <ClCompile Include="Examples\Ex06_18.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
     <ClCompile Include="main.cpp" />
@@ -118,6 +119,7 @@
     <ClInclude Include="Examples\Ex06_10.h" />
     <ClInclude Include="Examples\Ex06_14.h" />
     <ClInclude Include="Examples\Ex06_16.h" />
+    <ClInclude Include="Examples\Ex06_18.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
     <ClInclude Include="GL\LoadShaders.h" />
@@ -127,6 +129,8 @@
   <ItemGroup>
     <None Include="Shaders\gouraud.frag" />
     <None Include="Shaders\gouraud.vert" />
+    <None Include="Shaders\object_shader.frag" />
+    <None Include="Shaders\object_shader.vert" />
     <None Include="Shaders\pointsprites.fs.glsl" />
     <None Include="Shaders\pointsprites.vs.glsl" />
     <None Include="Shaders\primitive_restart.fs.glsl" />
@@ -151,6 +155,8 @@
     <None Include="Shaders\sh06_14.vert" />
     <None Include="Shaders\sh06_16.frag" />
     <None Include="Shaders\sh06_16.vert" />
+    <None Include="Shaders\skybox.frag" />
+    <None Include="Shaders\skybox.vert" />
     <None Include="Shaders\triangles.frag" />
     <None Include="Shaders\triangles.vert" />
   </ItemGroup>
