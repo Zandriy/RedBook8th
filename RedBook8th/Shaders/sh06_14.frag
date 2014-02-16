@@ -11,6 +11,4 @@
   void main(void)
   {
       color = texture(tex1, tex_coord0) + texture(tex2, tex_coord1);
-	  //tex1  = 1;
-      //color = texture(tex2, tex_coord0);
   }

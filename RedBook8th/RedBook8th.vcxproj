@@ -88,6 +88,7 @@
     <ClCompile Include="Examples\Ex06_04.cpp" />
     <ClCompile Include="Examples\Ex06_10.cpp" />
     <ClCompile Include="Examples\Ex06_14.cpp" />
+    <ClCompile Include="Examples\Ex06_16.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
     <ClCompile Include="main.cpp" />
@@ -116,6 +117,7 @@
     <ClInclude Include="Examples\Ex06_04.h" />
     <ClInclude Include="Examples\Ex06_10.h" />
     <ClInclude Include="Examples\Ex06_14.h" />
+    <ClInclude Include="Examples\Ex06_16.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
     <ClInclude Include="GL\LoadShaders.h" />
@@ -147,6 +149,8 @@
     <None Include="Shaders\sh06_02.vert" />
     <None Include="Shaders\sh06_14.frag" />
     <None Include="Shaders\sh06_14.vert" />
+    <None Include="Shaders\sh06_16.frag" />
+    <None Include="Shaders\sh06_16.vert" />
     <None Include="Shaders\triangles.frag" />
     <None Include="Shaders\triangles.vert" />
   </ItemGroup>
