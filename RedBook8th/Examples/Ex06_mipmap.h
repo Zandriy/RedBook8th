@@ -1,23 +1,22 @@
 /*
-* Ex06_mip_filters.h
+* Ex06_mipmap.h
 *
 * Created on: Feb 16, 2014
 * Author: Andrew Zhabura
 */
 
-#ifndef Ex06_mip_filters_h
-#define Ex06_mip_filters_h
+#ifndef Ex06_mipmap_h
+#define Ex06_mipmap_h
 
 #include "WinApi/OGLWindow.h"
 #include <GL/glLoader.h>
 
-class Ex06_mip_filters : public OGLWindow
+class Ex06_mipmap : public OGLWindow
 {
 public:
-	Ex06_mip_filters();
-	~Ex06_mip_filters();
+	Ex06_mipmap();
+	~Ex06_mipmap();
 	void InitGL();
-	virtual void keyboard( unsigned char key, int x, int y );
 private:
 	void Display();
 
@@ -31,4 +30,4 @@ private:
 	GLint tc_rotate_loc;
 };
 
-#endif // Ex06_mip_filters_h
+#endif // Ex06_mipmap_h

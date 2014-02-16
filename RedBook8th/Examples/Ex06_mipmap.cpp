@@ -1,22 +1,22 @@
 /*
-* Ex06_mip_filters.cpp
+* Ex06_mipmap.cpp
 *
 * Created on: Feb 16, 2014
 * Author: Andrew Zhabura
 */
 
-#include "Ex06_mip_filters.h"
+#include "Ex06_mipmap.h"
 
 #include "GL/LoadShaders.h"
 #include "Auxiliary/vmath.h"
 #include "Auxiliary/vermilion.h"
 
-Ex06_mip_filters::Ex06_mip_filters()
-	: OGLWindow("Example06_mip_filters", "Example 6.mip_filters (M)")
+Ex06_mipmap::Ex06_mipmap()
+	: OGLWindow("Example06_mipmap", "Example 6.mipmap")
 {
 }
 
-Ex06_mip_filters::~Ex06_mip_filters()
+Ex06_mipmap::~Ex06_mipmap()
 {
 	glUseProgram(0);
 	glDeleteProgram(mipmap_prog);
@@ -24,7 +24,7 @@ Ex06_mip_filters::~Ex06_mip_filters()
 	glDeleteVertexArrays(1, &tex);
 }
 
-void Ex06_mip_filters::InitGL()
+void Ex06_mipmap::InitGL()
 {
 	if (! LoadGL() )
 		return;
@@ -89,30 +89,25 @@ void Ex06_mip_filters::InitGL()
 
 	unsigned int colors[] = { 0xFF0000FF, 0xFF00FF00, 0xFFFF0000, 0xFF00FFFF, 0xFFFF00FF, 0xFFFFFF00, 0xFFFFFFFF };
 
-	int i, j, k;
-	int n;
+	int i, j;
 
 	for (i = 0; i < 7; i++)
 	{
-		n = 0;
-		for (j = 0; j < (64 >> i); j++)
+		for (j = 0; j < 64 * 64; j++)
 		{
-			for (k = 0; k < (64 >> i); k++)
-			{
-				data[n] = (k ^ (64 - j)) * 0x04040404;
-				n++;
-			}
+			data[j] = colors[i];
 		}
 		glTexSubImage2D(GL_TEXTURE_2D, i, 0, 0, 64 >> i, 64 >> i, GL_RGBA, GL_UNSIGNED_BYTE, data);
 	}
 
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_LOD_BIAS, 4.5f);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 	delete [] data;
 }
 
-void Ex06_mip_filters::Display()
+void Ex06_mipmap::Display()
 {
 	static const vmath::vec3 X(1.0f, 0.0f, 0.0f);
 	static const vmath::vec3 Y(0.0f, 1.0f, 0.0f);
@@ -138,40 +133,8 @@ void Ex06_mip_filters::Display()
 	glBindVertexArray(vao);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer);
 
-	static int t = -1;
-	++t;
-
-	switch (t)
-	{
-	case 0:
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
-		break;
-	case 1:
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
-		break;
-	case 2:
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
-		break;
-	default:
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-		t = -1;
-		break;
-	}
-
 	glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, NULL);
 	glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, BUFFER_OFFSET(8 * sizeof(GLushort)));
 
 	glFlush();
-}
-
-void Ex06_mip_filters::keyboard( unsigned char key, int x, int y )
-{
-	switch( key ) {
-	case 'M':
-		Display();
-		break;
-	default:
-		OGLWindow::keyboard(key, x, y);
-		break;
-	}
 }

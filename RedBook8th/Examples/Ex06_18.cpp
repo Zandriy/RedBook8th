@@ -12,7 +12,7 @@
 #include "Auxiliary/vermilion.h"
 
 Ex06_18::Ex06_18()
-	: OGLWindow("Example06_18", "Example 6.18")
+	: OGLWindow("Example06_18", "Example 6.18 (M)")
 {
 }
 
