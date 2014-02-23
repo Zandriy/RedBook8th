@@ -90,6 +90,7 @@
     <ClCompile Include="Examples\Ex06_14.cpp" />
     <ClCompile Include="Examples\Ex06_16.cpp" />
     <ClCompile Include="Examples\Ex06_29.cpp" />
+    <ClCompile Include="Examples\Ex06_30.cpp" />
     <ClCompile Include="Examples\Ex06_mipmap.cpp" />
     <ClCompile Include="Examples\Ex06_mip_filters.cpp" />
     <ClCompile Include="Examples\Ex06_18.cpp" />
@@ -123,6 +124,7 @@
     <ClInclude Include="Examples\Ex06_14.h" />
     <ClInclude Include="Examples\Ex06_16.h" />
     <ClInclude Include="Examples\Ex06_29.h" />
+    <ClInclude Include="Examples\Ex06_30.h" />
     <ClInclude Include="Examples\Ex06_mipmap.h" />
     <ClInclude Include="Examples\Ex06_mip_filters.h" />
     <ClInclude Include="Examples\Ex06_18.h" />
