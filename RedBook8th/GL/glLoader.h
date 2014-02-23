@@ -11,6 +11,11 @@
 #define GL_GLEXT_PROTOTYPES 1
 #include "glcorearb.h"
 
+#ifndef GL_POINT_SPRITE
+#define GL_POINT_SPRITE 0x8861 
+#endif
+
+
 #pragma comment(lib,"OpenGL32.lib")
 //#pragma comment(lib,"glu32.lib")
 
@@ -84,8 +89,10 @@ extern "C" {
 #define glPointParameteri			pglPointParameteri
 #define glPointParameteriv			pglPointParameteriv
 #define glBlendColor				pglBlendColor
-#define glBlendEquation				pglBlendEquation
-	int GL_1_4_LoadFuncPointers();
+#define glBlendEquation				pglBlendEquation
+
+	int GL_1_4_LoadFuncPointers();
+
 
 	/////////////////////////////// GL_VERSION_1_5 ////////////////////////////////
 

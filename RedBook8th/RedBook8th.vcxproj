@@ -89,6 +89,7 @@
     <ClCompile Include="Examples\Ex06_10.cpp" />
     <ClCompile Include="Examples\Ex06_14.cpp" />
     <ClCompile Include="Examples\Ex06_16.cpp" />
+    <ClCompile Include="Examples\Ex06_29.cpp" />
     <ClCompile Include="Examples\Ex06_mipmap.cpp" />
     <ClCompile Include="Examples\Ex06_mip_filters.cpp" />
     <ClCompile Include="Examples\Ex06_18.cpp" />
@@ -121,6 +122,7 @@
     <ClInclude Include="Examples\Ex06_10.h" />
     <ClInclude Include="Examples\Ex06_14.h" />
     <ClInclude Include="Examples\Ex06_16.h" />
+    <ClInclude Include="Examples\Ex06_29.h" />
     <ClInclude Include="Examples\Ex06_mipmap.h" />
     <ClInclude Include="Examples\Ex06_mip_filters.h" />
     <ClInclude Include="Examples\Ex06_18.h" />
@@ -139,6 +141,8 @@
     <None Include="Shaders\object_shader.vert" />
     <None Include="Shaders\pointsprites.fs.glsl" />
     <None Include="Shaders\pointsprites.vs.glsl" />
+    <None Include="Shaders\pointsprites_sphere.fs.glsl" />
+    <None Include="Shaders\pointsprites_sphere.vs.glsl" />
     <None Include="Shaders\primitive_restart.fs.glsl" />
     <None Include="Shaders\primitive_restart.vs.glsl" />
     <None Include="Shaders\sh02_04.frag" />

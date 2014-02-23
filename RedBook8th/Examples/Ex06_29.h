@@ -1,17 +1,17 @@
 /*
-* Ex03_02.h
+* Ex06_29.h
 *
-* Created on: Feb 02, 2014
+* Created on: Feb 21, 2014
 * Author: Andrew Zhabura
 */
 
-#ifndef Ex03_02_h
-#define Ex03_02_h
+#ifndef Ex06_29_h
+#define Ex06_29_h
 
 #include "WinApi/OGLWindow.h"
 #include <GL/glLoader.h>
 
-class Ex03_02 : public OGLWindow
+class Ex06_29 : public OGLWindow
 {
 private:
  	GLuint render_prog;
@@ -22,11 +22,11 @@ private:
  	GLint render_model_matrix_loc;
  	GLint render_projection_matrix_loc;
 public:
-	Ex03_02();
+	Ex06_29();
 	void InitGL();
 	virtual void keyboard( unsigned char key, int x, int y );
 private:
 	void Display();
 };
 
-#endif // Ex03_02_h
+#endif // Ex06_29_h

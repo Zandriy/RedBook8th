@@ -64,8 +64,10 @@ PFNGLPOINTPARAMETERFVPROC		pglPointParameterfv = 0;
 PFNGLPOINTPARAMETERIPROC			pglPointParameteri = 0;
 PFNGLPOINTPARAMETERIVPROC		pglPointParameteriv = 0;
 PFNGLBLENDCOLORPROC				pglBlendColor = 0;
-PFNGLBLENDEQUATIONPROC			pglBlendEquation = 0;
-int GL_1_4_LoadFuncPointers()
+PFNGLBLENDEQUATIONPROC			pglBlendEquation = 0;
+
+int GL_1_4_LoadFuncPointers()
+
 {
 	glBlendFuncSeparate	= (PFNGLBLENDFUNCSEPARATEPROC)wglGetProcAddress("glBlendFuncSeparate");
 	glMultiDrawArrays	= (PFNGLMULTIDRAWARRAYSPROC)wglGetProcAddress("glMultiDrawArrays");
@@ -75,9 +77,12 @@ int GL_1_4_LoadFuncPointers()
 	glPointParameteri	= (PFNGLPOINTPARAMETERIPROC)wglGetProcAddress("glPointParameteri");
 	glPointParameteriv	= (PFNGLPOINTPARAMETERIVPROC)wglGetProcAddress("glPointParameteriv");
 	glBlendColor		= (PFNGLBLENDCOLORPROC)wglGetProcAddress("glBlendColor");
-	glBlendEquation		= (PFNGLBLENDEQUATIONPROC)wglGetProcAddress("glBlendEquation");
+	glBlendEquation		= (PFNGLBLENDEQUATIONPROC)wglGetProcAddress("glBlendEquation");
+
 	return (glBlendFuncSeparate && glMultiDrawArrays && glMultiDrawElements /*&& glPointParameter*/ && glPointParameterfv && 
-		glPointParameteri && glPointParameteriv && glBlendColor && glBlendEquation) ? 1 : 0;}
+		glPointParameteri && glPointParameteriv && glBlendColor && glBlendEquation) ? 1 : 0;
+}
+
 
 /////////////////////////////// GL_VERSION_1_5 ////////////////////////////////
 

@@ -1,20 +1,20 @@
 /*
-* Ex03_02.cpp
+* Ex06_29.cpp
 *
-* Created on: Feb 02, 2014
+* Created on: Feb 21, 2014
 * Author: Andrew Zhabura
 */
 
-#include "Ex03_02.h"
+#include "Ex06_29.h"
 
 #include "GL/LoadShaders.h"
 #include "Auxiliary/vmath.h"
 #include "Auxiliary/libtarga.h"
 
-#define POINT_COUNT 400
+#define POINT_COUNT 25
 
-Ex03_02::Ex03_02()
-	: OGLWindow("Example03_02", "Example 3.2 (M)")
+Ex06_29::Ex06_29()
+	: OGLWindow("Example06_29", "Example 6.29 (M)")
 {
 }
 
@@ -33,31 +33,15 @@ static inline float random_float()
 	return (res - 1.0f);
 }
 
-void Ex03_02::InitGL()
+void Ex06_29::InitGL()
 {
 	if (! LoadGL() )
 		return;
 
-	GLenum format;
-	int width, height;
-	unsigned char * data;
-
-	glGenTextures(1, &sprite_texture);
-	glBindTexture(GL_TEXTURE_2D, sprite_texture);
-
-	data = (unsigned char *)(tga_load("Media/sprite.tga", &width, &height, TGA_TRUECOLOR_32));
-	format = GL_RGBA;
-
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-
-	delete [] data;
-
-	glGenerateMipmap(GL_TEXTURE_2D);
-
 	static ShaderInfo shader_info[] =
 	{
-		{ GL_VERTEX_SHADER, "Shaders/pointsprites.vs.glsl", 0 },
-		{ GL_FRAGMENT_SHADER, "Shaders/pointsprites.fs.glsl", 0 },
+		{ GL_VERTEX_SHADER, "Shaders/pointsprites_sphere.vs.glsl", 0 },
+		{ GL_FRAGMENT_SHADER, "Shaders/pointsprites_sphere.fs.glsl", 0 },
 		{ GL_NONE, NULL, 0 }
 	};
 
@@ -83,7 +67,7 @@ void Ex03_02::InitGL()
 	vertex_positions = (vmath::vec4 *)glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
 	for (int n = 0; n < POINT_COUNT; n++)
 	{
-		vertex_positions[n] = vmath::vec4(random_float() * 2.0f - 1.0f, random_float() * 2.0f - 1.0f, random_float() * 2.0f - 1.0f, 1.0f);
+		vertex_positions[n] = vmath::vec4(random_float() * 1.5f - 1.0f, random_float() * 2.5f - 1.0f, random_float() * 2.0f - 1.0f, 1.0f);
 	}
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
@@ -91,16 +75,16 @@ void Ex03_02::InitGL()
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (const GLvoid *)sizeof(vertex_positions));
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
-
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-
+	
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_ONE, GL_ONE);
 	glEnable(GL_PROGRAM_POINT_SIZE);
 	glEnable(GL_POINT_SPRITE);
+
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
-void Ex03_02::Display()
+void Ex06_29::Display()
 {
 	float t = float(GetTickCount() & 0x1FFF) / float(0x1FFF);
 	static float q = 0.0f;
@@ -134,11 +118,11 @@ void Ex03_02::Display()
 	glFlush();
 }
 
-void Ex03_02::keyboard( unsigned char key, int x, int y )
+void Ex06_29::keyboard( unsigned char key, int x, int y )
 {
 	switch( key ) {
 	case 'M': 
-		for (int i = 0; i < 100; ++i)
+		for (int i = 0; i < 200; ++i)
 			Display();
 		break;
 	default:

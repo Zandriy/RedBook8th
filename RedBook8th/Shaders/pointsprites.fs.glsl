@@ -6,6 +6,5 @@ out vec4 color;
 
 void main(void)
 {
-    //color = texture(sprite_texture, vec2(gl_PointCoord.x, 1.0 - gl_PointCoord.y));
-    color = texture(sprite_texture, vec2(gl_PointCoord.x+0.5, gl_PointCoord.y+0.5));
+    color = texture(sprite_texture, vec2(gl_PointCoord.x, 1.0 - gl_PointCoord.y));
 }

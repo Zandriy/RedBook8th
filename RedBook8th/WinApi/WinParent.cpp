@@ -29,8 +29,9 @@
 #include "Examples/Ex06_18.h"
 #include "Examples/Ex06_mipmap.h"
 #include "Examples/Ex06_mip_filters.h"
+#include "Examples/Ex06_29.h"
 
-#define EXAMPLES_QTY 21
+#define EXAMPLES_QTY 22
 #define CUR_EXAMPLE EXAMPLES_QTY-1
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -205,6 +206,8 @@ int WinParent::InitChilds(int nCmdShow)
 	child = new Ex06_mipmap;
 	InitChild(child, r);
 	child = new Ex06_mip_filters;
+	InitChild(child, r);
+	child = new Ex06_29;
 	InitChild(child, r);
 
 	if (m_childArr.size() != EXAMPLES_QTY)
