@@ -11,7 +11,7 @@ uniform Uniforms {
 };
 
 in vec2 vPos;
-in vec3 vColor;
+
 out vec4 fColor;
 
 void main()
