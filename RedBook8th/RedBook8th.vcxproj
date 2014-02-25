@@ -95,6 +95,7 @@
     <ClCompile Include="Examples\Ex06_mip_filters.cpp" />
     <ClCompile Include="Examples\Ex06_18.cpp" />
     <ClCompile Include="Examples\Ex07_01.cpp" />
+    <ClCompile Include="Examples\Ex07_02.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
     <ClCompile Include="main.cpp" />
@@ -130,6 +131,7 @@
     <ClInclude Include="Examples\Ex06_mip_filters.h" />
     <ClInclude Include="Examples\Ex06_18.h" />
     <ClInclude Include="Examples\Ex07_01.h" />
+    <ClInclude Include="Examples\Ex07_02.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
     <ClInclude Include="GL\LoadShaders.h" />
@@ -171,6 +173,8 @@
     <None Include="Shaders\sh06_16.vert" />
     <None Include="Shaders\sh07_01.frag" />
     <None Include="Shaders\sh07_01.vert" />
+    <None Include="Shaders\sh07_02.frag" />
+    <None Include="Shaders\sh07_02.vert" />
     <None Include="Shaders\skybox.frag" />
     <None Include="Shaders\skybox.vert" />
     <None Include="Shaders\triangles.frag" />
