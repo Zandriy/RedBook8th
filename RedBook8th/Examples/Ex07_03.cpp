@@ -57,6 +57,7 @@ void Ex07_03::InitGL()
 	glUniform1f(object_Shininess_loc, 20.0f);
 	glUniform1f(object_Strength_loc, 10.5f);
 
+
 	object.LoadFromVBM("Media/torus.vbm", 0, 1, 2);
 }
 
