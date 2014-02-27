@@ -97,6 +97,7 @@
     <ClCompile Include="Examples\Ex07_01.cpp" />
     <ClCompile Include="Examples\Ex07_02.cpp" />
     <ClCompile Include="Examples\Ex07_03.cpp" />
+    <ClCompile Include="Examples\Ex07_04.cpp" />
     <ClCompile Include="Examples\ExTest.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
@@ -135,6 +136,7 @@
     <ClInclude Include="Examples\Ex07_01.h" />
     <ClInclude Include="Examples\Ex07_02.h" />
     <ClInclude Include="Examples\Ex07_03.h" />
+    <ClInclude Include="Examples\Ex07_04.h" />
     <ClInclude Include="Examples\ExTest.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
@@ -181,6 +183,8 @@
     <None Include="Shaders\sh07_02.vert" />
     <None Include="Shaders\sh07_03.frag" />
     <None Include="Shaders\sh07_03.vert" />
+    <None Include="Shaders\sh07_04.frag" />
+    <None Include="Shaders\sh07_04.vert" />
     <None Include="Shaders\shTest.frag" />
     <None Include="Shaders\shTest.vert" />
     <None Include="Shaders\skybox.frag" />
