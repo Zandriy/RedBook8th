@@ -100,7 +100,7 @@ void Ex06_18::InitGL()
 
 void Ex06_18::Display()
 {
-	static const unsigned int start_time = GetTickCount() - 10000;
+	static const unsigned int start_time = GetTickCount() - 50000;
 	float t = float((GetTickCount() - start_time)) / float(0x3FFF);
 	static const vmath::vec3 X(1.0f, 0.0f, 0.0f);
 	static const vmath::vec3 Y(0.0f, 1.0f, 0.0f);

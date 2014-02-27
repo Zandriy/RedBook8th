@@ -70,13 +70,7 @@ void Ex07_04::InitGL()
 
 	glUniformMatrix3fv(object_mat_normal_loc, 1, GL_TRUE, normal_matrix);
 
-	GLfloat EyeDirection_matrix[3 * 3] = {
-		0.5f, 0.0f, 0.0f,
-		0.0f, 0.5f, 0.0f,
-		0.0f, 0.0f, -1.0f
-	};
-
-	glUniformMatrix3fv(EyeDirection_loc, 1, GL_TRUE, EyeDirection_matrix);
+	glUniform3fv(EyeDirection_loc, 1, vmath::vec3(-0.5f, -0.5f, 1.0f));
 	glUniform1f(ConstantAttenuation_loc, 0.5f);
 	glUniform1f(LinearAttenuation_loc, 0.01f);
 	glUniform1f(QuadraticAttenuation_loc, 0.001f);
@@ -86,7 +80,7 @@ void Ex07_04::InitGL()
 
 void Ex07_04::Display()
 {
-	static const unsigned int start_time = GetTickCount() - 10000;
+	static const unsigned int start_time = GetTickCount() - 50000;
 	float t = float((GetTickCount() - start_time)) / float(0x3FFF);
 	static const vmath::vec3 X(1.0f, 0.0f, 0.0f);
 	static const vmath::vec3 Y(0.0f, 1.0f, 0.0f);
