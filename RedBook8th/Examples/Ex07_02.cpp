@@ -43,8 +43,8 @@ void Ex07_02::InitGL()
 	GLuint object_ambient_loc = glGetUniformLocation(object_prog, "Ambient");
 
 	glUseProgram(object_prog);	
-	glUniform4fv(object_color_loc, 1, vmath::vec4(0.5f, 0.5f, 0.5f, 0.5f));
-	glUniform4fv(object_ambient_loc, 1, vmath::vec4(1.0f, 1.0f, 2.0f, 1.0f));
+	glUniform4fv(object_color_loc, 1, vmath::vec4(0.5f, 0.5f, 0.7f, 0.7f));
+	glUniform4fv(object_ambient_loc, 1, vmath::vec4(0.2f, 0.2f, 0.5f, 1.0f));
 
 	object.LoadFromVBM("Media/torus.vbm", 0, 1, 2);
 }

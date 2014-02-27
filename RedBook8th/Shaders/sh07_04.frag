@@ -2,8 +2,7 @@
 
 uniform vec3 Ambient; // sets lighting level, same across many vertices
 uniform vec3 LightColor;
-uniform vec3 LightDirection; // direction toward the light
-uniform vec3 HalfVector; // surface orientation for shiniest spots
+uniform vec3 LightPosition; // location of the light, eye space
 uniform float Shininess; // exponent for sharping highlights
 uniform float Strength; // extra factor to adjust shininess
 
@@ -37,14 +36,15 @@ void main()
 			
 	// the direction of maximum highlight also changes per fragment
 	vec3 halfVector = normalize(lightDirection + EyeDirection);
+
 	float diffuse = max(0.0, dot(Normal, lightDirection));
 	float specular = max(0.0, dot(Normal, halfVector));
-	
+
 	if (diffuse == 0.0)
 		specular = 0.0;
 	else
 		specular = pow(specular, Shininess) * Strength;
-	
+
 	vec3 scatteredLight = Ambient + LightColor * diffuse * attenuation;
 	vec3 reflectedLight = LightColor * specular * attenuation;
 	vec3 rgb = min(Color.rgb * scatteredLight + reflectedLight, vec3(1.0));

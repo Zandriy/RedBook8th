@@ -42,7 +42,7 @@ void Ex07_01::InitGL()
 	GLuint object_color_loc = glGetUniformLocation(object_prog, "VertexColor");
 
 	glUseProgram(object_prog);	
-	glUniform4fv(object_color_loc, 1, vmath::vec4(0.5f, 0.5f, 0.5f, 0.5f));
+	glUniform4fv(object_color_loc, 1, vmath::vec4(0.5f, 0.5f, 0.7f, 0.7f));
 
 	object.LoadFromVBM("Media/torus.vbm", 0, 1, 2);
 }

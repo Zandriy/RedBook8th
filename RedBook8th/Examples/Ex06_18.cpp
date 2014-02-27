@@ -133,7 +133,7 @@ void Ex06_18::Display()
 
 	glUseProgram(object_prog);
 
-	tc_matrix = vmath::translate(vmath::vec3(0.0f, 0.0f, -50.0f)) *
+	tc_matrix = vmath::translate(vmath::vec3(0.0f, 0.0f, -70.0f)) *
 		vmath::rotate(80.0f * 3.0f * t, Y) * vmath::rotate(50.0f * 3.0f * t, Z);
 
 	glUniformMatrix4fv(object_mat_mv_loc, 1, GL_FALSE, tc_matrix);
@@ -151,7 +151,7 @@ void Ex06_18::keyboard( unsigned char key, int x, int y )
 {
 	switch( key ) {
 	case 'M': 
-		for (int i = 0; i < 5000; ++i)
+		for (int i = 0; i < c_repeat; ++i)
 			Display();
 		break;
 	default:

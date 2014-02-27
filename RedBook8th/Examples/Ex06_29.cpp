@@ -122,7 +122,7 @@ void Ex06_29::keyboard( unsigned char key, int x, int y )
 {
 	switch( key ) {
 	case 'M': 
-		for (int i = 0; i < 200; ++i)
+		for (int i = 0; i < c_repeat; ++i)
 			Display();
 		break;
 	default:

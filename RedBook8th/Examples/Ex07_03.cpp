@@ -49,9 +49,9 @@ void Ex07_03::InitGL()
 	GLuint object_mat_normal_loc = glGetUniformLocation(object_prog, "NormalMatrix");
 
 	glUseProgram(object_prog);	
-	glUniform4fv(object_color_loc, 1, vmath::vec4(0.5f, 0.5f, 0.5f, 0.5f));
-	glUniform3fv(object_ambient_loc, 1, vmath::vec3(0.2f, 0.2f, 0.2f));
-	glUniform3fv(object_LightColor_loc, 1, vmath::vec3(1.0f, 1.0f, 1.0f));
+	glUniform4fv(object_color_loc, 1, vmath::vec4(0.5f, 0.5f, 0.7f, 0.7f));
+	glUniform3fv(object_ambient_loc, 1, vmath::vec3(0.2f, 0.2f, 0.5f));
+	glUniform3fv(object_LightColor_loc, 1, vmath::vec3(0.3f, 0.3f, 1.0f));
 	glUniform3fv(object_LightDirection_loc, 1, vmath::vec3(0.5f, 0.5f, -1.0f));
 	glUniform3fv(object_HalfVector_loc, 1, vmath::vec3(1.0f, 1.0f, 0.0f));
 	glUniform1f(object_Shininess_loc, 20.0f);

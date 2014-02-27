@@ -37,6 +37,8 @@ public:
 protected:
 	void Swap();
 	bool LoadGL();
+
+	static const int c_repeat = 1000;
 private:
 	BOOL InitWindowClass(HINSTANCE hInstance);
 	HWND InitInstance(HINSTANCE hInstance, HWND hParent, bool doubleBuf, int x, int y, int w, int h);
