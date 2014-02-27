@@ -7,30 +7,47 @@ uniform vec3 HalfVector; // surface orientation for shiniest spots
 uniform float Shininess; // exponent for sharping highlights
 uniform float Strength; // extra factor to adjust shininess
 
+uniform vec3 EyeDirection;
+uniform float ConstantAttenuation; // attenuation coefficients
+uniform float LinearAttenuation;
+uniform float QuadraticAttenuation;
+
 in vec4 Color;
 in vec3 Normal; // surface normal, interpolated between vertices
+in vec4 Position;
 
 out vec4 FragColor;
 
 void main()
 {
-	// compute cosine of the directions, using dot products,
-	// to see how much light would be reflected
-	float diffuse = max(0.0, dot(Normal, LightDirection));
-	float specular = max(0.0, dot(Normal, HalfVector));
+	// find the direction and distance of the light,
+	// which changes fragment to fragment for a local light
+	vec3 lightDirection = LightPosition - vec3(Position);
+	float lightDistance = length(lightDirection);
 	
-	// surfaces facing away from the light (negative dot products)
-	// won’t be lit by the directional light
+	// normalize the light direction vector, so
+	// that a dot products give cosines
+	lightDirection = lightDirection / lightDistance;
+	
+	// model how much light is available for this fragment
+	float attenuation = 1.0 /
+			(ConstantAttenuation +
+			LinearAttenuation * lightDistance +
+			QuadraticAttenuation * lightDistance * lightDistance);
+			
+	// the direction of maximum highlight also changes per fragment
+	vec3 halfVector = normalize(lightDirection + EyeDirection);
+	float diffuse = max(0.0, dot(Normal, lightDirection));
+	float specular = max(0.0, dot(Normal, halfVector));
+	
 	if (diffuse == 0.0)
 		specular = 0.0;
 	else
-		specular = pow(specular, Shininess); // sharpen the highlight
+		specular = pow(specular, Shininess) * Strength;
 	
-	vec3 scatteredLight = Ambient + LightColor * diffuse;
-	vec3 reflectedLight = LightColor * specular * Strength;
-	
-	// don’t modulate the underlying color with reflected light,
-	// only with scattered light
+	vec3 scatteredLight = Ambient + LightColor * diffuse * attenuation;
+	vec3 reflectedLight = LightColor * specular * attenuation;
 	vec3 rgb = min(Color.rgb * scatteredLight + reflectedLight, vec3(1.0));
+	
 	FragColor = vec4(rgb, Color.a);
 }

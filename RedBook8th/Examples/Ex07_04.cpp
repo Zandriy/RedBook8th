@@ -38,6 +38,7 @@ void Ex07_04::InitGL()
 	glLinkProgram(object_prog);
 
 	object_mat_mvp_loc = glGetUniformLocation(object_prog, "MVPMatrix");
+	object_mat_mv_loc = glGetUniformLocation(object_prog, "MVMatrix");
 
 	GLuint object_color_loc = glGetUniformLocation(object_prog, "VertexColor");
 	GLuint object_ambient_loc = glGetUniformLocation(object_prog, "Ambient");
@@ -47,6 +48,12 @@ void Ex07_04::InitGL()
 	GLuint object_Shininess_loc = glGetUniformLocation(object_prog, "Shininess");
 	GLuint object_Strength_loc = glGetUniformLocation(object_prog, "Strength");
 	GLuint object_mat_normal_loc = glGetUniformLocation(object_prog, "NormalMatrix");
+
+
+	GLuint EyeDirection_loc = glGetUniformLocation(object_prog, "EyeDirection");
+	GLuint ConstantAttenuation_loc = glGetUniformLocation(object_prog, "ConstantAttenuation");
+	GLuint LinearAttenuation_loc = glGetUniformLocation(object_prog, "LinearAttenuation");
+	GLuint QuadraticAttenuation_loc = glGetUniformLocation(object_prog, "QuadraticAttenuation");
 
 	glUseProgram(object_prog);	
 	glUniform4fv(object_color_loc, 1, vmath::vec4(0.5f, 0.5f, 0.5f, 0.5f));
@@ -64,6 +71,18 @@ void Ex07_04::InitGL()
 	};
 
 	glUniformMatrix3fv(object_mat_normal_loc, 1, GL_TRUE, normal_matrix);
+
+
+	GLfloat EyeDirection_matrix[3 * 3] = {
+		0.5f, 0.0f, 0.0f,
+		0.0f, 0.5f, 0.0f,
+		0.0f, 0.0f, 1.0f
+	};
+
+	glUniformMatrix3fv(EyeDirection_loc, 1, GL_TRUE, EyeDirection_matrix);
+	glUniform1f(ConstantAttenuation_loc, 0.7f);
+	glUniform1f(LinearAttenuation_loc, 0.7f);
+	glUniform1f(QuadraticAttenuation_loc, 0.7f);
 
 	object.LoadFromVBM("Media/torus.vbm", 0, 1, 2);
 }
@@ -93,7 +112,7 @@ void Ex07_04::Display()
 	tc_matrix = vmath::translate(vmath::vec3(0.0f, 0.0f, -70.0f)) *
 		vmath::rotate(80.0f * 3.0f * t, Y) * vmath::rotate(50.0f * 3.0f * t, Z);
 
-	//glUniformMatrix4fv(object_mat_mv_loc, 1, GL_FALSE, tc_matrix);
+	glUniformMatrix4fv(object_mat_mv_loc, 1, GL_FALSE, tc_matrix);
 
 	tc_matrix = vmath::perspective(35.0f, 1.0f / aspect, 0.1f, 100.0f) * tc_matrix;
 	glUniformMatrix4fv(object_mat_mvp_loc, 1, GL_FALSE, tc_matrix);
