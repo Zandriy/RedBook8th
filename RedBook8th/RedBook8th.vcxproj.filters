@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="GL\glLoader.c" />
+    <ClCompile Include="GL\LoadShaders.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="WinApi\OGLWindow.cpp" />
+    <ClCompile Include="WinApi\WinParent.cpp" />
+    <ClCompile Include="Examples\Ex01.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex02_04.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex03_01.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex03_05.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex03_07.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex03_10.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex03_11.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex03_14.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex03_02.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex04_01.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex04_02.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex05_09.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex06_04.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex06_02.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex06_03.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Auxiliary\libtarga.cpp">
+      <Filter>Auxiliary</Filter>
+    </ClCompile>
+    <ClCompile Include="Auxiliary\vbm.cpp">
+      <Filter>Auxiliary</Filter>
+    </ClCompile>
+    <ClCompile Include="Auxiliary\loadtexture.cpp">
+      <Filter>Auxiliary</Filter>
+    </ClCompile>
+    <ClCompile Include="Auxiliary\vdds.cpp">
+      <Filter>Auxiliary</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex06_10.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex06_14.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex06_16.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex06_mip_filters.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex06_18.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex06_mipmap.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex06_29.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex06_30.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex07_01.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex07_02.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex07_03.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\ExTest.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex07_04.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex07_05.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex07_06.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex07_08.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GL\glcorearb.h" />
+    <ClInclude Include="GL\glLoader.h" />
+    <ClInclude Include="GL\LoadShaders.h" />
+    <ClInclude Include="WinApi\OGLWindow.h" />
+    <ClInclude Include="WinApi\WinParent.h" />
+    <ClInclude Include="Examples\Ex01.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex02_04.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex03_01.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex03_05.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex03_07.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex03_10.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex03_11.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex03_14.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex03_02.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex04_01.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex04_02.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex05_09.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex06_04.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex06_02.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex06_03.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Auxiliary\libtarga.h">
+      <Filter>Auxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="Auxiliary\vbm.h">
+      <Filter>Auxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="Auxiliary\vmath.h">
+      <Filter>Auxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="Auxiliary\vermilion.h">
+      <Filter>Auxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex06_10.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex06_14.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex06_16.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex06_mip_filters.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex06_18.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex06_mipmap.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex06_29.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex06_30.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex07_01.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex07_02.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex07_03.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\ExTest.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex07_04.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex07_05.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex07_06.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex07_08.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\primitive_restart.fs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\primitive_restart.vs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh02_04.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh02_04.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh03_01.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh03_01.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\triangles.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\triangles.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh03_10.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh03_10.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh03_11.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh03_11.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh03_14.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh03_14.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\pointsprites.fs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\pointsprites.vs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\gouraud.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\gouraud.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh05_08.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh05_08.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh05_10.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh05_10.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh06_02.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh06_02.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh06_14.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh06_14.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh06_16.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh06_16.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\object_shader.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\object_shader.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\skybox.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\skybox.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\mip_filters.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\mip_filters.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\pointsprites_sphere.fs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\pointsprites_sphere.vs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_01.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_01.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_02.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_02.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_03.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_03.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\shTest.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\shTest.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_04.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_04.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_05.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_05.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_06.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_06.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_08.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_08.vert">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{f6fbb6ca-6e73-4028-8cac-588a7a211823}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Examples">
+      <UniqueIdentifier>{83e1c73d-ff99-493c-ba97-20e3cd0bddab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Auxiliary">
+      <UniqueIdentifier>{01f1ec12-a041-4c0e-8a53-cc51e02303ae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
