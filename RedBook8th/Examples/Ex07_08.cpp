@@ -39,26 +39,27 @@ void Ex07_08::InitGL()
 
 	object_mat_mvp_loc = glGetUniformLocation(object_prog, "MVPMatrix");
 	object_mat_mv_loc = glGetUniformLocation(object_prog, "MVMatrix");
-
+	GLuint object_mat_normal_loc = glGetUniformLocation(object_prog, "NormalMatrix");
 	GLuint object_color_loc = glGetUniformLocation(object_prog, "VertexColor");
-	GLuint object_ambient_loc = glGetUniformLocation(object_prog, "Ambient");
-	GLuint object_LightColor_loc = glGetUniformLocation(object_prog, "LightColor");
-	GLuint object_LightPosition_loc = glGetUniformLocation(object_prog, "LightPosition");
+
+//	GLuint object_ambient_loc = glGetUniformLocation(object_prog, "Ambient");
+//	GLuint object_LightColor_loc = glGetUniformLocation(object_prog, "LightColor");
+//	GLuint object_LightPosition_loc = glGetUniformLocation(object_prog, "LightPosition");
 	GLuint object_Shininess_loc = glGetUniformLocation(object_prog, "Shininess");
 	GLuint object_Strength_loc = glGetUniformLocation(object_prog, "Strength");
-	GLuint object_mat_normal_loc = glGetUniformLocation(object_prog, "NormalMatrix");
+	
+// 	uniform LightProperties Lights[MaxLights];
 
-
-	GLuint EyeDirection_loc = glGetUniformLocation(object_prog, "EyeDirection");
-	GLuint ConstantAttenuation_loc = glGetUniformLocation(object_prog, "ConstantAttenuation");
-	GLuint LinearAttenuation_loc = glGetUniformLocation(object_prog, "LinearAttenuation");
-	GLuint QuadraticAttenuation_loc = glGetUniformLocation(object_prog, "QuadraticAttenuation");
+ 	GLuint EyeDirection_loc = glGetUniformLocation(object_prog, "EyeDirection");
+// 	GLuint ConstantAttenuation_loc = glGetUniformLocation(object_prog, "ConstantAttenuation");
+// 	GLuint LinearAttenuation_loc = glGetUniformLocation(object_prog, "LinearAttenuation");
+// 	GLuint QuadraticAttenuation_loc = glGetUniformLocation(object_prog, "QuadraticAttenuation");
 
 	glUseProgram(object_prog);	
 	glUniform4fv(object_color_loc, 1, vmath::vec4(0.5f, 0.5f, 0.7f, 0.7f));
-	glUniform3fv(object_ambient_loc, 1, vmath::vec3(0.2f, 0.2f, 0.5f));
-	glUniform3fv(object_LightColor_loc, 1, vmath::vec3(0.3f, 0.3f, 1.0f));
-	glUniform3fv(object_LightPosition_loc, 1, vmath::vec3(0.5f, 0.5f, -1.0f));
+//	glUniform3fv(object_ambient_loc, 1, vmath::vec3(0.2f, 0.2f, 0.5f));
+//	glUniform3fv(object_LightColor_loc, 1, vmath::vec3(0.3f, 0.3f, 1.0f));
+//	glUniform3fv(object_LightPosition_loc, 1, vmath::vec3(0.5f, 0.5f, -1.0f));
 	glUniform1f(object_Shininess_loc, 20.0f);
 	glUniform1f(object_Strength_loc, 10.5f);
 
@@ -70,10 +71,10 @@ void Ex07_08::InitGL()
 
 	glUniformMatrix3fv(object_mat_normal_loc, 1, GL_TRUE, normal_matrix);
 
-	glUniform3fv(EyeDirection_loc, 1, vmath::vec3(-0.5f, -0.5f, 1.0f));
-	glUniform1f(ConstantAttenuation_loc, 0.5f);
-	glUniform1f(LinearAttenuation_loc, 0.01f);
-	glUniform1f(QuadraticAttenuation_loc, 0.001f);
+ 	glUniform3fv(EyeDirection_loc, 1, vmath::vec3(-0.5f, -0.5f, 1.0f));
+// 	glUniform1f(ConstantAttenuation_loc, 0.5f);
+// 	glUniform1f(LinearAttenuation_loc, 0.01f);
+// 	glUniform1f(QuadraticAttenuation_loc, 0.001f);
 
 	object.LoadFromVBM("Media/torus.vbm", 0, 1, 2);
 }
