@@ -42,24 +42,13 @@ void Ex07_08::InitGL()
 	GLuint object_mat_normal_loc = glGetUniformLocation(object_prog, "NormalMatrix");
 	GLuint object_color_loc = glGetUniformLocation(object_prog, "VertexColor");
 
-//	GLuint object_ambient_loc = glGetUniformLocation(object_prog, "Ambient");
-//	GLuint object_LightColor_loc = glGetUniformLocation(object_prog, "LightColor");
-//	GLuint object_LightPosition_loc = glGetUniformLocation(object_prog, "LightPosition");
 	GLuint object_Shininess_loc = glGetUniformLocation(object_prog, "Shininess");
 	GLuint object_Strength_loc = glGetUniformLocation(object_prog, "Strength");
-	
-// 	uniform LightProperties Lights[MaxLights];
 
  	GLuint EyeDirection_loc = glGetUniformLocation(object_prog, "EyeDirection");
-// 	GLuint ConstantAttenuation_loc = glGetUniformLocation(object_prog, "ConstantAttenuation");
-// 	GLuint LinearAttenuation_loc = glGetUniformLocation(object_prog, "LinearAttenuation");
-// 	GLuint QuadraticAttenuation_loc = glGetUniformLocation(object_prog, "QuadraticAttenuation");
 
 	glUseProgram(object_prog);	
 	glUniform4fv(object_color_loc, 1, vmath::vec4(0.5f, 0.5f, 0.7f, 0.7f));
-//	glUniform3fv(object_ambient_loc, 1, vmath::vec3(0.2f, 0.2f, 0.5f));
-//	glUniform3fv(object_LightColor_loc, 1, vmath::vec3(0.3f, 0.3f, 1.0f));
-//	glUniform3fv(object_LightPosition_loc, 1, vmath::vec3(0.5f, 0.5f, -1.0f));
 	glUniform1f(object_Shininess_loc, 20.0f);
 	glUniform1f(object_Strength_loc, 10.5f);
 
@@ -72,9 +61,118 @@ void Ex07_08::InitGL()
 	glUniformMatrix3fv(object_mat_normal_loc, 1, GL_TRUE, normal_matrix);
 
  	glUniform3fv(EyeDirection_loc, 1, vmath::vec3(-0.5f, -0.5f, 1.0f));
-// 	glUniform1f(ConstantAttenuation_loc, 0.5f);
-// 	glUniform1f(LinearAttenuation_loc, 0.01f);
-// 	glUniform1f(QuadraticAttenuation_loc, 0.001f);
+
+// 	struct LightProperties {
+// 		bool isEnabled;
+// 		bool isLocal;
+// 		bool isSpot;
+// 		vmath::vec3 ambient;
+// 		vmath::vec3 color;
+// 		vmath::vec3 position;
+// 		vmath::vec3 halfVector;
+// 		vmath::vec3 coneDirection;
+// 		float spotCosCutoff;
+// 		float spotExponent;
+// 		float constantAttenuation;
+// 		float linearAttenuation;
+// 		float quadraticAttenuation;
+// 	};
+
+	GLuint object_light_loc = glGetUniformLocation(object_prog, "Lights[0].isEnabled");
+	glUniform1i(object_light_loc, true);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].isLocal");
+	glUniform1i(object_light_loc, true);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].isSpot");
+	glUniform1i(object_light_loc, true);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].ambient");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(0.2f, 0.2f, 0.5f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].color");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(0.3f, 0.3f, 1.0f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].position");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(0.5f, 0.5f, -1.0f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].halfVector");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(1.0f, 1.0f, 0.0f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].coneDirection");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(-0.3f, 0.5f, -0.9f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].spotCosCutoff");
+	glUniform1f(object_light_loc, 0.8);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].spotExponent");
+	glUniform1f(object_light_loc, 2.0);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].constantAttenuation");
+	glUniform1f(object_light_loc, 0.5f);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].linearAttenuation");
+	glUniform1f(object_light_loc, 0.01f);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].quadraticAttenuation");
+	glUniform1f(object_light_loc, 0.001f);
+	
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].isEnabled");
+	glUniform1i(object_light_loc, true);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].isLocal");
+	glUniform1i(object_light_loc, true);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].isSpot");
+	glUniform1i(object_light_loc, false);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].ambient");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(0.2f, 0.2f, 0.5f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].color");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(0.9f, 0.9f, 0.0f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].position");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(0.5f, 0.5f, -1.0f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].halfVector");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(1.0f, 1.0f, 0.0f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].coneDirection");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(-0.3f, 0.5f, -0.9f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].spotCosCutoff");
+	glUniform1f(object_light_loc, 0.8);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].spotExponent");
+	glUniform1f(object_light_loc, 2.0);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].constantAttenuation");
+	glUniform1f(object_light_loc, 0.5f);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].linearAttenuation");
+	glUniform1f(object_light_loc, 0.01f);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[1].quadraticAttenuation");
+	glUniform1f(object_light_loc, 0.001f);
+	
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].isEnabled");
+	glUniform1i(object_light_loc, true);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].isLocal");
+	glUniform1i(object_light_loc, false);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].isSpot");
+	glUniform1i(object_light_loc, false);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].ambient");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(0.2f, 0.2f, 0.5f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].color");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(0.7f, 0.0f, 0.0f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].position");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(0.5f, 0.5f, -1.0f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].halfVector");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(1.0f, 1.0f, 0.0f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].coneDirection");
+	glUniform3fv(object_light_loc, 1, vmath::vec3(-0.3f, 0.5f, -0.9f));
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].spotCosCutoff");
+	glUniform1f(object_light_loc, 0.8);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].spotExponent");
+	glUniform1f(object_light_loc, 2.0);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].constantAttenuation");
+	glUniform1f(object_light_loc, 0.5f);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].linearAttenuation");
+	glUniform1f(object_light_loc, 0.01f);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[2].quadraticAttenuation");
+	glUniform1f(object_light_loc, 0.001f);
+
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[3].isEnabled");
+	glUniform1i(object_light_loc, false);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[4].isEnabled");
+	glUniform1i(object_light_loc, false);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[5].isEnabled");
+	glUniform1i(object_light_loc, false);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[6].isEnabled");
+	glUniform1i(object_light_loc, false);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[7].isEnabled");
+	glUniform1i(object_light_loc, false);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[8].isEnabled");
+	glUniform1i(object_light_loc, false);
+	object_light_loc = glGetUniformLocation(object_prog, "Lights[9].isEnabled");
+	glUniform1i(object_light_loc, false);
 
 	object.LoadFromVBM("Media/torus.vbm", 0, 1, 2);
 }

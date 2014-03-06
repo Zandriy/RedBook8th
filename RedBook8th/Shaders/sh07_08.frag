@@ -1,19 +1,19 @@
 #version 330 core
 
 struct LightProperties {
-bool isEnabled;
-bool isLocal;
-bool isSpot;
-vec3 ambient;
-vec3 color;
-vec3 position;
-vec3 halfVector;
-vec3 coneDirection;
-float spotCosCutoff;
-float spotExponent;
-float constantAttenuation;
-float linearAttenuation;
-float quadraticAttenuation;
+	bool isEnabled;
+	bool isLocal;
+	bool isSpot;
+	vec3 ambient;
+	vec3 color;
+	vec3 position;
+	vec3 halfVector;
+	vec3 coneDirection;
+	float spotCosCutoff;
+	float spotExponent;
+	float constantAttenuation;
+	float linearAttenuation;
+	float quadraticAttenuation;
 };
 
 // the set of lights to apply, per invocation of this shader
@@ -32,8 +32,6 @@ out vec4 FragColor;
 
 void main()
 {
-FragColor = Color;
-/*
 	vec3 scatteredLight = vec3(0.0); // or, to a global ambient light
 	vec3 reflectedLight = vec3(0.0);
 	// loop over all the lights
@@ -84,5 +82,5 @@ FragColor = Color;
 	}
 	
 	vec3 rgb = min(Color.rgb * scatteredLight + reflectedLight,vec3(1.0));
-	FragColor = vec4(rgb, Color.a);*/
+	FragColor = vec4(rgb, Color.a);
 }
