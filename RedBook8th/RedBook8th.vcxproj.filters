@@ -111,6 +111,9 @@
     <ClCompile Include="Examples\Ex07_08.cpp">
       <Filter>Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\Ex07_15.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GL\glcorearb.h" />
@@ -221,6 +224,9 @@
       <Filter>Examples</Filter>
     </ClInclude>
     <ClInclude Include="Examples\Ex07_08.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex07_15.h">
       <Filter>Examples</Filter>
     </ClInclude>
   </ItemGroup>
@@ -379,6 +385,18 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\sh07_08.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\shadowmap_scene.fs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\shadowmap_scene.vs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\shadowmap_shadow.fs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\shadowmap_shadow.vs.glsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
