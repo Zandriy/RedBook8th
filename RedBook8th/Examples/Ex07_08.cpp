@@ -62,22 +62,6 @@ void Ex07_08::InitGL()
 
  	glUniform3fv(EyeDirection_loc, 1, vmath::vec3(-0.5f, -0.5f, 1.0f));
 
-// 	struct LightProperties {
-// 		bool isEnabled;
-// 		bool isLocal;
-// 		bool isSpot;
-// 		vmath::vec3 ambient;
-// 		vmath::vec3 color;
-// 		vmath::vec3 position;
-// 		vmath::vec3 halfVector;
-// 		vmath::vec3 coneDirection;
-// 		float spotCosCutoff;
-// 		float spotExponent;
-// 		float constantAttenuation;
-// 		float linearAttenuation;
-// 		float quadraticAttenuation;
-// 	};
-
 	GLuint object_light_loc = glGetUniformLocation(object_prog, "Lights[0].isEnabled");
 	glUniform1i(object_light_loc, true);
 	object_light_loc = glGetUniformLocation(object_prog, "Lights[0].isLocal");
