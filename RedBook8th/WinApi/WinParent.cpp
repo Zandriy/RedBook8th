@@ -44,11 +44,12 @@
 #include "Examples/Ex08_07.h"
 #include "Examples/Ex08_08.h"
 #include "Examples/Ex08_09.h"
+#include "Examples/Ex08_11.h"
 
 #include "Examples/ExT.h"
 #include "Examples/ExTest.h"
 
-#define EXAMPLES_QTY 38
+#define EXAMPLES_QTY 39
 #define CUR_EXAMPLE EXAMPLES_QTY-3
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -253,6 +254,8 @@ int WinParent::InitChilds(int nCmdShow)
 	child = new Ex08_08;
 	InitChild(child, r);
 	child = new Ex08_09;
+	InitChild(child, r);
+	child = new Ex08_11;
 	InitChild(child, r);
 
 	child = new ExT;
