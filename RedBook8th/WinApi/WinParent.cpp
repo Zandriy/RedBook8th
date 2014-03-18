@@ -57,7 +57,7 @@
 #include "Examples/ExTest.h"
 
 #define EXAMPLES_QTY 46
-#define CUR_EXAMPLE EXAMPLES_QTY-7
+#define CUR_EXAMPLE EXAMPLES_QTY-3
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 

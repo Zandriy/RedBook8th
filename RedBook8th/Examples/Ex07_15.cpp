@@ -132,7 +132,9 @@ void Ex07_15::Display()
 	static const vmath::vec3 Y(0.0f, 1.0f, 0.0f);
 	static const vmath::vec3 Z(0.0f, 0.0f, 1.0f);
 
-	vmath::vec3 light_position = vmath::vec3(sinf(t * 6.0f * 3.141592f) * 300.0f, 200.0f, cosf(t * 4.0f * 3.141592f) * 100.0f + 250.0f);
+	float r = t - int(t);
+
+	vmath::vec3 light_position = vmath::vec3(sinf(r * 6.0f * 3.141592f) * 300.0f, 200.0f, cosf(r * 4.0f * 3.141592f) * 100.0f + 250.0f);
 
 	// Setup
 	glEnable(GL_CULL_FACE);
@@ -143,12 +145,14 @@ void Ex07_15::Display()
 
 	// Matrices for rendering the scene
 	vmath::mat4 scene_model_matrix = vmath::rotate(t * 720.0f, Y);
-	vmath::mat4 scene_view_matrix = vmath::translate(0.0f, -100.0f, -300.0f);
+	vmath::mat4 scene_view_matrix = vmath::translate(-300.0f, -300.0f, -500.0f);
 	vmath::mat4 scene_projection_matrix = vmath::frustum(-1.0f, 1.0f, -aspect, aspect, 1.0f, FRUSTUM_DEPTH);
-	const vmath::mat4 scale_bias_matrix = vmath::mat4(vmath::vec4(0.5f, 0.0f, 0.0f, 0.0f),
-		vmath::vec4(0.0f, 0.5f, 0.0f, 0.0f),
-		vmath::vec4(0.0f, 0.0f, 0.5f, 0.0f),
-		vmath::vec4(0.5f, 0.5f, 0.5f, 1.0f));
+	const vmath::mat4 scale_bias_matrix = vmath::mat4(
+		vmath::vec4(0.1f, 0.0f, 0.0f, 0.0f),
+		vmath::vec4(0.0f, 0.1f, 0.0f, 0.0f),
+		vmath::vec4(0.0f, 0.0f, 0.1f, 0.0f),
+		vmath::vec4(0.5f, 0.5f, 0.5f, 1.0f)
+		);
 
 	// Matrices used when rendering from the light's position
 	vmath::mat4 light_view_matrix = lookat(light_position, vmath::vec3(0.0f), Y);
