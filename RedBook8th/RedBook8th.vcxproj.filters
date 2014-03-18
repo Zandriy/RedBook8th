@@ -141,6 +141,21 @@
     <ClCompile Include="Examples\Ex08_13.cpp">
       <Filter>Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\Ex08_16.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex08_18.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex08_19.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex08_20.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex08_21.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GL\glcorearb.h" />
@@ -281,6 +296,21 @@
       <Filter>Examples</Filter>
     </ClInclude>
     <ClInclude Include="Examples\Ex08_13.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex08_16.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex08_18.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex08_19.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex08_20.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex08_21.h">
       <Filter>Examples</Filter>
     </ClInclude>
   </ItemGroup>
@@ -505,6 +535,24 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\sh08_13.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh08_16.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh08_16.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh08_18.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh08_19.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh08_20.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh08_21.frag">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

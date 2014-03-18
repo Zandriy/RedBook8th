@@ -110,6 +110,11 @@
     <ClCompile Include="Examples\Ex08_11.cpp" />
     <ClCompile Include="Examples\Ex08_12.cpp" />
     <ClCompile Include="Examples\Ex08_13.cpp" />
+    <ClCompile Include="Examples\Ex08_16.cpp" />
+    <ClCompile Include="Examples\Ex08_18.cpp" />
+    <ClCompile Include="Examples\Ex08_19.cpp" />
+    <ClCompile Include="Examples\Ex08_20.cpp" />
+    <ClCompile Include="Examples\Ex08_21.cpp" />
     <ClCompile Include="Examples\ExT.cpp" />
     <ClCompile Include="Examples\ExTest.cpp" />
     <ClCompile Include="GL\glLoader.c" />
@@ -162,6 +167,11 @@
     <ClInclude Include="Examples\Ex08_11.h" />
     <ClInclude Include="Examples\Ex08_12.h" />
     <ClInclude Include="Examples\Ex08_13.h" />
+    <ClInclude Include="Examples\Ex08_16.h" />
+    <ClInclude Include="Examples\Ex08_18.h" />
+    <ClInclude Include="Examples\Ex08_19.h" />
+    <ClInclude Include="Examples\Ex08_20.h" />
+    <ClInclude Include="Examples\Ex08_21.h" />
     <ClInclude Include="Examples\ExT.h" />
     <ClInclude Include="Examples\ExTest.h" />
     <ClInclude Include="GL\glcorearb.h" />
@@ -233,6 +243,12 @@
     <None Include="Shaders\sh08_12.vert" />
     <None Include="Shaders\sh08_13.frag" />
     <None Include="Shaders\sh08_13.vert" />
+    <None Include="Shaders\sh08_16.frag" />
+    <None Include="Shaders\sh08_16.vert" />
+    <None Include="Shaders\sh08_18.frag" />
+    <None Include="Shaders\sh08_19.frag" />
+    <None Include="Shaders\sh08_20.frag" />
+    <None Include="Shaders\sh08_21.frag" />
     <None Include="Shaders\shadowmap_scene.fs.glsl" />
     <None Include="Shaders\shadowmap_scene.vs.glsl" />
     <None Include="Shaders\shadowmap_shadow.fs.glsl" />
