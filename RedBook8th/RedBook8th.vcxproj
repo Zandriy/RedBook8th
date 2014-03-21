@@ -116,6 +116,7 @@
     <ClCompile Include="Examples\Ex08_20.cpp" />
     <ClCompile Include="Examples\Ex08_21.cpp" />
     <ClCompile Include="Examples\Ex09_06.cpp" />
+    <ClCompile Include="Examples\Ex09_08.cpp" />
     <ClCompile Include="Examples\ExT.cpp" />
     <ClCompile Include="Examples\ExTest.cpp" />
     <ClCompile Include="GL\glLoader.c" />
@@ -174,11 +175,13 @@
     <ClInclude Include="Examples\Ex08_20.h" />
     <ClInclude Include="Examples\Ex08_21.h" />
     <ClInclude Include="Examples\Ex09_06.h" />
+    <ClInclude Include="Examples\Ex09_08.h" />
     <ClInclude Include="Examples\ExT.h" />
     <ClInclude Include="Examples\ExTest.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
     <ClInclude Include="GL\LoadShaders.h" />
+    <ClInclude Include="Shapes\Teapot.h" />
     <ClInclude Include="WinApi\OGLWindow.h" />
     <ClInclude Include="WinApi\WinParent.h" />
   </ItemGroup>
@@ -265,6 +268,10 @@
     <None Include="Shaders\simple.vert" />
     <None Include="Shaders\skybox.frag" />
     <None Include="Shaders\skybox.vert" />
+    <None Include="Shaders\teapot.cont" />
+    <None Include="Shaders\teapot.eval" />
+    <None Include="Shaders\teapot.frag" />
+    <None Include="Shaders\teapot.vert" />
     <None Include="Shaders\triangles.frag" />
     <None Include="Shaders\triangles.vert" />
   </ItemGroup>
