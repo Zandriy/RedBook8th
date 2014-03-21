@@ -156,6 +156,9 @@
     <ClCompile Include="Examples\Ex08_21.cpp">
       <Filter>Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\Ex09_06.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GL\glcorearb.h" />
@@ -311,6 +314,9 @@
       <Filter>Examples</Filter>
     </ClInclude>
     <ClInclude Include="Examples\Ex08_21.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex09_06.h">
       <Filter>Examples</Filter>
     </ClInclude>
   </ItemGroup>
@@ -553,6 +559,18 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\sh08_21.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\simple.cont">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\simple.eval">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\simple.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\simple.vert">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

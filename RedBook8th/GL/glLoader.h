@@ -640,6 +640,104 @@ extern "C" {
 
 	int GL_3_3_LoadFuncPointers();
 
+	/////////////////////////////// GL_VERSION_4_0 ////////////////////////////////
+
+	extern PFNGLMINSAMPLESHADINGPROC					pglMinSampleShading;
+	extern PFNGLBLENDEQUATIONIPROC						pglBlendEquationi;
+	extern PFNGLBLENDEQUATIONSEPARATEIPROC				pglBlendEquationSeparatei;
+	extern PFNGLBLENDFUNCIPROC							pglBlendFunci;
+	extern PFNGLBLENDFUNCSEPARATEIPROC					pglBlendFuncSeparatei;
+	extern PFNGLDRAWARRAYSINDIRECTPROC					pglDrawArraysIndirect;
+	extern PFNGLDRAWELEMENTSINDIRECTPROC				pglDrawElementsIndirect;
+	extern PFNGLUNIFORM1DPROC							pglUniform1d;
+	extern PFNGLUNIFORM2DPROC							pglUniform2d;
+	extern PFNGLUNIFORM3DPROC							pglUniform3d;
+	extern PFNGLUNIFORM4DPROC							pglUniform4d;
+	extern PFNGLUNIFORM1DVPROC							pglUniform1dv;
+	extern PFNGLUNIFORM2DVPROC							pglUniform2dv;
+	extern PFNGLUNIFORM3DVPROC							pglUniform3dv;
+	extern PFNGLUNIFORM4DVPROC							pglUniform4dv;
+	extern PFNGLUNIFORMMATRIX2DVPROC					pglUniformMatrix2dv;
+	extern PFNGLUNIFORMMATRIX3DVPROC					pglUniformMatrix3dv;
+	extern PFNGLUNIFORMMATRIX4DVPROC					pglUniformMatrix4dv;
+	extern PFNGLUNIFORMMATRIX2X3DVPROC					pglUniformMatrix2x3dv;
+	extern PFNGLUNIFORMMATRIX2X4DVPROC					pglUniformMatrix2x4dv;
+	extern PFNGLUNIFORMMATRIX3X2DVPROC					pglUniformMatrix3x2dv;
+	extern PFNGLUNIFORMMATRIX3X4DVPROC					pglUniformMatrix3x4dv;
+	extern PFNGLUNIFORMMATRIX4X2DVPROC					pglUniformMatrix4x2dv;
+	extern PFNGLUNIFORMMATRIX4X3DVPROC					pglUniformMatrix4x3dv;
+	extern PFNGLGETUNIFORMDVPROC						pglGetUniformdv;
+	extern PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC		pglGetSubroutineUniformLocation;
+	extern PFNGLGETSUBROUTINEINDEXPROC					pglGetSubroutineIndex;
+	extern PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC		pglGetActiveSubroutineUniformiv;
+	extern PFNGLGETACTIVESUBROUTINEUNIFORMNAMEPROC		pglGetActiveSubroutineUniformName;
+	extern PFNGLGETACTIVESUBROUTINENAMEPROC				pglGetActiveSubroutineName;
+	extern PFNGLUNIFORMSUBROUTINESUIVPROC				pglUniformSubroutinesuiv;
+	extern PFNGLGETUNIFORMSUBROUTINEUIVPROC				pglGetUniformSubroutineuiv;
+	extern PFNGLGETPROGRAMSTAGEIVPROC					pglGetProgramStageiv;
+	extern PFNGLPATCHPARAMETERIPROC						pglPatchParameteri;
+	extern PFNGLPATCHPARAMETERFVPROC					pglPatchParameterfv;
+	extern PFNGLBINDTRANSFORMFEEDBACKPROC				pglBindTransformFeedback;
+	extern PFNGLDELETETRANSFORMFEEDBACKSPROC			pglDeleteTransformFeedbacks;
+	extern PFNGLGENTRANSFORMFEEDBACKSPROC				pglGenTransformFeedbacks;
+	extern PFNGLISTRANSFORMFEEDBACKPROC					pglIsTransformFeedback;
+	extern PFNGLPAUSETRANSFORMFEEDBACKPROC				pglPauseTransformFeedback;
+	extern PFNGLRESUMETRANSFORMFEEDBACKPROC				pglResumeTransformFeedback;
+	extern PFNGLDRAWTRANSFORMFEEDBACKPROC				pglDrawTransformFeedback;
+	extern PFNGLDRAWTRANSFORMFEEDBACKSTREAMPROC			pglDrawTransformFeedbackStream;
+	extern PFNGLBEGINQUERYINDEXEDPROC					pglBeginQueryIndexed;
+	extern PFNGLENDQUERYINDEXEDPROC						pglEndQueryIndexed;
+	extern PFNGLGETQUERYINDEXEDIVPROC					pglGetQueryIndexediv;
+
+#define glMinSampleShading						pglMinSampleShading
+#define glBlendEquationi						pglBlendEquationi
+#define glBlendEquationSeparatei				pglBlendEquationSeparatei
+#define glBlendFunci							pglBlendFunci
+#define glBlendFuncSeparatei					pglBlendFuncSeparatei
+#define glDrawArraysIndirect					pglDrawArraysIndirect
+#define glDrawElementsIndirect					pglDrawElementsIndirect
+#define glUniform1d								pglUniform1d
+#define glUniform2d								pglUniform2d
+#define glUniform3d								pglUniform3d
+#define glUniform4d								pglUniform4d
+#define glUniform1dv							pglUniform1dv
+#define glUniform2dv							pglUniform2dv
+#define glUniform3dv							pglUniform3dv
+#define glUniform4dv							pglUniform4dv
+#define glUniformMatrix2dv						pglUniformMatrix2dv
+#define glUniformMatrix3dv						pglUniformMatrix3dv
+#define glUniformMatrix4dv						pglUniformMatrix4dv
+#define glUniformMatrix2x3dv					pglUniformMatrix2x3dv
+#define glUniformMatrix2x4dv					pglUniformMatrix2x4dv
+#define glUniformMatrix3x2dv					pglUniformMatrix3x2dv
+#define glUniformMatrix3x4dv					pglUniformMatrix3x4dv
+#define glUniformMatrix4x2dv					pglUniformMatrix4x2dv
+#define glUniformMatrix4x3dv					pglUniformMatrix4x3dv
+#define glGetUniformdv							pglGetUniformdv
+#define glGetSubroutineUniformLocation			pglGetSubroutineUniformLocation
+#define glGetSubroutineIndex					pglGetSubroutineIndex
+#define glGetActiveSubroutineUniformiv			pglGetActiveSubroutineUniformiv
+#define glGetActiveSubroutineUniformName		pglGetActiveSubroutineUniformName
+#define glGetActiveSubroutineName				pglGetActiveSubroutineName
+#define glUniformSubroutinesuiv					pglUniformSubroutinesuiv
+#define glGetUniformSubroutineuiv				pglGetUniformSubroutineuiv
+#define glGetProgramStageiv						pglGetProgramStageiv
+#define glPatchParameteri						pglPatchParameteri
+#define glPatchParameterfv						pglPatchParameterfv
+#define glBindTransformFeedback					pglBindTransformFeedback
+#define glDeleteTransformFeedbacks				pglDeleteTransformFeedbacks
+#define glGenTransformFeedbacks					pglGenTransformFeedbacks
+#define glIsTransformFeedback					pglIsTransformFeedback
+#define glPauseTransformFeedback				pglPauseTransformFeedback
+#define glResumeTransformFeedback				pglResumeTransformFeedback
+#define glDrawTransformFeedback					pglDrawTransformFeedback
+#define glDrawTransformFeedbackStream			pglDrawTransformFeedbackStream
+#define glBeginQueryIndexed						pglBeginQueryIndexed
+#define glEndQueryIndexed						pglEndQueryIndexed
+#define glGetQueryIndexediv						pglGetQueryIndexediv
+
+	int GL_4_0_LoadFuncPointers();
+
 	/////////////////////////////// GL_VERSION_4_2 ////////////////////////////////
 
 	extern PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC					pglDrawArraysInstancedBaseInstance;

@@ -692,6 +692,115 @@ int GL_3_3_LoadFuncPointers()
 		glVertexAttribP3uiv && glVertexAttribP4ui && glVertexAttribP4uiv) ? 1 : 0;
 }
 
+/////////////////////////////// GL_VERSION_4_0 ////////////////////////////////
+
+PFNGLMINSAMPLESHADINGPROC					pglMinSampleShading = 0;
+PFNGLBLENDEQUATIONIPROC						pglBlendEquationi = 0;
+PFNGLBLENDEQUATIONSEPARATEIPROC				pglBlendEquationSeparatei = 0;
+PFNGLBLENDFUNCIPROC							pglBlendFunci = 0;
+PFNGLBLENDFUNCSEPARATEIPROC					pglBlendFuncSeparatei = 0;
+PFNGLDRAWARRAYSINDIRECTPROC					pglDrawArraysIndirect = 0;
+PFNGLDRAWELEMENTSINDIRECTPROC				pglDrawElementsIndirect = 0;
+PFNGLUNIFORM1DPROC							pglUniform1d = 0;
+PFNGLUNIFORM2DPROC							pglUniform2d = 0;
+PFNGLUNIFORM3DPROC							pglUniform3d = 0;
+PFNGLUNIFORM4DPROC							pglUniform4d = 0;
+PFNGLUNIFORM1DVPROC							pglUniform1dv = 0;
+PFNGLUNIFORM2DVPROC							pglUniform2dv = 0;
+PFNGLUNIFORM3DVPROC							pglUniform3dv = 0;
+PFNGLUNIFORM4DVPROC							pglUniform4dv = 0;
+PFNGLUNIFORMMATRIX2DVPROC					pglUniformMatrix2dv = 0;
+PFNGLUNIFORMMATRIX3DVPROC					pglUniformMatrix3dv = 0;
+PFNGLUNIFORMMATRIX4DVPROC					pglUniformMatrix4dv = 0;
+PFNGLUNIFORMMATRIX2X3DVPROC					pglUniformMatrix2x3dv = 0;
+PFNGLUNIFORMMATRIX2X4DVPROC					pglUniformMatrix2x4dv = 0;
+PFNGLUNIFORMMATRIX3X2DVPROC					pglUniformMatrix3x2dv = 0;
+PFNGLUNIFORMMATRIX3X4DVPROC					pglUniformMatrix3x4dv = 0;
+PFNGLUNIFORMMATRIX4X2DVPROC					pglUniformMatrix4x2dv = 0;
+PFNGLUNIFORMMATRIX4X3DVPROC					pglUniformMatrix4x3dv = 0;
+PFNGLGETUNIFORMDVPROC						pglGetUniformdv = 0;
+PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC		pglGetSubroutineUniformLocation = 0;
+PFNGLGETSUBROUTINEINDEXPROC					pglGetSubroutineIndex = 0;
+PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC		pglGetActiveSubroutineUniformiv = 0;
+PFNGLGETACTIVESUBROUTINEUNIFORMNAMEPROC		pglGetActiveSubroutineUniformName = 0;
+PFNGLGETACTIVESUBROUTINENAMEPROC				pglGetActiveSubroutineName = 0;
+PFNGLUNIFORMSUBROUTINESUIVPROC				pglUniformSubroutinesuiv = 0;
+PFNGLGETUNIFORMSUBROUTINEUIVPROC				pglGetUniformSubroutineuiv = 0;
+PFNGLGETPROGRAMSTAGEIVPROC					pglGetProgramStageiv = 0;
+PFNGLPATCHPARAMETERIPROC						pglPatchParameteri = 0;
+PFNGLPATCHPARAMETERFVPROC					pglPatchParameterfv = 0;
+PFNGLBINDTRANSFORMFEEDBACKPROC				pglBindTransformFeedback = 0;
+PFNGLDELETETRANSFORMFEEDBACKSPROC			pglDeleteTransformFeedbacks = 0;
+PFNGLGENTRANSFORMFEEDBACKSPROC				pglGenTransformFeedbacks = 0;
+PFNGLISTRANSFORMFEEDBACKPROC					pglIsTransformFeedback = 0;
+PFNGLPAUSETRANSFORMFEEDBACKPROC				pglPauseTransformFeedback = 0;
+PFNGLRESUMETRANSFORMFEEDBACKPROC				pglResumeTransformFeedback = 0;
+PFNGLDRAWTRANSFORMFEEDBACKPROC				pglDrawTransformFeedback = 0;
+PFNGLDRAWTRANSFORMFEEDBACKSTREAMPROC			pglDrawTransformFeedbackStream = 0;
+PFNGLBEGINQUERYINDEXEDPROC					pglBeginQueryIndexed = 0;
+PFNGLENDQUERYINDEXEDPROC						pglEndQueryIndexed = 0;
+PFNGLGETQUERYINDEXEDIVPROC					pglGetQueryIndexediv = 0;
+
+int GL_4_0_LoadFuncPointers()
+{
+	glMinSampleShading = (PFNGLMINSAMPLESHADINGPROC)wglGetProcAddress("glMinSampleShading");
+	glBlendEquationi = (PFNGLBLENDEQUATIONIPROC)wglGetProcAddress("glBlendEquationi");
+	glBlendEquationSeparatei = (PFNGLBLENDEQUATIONSEPARATEIPROC)wglGetProcAddress("glBlendEquationSeparatei");
+	glBlendFunci = (PFNGLBLENDFUNCIPROC)wglGetProcAddress("glBlendFunci");
+	glBlendFuncSeparatei = (PFNGLBLENDFUNCSEPARATEIPROC)wglGetProcAddress("glBlendFuncSeparatei");
+	glDrawArraysIndirect = (PFNGLDRAWARRAYSINDIRECTPROC)wglGetProcAddress("glDrawArraysIndirect");
+	glDrawElementsIndirect = (PFNGLDRAWELEMENTSINDIRECTPROC)wglGetProcAddress("glDrawElementsIndirect");
+	glUniform1d = (PFNGLUNIFORM1DPROC)wglGetProcAddress("glUniform1d");
+	glUniform2d = (PFNGLUNIFORM2DPROC)wglGetProcAddress("glUniform2d");
+	glUniform3d = (PFNGLUNIFORM3DPROC)wglGetProcAddress("glUniform3d");
+	glUniform4d = (PFNGLUNIFORM4DPROC)wglGetProcAddress("glUniform4d");
+	glUniform1dv = (PFNGLUNIFORM1DVPROC)wglGetProcAddress("glUniform1dv");
+	glUniform2dv = (PFNGLUNIFORM2DVPROC)wglGetProcAddress("glUniform2dv");
+	glUniform3dv = (PFNGLUNIFORM3DVPROC)wglGetProcAddress("glUniform3dv");
+	glUniform4dv = (PFNGLUNIFORM4DVPROC)wglGetProcAddress("glUniform4dv");
+	glUniformMatrix2dv = (PFNGLUNIFORMMATRIX2DVPROC)wglGetProcAddress("glUniformMatrix2dv");
+	glUniformMatrix3dv = (PFNGLUNIFORMMATRIX3DVPROC)wglGetProcAddress("glUniformMatrix3dv");
+	glUniformMatrix4dv = (PFNGLUNIFORMMATRIX4DVPROC)wglGetProcAddress("glUniformMatrix4dv");
+	glUniformMatrix2x3dv = (PFNGLUNIFORMMATRIX2X3DVPROC)wglGetProcAddress("glUniformMatrix2x3dv");
+	glUniformMatrix2x4dv = (PFNGLUNIFORMMATRIX2X4DVPROC)wglGetProcAddress("glUniformMatrix2x4dv");
+	glUniformMatrix3x2dv = (PFNGLUNIFORMMATRIX3X2DVPROC)wglGetProcAddress("glUniformMatrix3x2dv");
+	glUniformMatrix3x4dv = (PFNGLUNIFORMMATRIX3X4DVPROC)wglGetProcAddress("glUniformMatrix3x4dv");
+	glUniformMatrix4x2dv = (PFNGLUNIFORMMATRIX4X2DVPROC)wglGetProcAddress("glUniformMatrix4x2dv");
+	glUniformMatrix4x3dv = (PFNGLUNIFORMMATRIX4X3DVPROC)wglGetProcAddress("glUniformMatrix4x3dv");
+	glGetUniformdv = (PFNGLGETUNIFORMDVPROC)wglGetProcAddress("glGetUniformdv");
+	glGetSubroutineUniformLocation = (PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC)wglGetProcAddress("glGetSubroutineUniformLocation");
+	glGetSubroutineIndex = (PFNGLGETSUBROUTINEINDEXPROC)wglGetProcAddress("glGetSubroutineIndex");
+	glGetActiveSubroutineUniformiv = (PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC)wglGetProcAddress("glGetActiveSubroutineUniformiv");
+	glGetActiveSubroutineUniformName = (PFNGLGETACTIVESUBROUTINEUNIFORMNAMEPROC)wglGetProcAddress("glGetActiveSubroutineUniformName");
+	glGetActiveSubroutineName = (PFNGLGETACTIVESUBROUTINENAMEPROC)wglGetProcAddress("glGetActiveSubroutineName");
+	glUniformSubroutinesuiv = (PFNGLUNIFORMSUBROUTINESUIVPROC)wglGetProcAddress("glUniformSubroutinesuiv");
+	glGetUniformSubroutineuiv = (PFNGLGETUNIFORMSUBROUTINEUIVPROC)wglGetProcAddress("glGetUniformSubroutineuiv");
+	glGetProgramStageiv = (PFNGLGETPROGRAMSTAGEIVPROC)wglGetProcAddress("glGetProgramStageiv");
+	glPatchParameteri = (PFNGLPATCHPARAMETERIPROC)wglGetProcAddress("glPatchParameteri");
+	glPatchParameterfv = (PFNGLPATCHPARAMETERFVPROC)wglGetProcAddress("glPatchParameterfv");
+	glBindTransformFeedback = (PFNGLBINDTRANSFORMFEEDBACKPROC)wglGetProcAddress("glBindTransformFeedback");
+	glDeleteTransformFeedbacks = (PFNGLDELETETRANSFORMFEEDBACKSPROC)wglGetProcAddress("glDeleteTransformFeedbacks");
+	glGenTransformFeedbacks = (PFNGLGENTRANSFORMFEEDBACKSPROC)wglGetProcAddress("glGenTransformFeedbacks");
+	glIsTransformFeedback = (PFNGLISTRANSFORMFEEDBACKPROC)wglGetProcAddress("glIsTransformFeedback");
+	glPauseTransformFeedback = (PFNGLPAUSETRANSFORMFEEDBACKPROC)wglGetProcAddress("glPauseTransformFeedback");
+	glResumeTransformFeedback = (PFNGLRESUMETRANSFORMFEEDBACKPROC)wglGetProcAddress("glResumeTransformFeedback");
+	glDrawTransformFeedback = (PFNGLDRAWTRANSFORMFEEDBACKPROC)wglGetProcAddress("glDrawTransformFeedback");
+	glDrawTransformFeedbackStream = (PFNGLDRAWTRANSFORMFEEDBACKSTREAMPROC)wglGetProcAddress("glDrawTransformFeedback");
+	glBeginQueryIndexed = (PFNGLBEGINQUERYINDEXEDPROC)wglGetProcAddress("glBeginQueryIndexed");
+	glEndQueryIndexed = (PFNGLENDQUERYINDEXEDPROC)wglGetProcAddress("glEndQueryIndexed");
+	glGetQueryIndexediv = (PFNGLGETQUERYINDEXEDIVPROC)wglGetProcAddress("glGetQueryIndexediv");
+
+	return ( glMinSampleShading && glBlendEquationi && glBlendEquationSeparatei && glBlendFunci && glBlendFuncSeparatei && 
+		glDrawArraysIndirect && glDrawElementsIndirect && glUniform1d && glUniform2d && glUniform3d && glUniform4d && glUniform1dv && 
+		glUniform2dv && glUniform3dv && glUniform4dv && glUniformMatrix2dv && glUniformMatrix3dv && glUniformMatrix4dv && 
+		glUniformMatrix2x3dv && glUniformMatrix2x4dv && glUniformMatrix3x2dv && glUniformMatrix3x4dv && glUniformMatrix4x2dv && 
+		glUniformMatrix4x3dv && glGetUniformdv && glGetSubroutineUniformLocation && glGetSubroutineIndex && glGetActiveSubroutineUniformiv && 
+		glGetActiveSubroutineUniformName && glGetActiveSubroutineName && glUniformSubroutinesuiv && glGetUniformSubroutineuiv && 
+		glGetProgramStageiv && glPatchParameteri && glPatchParameterfv && glBindTransformFeedback && glDeleteTransformFeedbacks && 
+		glGenTransformFeedbacks && glIsTransformFeedback && glPauseTransformFeedback && glResumeTransformFeedback && 
+		glDrawTransformFeedback && glDrawTransformFeedbackStream && glBeginQueryIndexed && glEndQueryIndexed && glGetQueryIndexediv	) ? 1 : 0;
+}
+
 /////////////////////////////// GL_VERSION_4_2 ////////////////////////////////
 
 PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC					pglDrawArraysInstancedBaseInstance = 0;
