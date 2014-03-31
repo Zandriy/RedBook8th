@@ -22,9 +22,15 @@ public:
 private:
 	void Display();
 
-	GLuint object_prog;
+	GLuint sort_prog;
+	GLint sort_mat_model_loc;
+	GLint sort_mat_proj_loc;
 
-	GLint object_mat_mvp_loc;
+	GLuint render_prog;
+
+	GLuint vao[2];
+	GLuint vbo[2];
+	GLuint xfb;
 
 	VBObject object;
 };

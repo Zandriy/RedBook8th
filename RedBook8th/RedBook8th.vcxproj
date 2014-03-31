@@ -269,6 +269,10 @@
     <None Include="Shaders\sh10_07_fur.frag" />
     <None Include="Shaders\sh10_07_fur.geom" />
     <None Include="Shaders\sh10_07_fur.vert" />
+    <None Include="Shaders\sh10_15_render.frag" />
+    <None Include="Shaders\sh10_15_render.vert" />
+    <None Include="Shaders\sh10_15_sort.geom" />
+    <None Include="Shaders\sh10_15_sort.vert" />
     <None Include="Shaders\shadowmap_scene.fs.glsl" />
     <None Include="Shaders\shadowmap_scene.vs.glsl" />
     <None Include="Shaders\shadowmap_shadow.fs.glsl" />

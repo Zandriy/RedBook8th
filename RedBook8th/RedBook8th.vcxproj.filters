@@ -633,6 +633,18 @@
     <None Include="Shaders\sh10_07_fur.vert">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="Shaders\sh10_15_render.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh10_15_render.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh10_15_sort.geom">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh10_15_sort.vert">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Shaders">
