@@ -21,6 +21,8 @@ Ex10_15::~Ex10_15()
 	glUseProgram(0);
 	glDeleteProgram(sort_prog);
 	glDeleteProgram(render_prog);
+	glDeleteVertexArrays(2, vao);
+	glDeleteBuffers(2, vbo);
 }
 
 void Ex10_15::InitGL()

@@ -19,14 +19,22 @@ public:
 	~Ex10_21();
 	void InitGL();
 	virtual void keyboard( unsigned char key, int x, int y );
+
+	virtual void Show();
+	virtual void Hide();
 private:
 	void Display();
 
-	GLuint object_prog;
-
-	GLint object_mat_mvp_loc;
-
+	GLuint prog;
+	GLuint vao;
+	GLuint vbo;
 	VBObject object;
+
+	GLint model_matrix_pos;
+	GLint projection_matrix_pos;
+
+	float wot;
+	float hot;
 };
 
 #endif // Ex10_21_h

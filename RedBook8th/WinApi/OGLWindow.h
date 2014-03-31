@@ -23,8 +23,8 @@ public:
 	const char * getTitle() const {return m_WindowTitle;}
 	HWND getHWND() const { return m_hWnd; }
 
-	void Show();
-	void Hide();
+	virtual void Show();
+	virtual void Hide();
 
 	virtual void InitGL() = 0;
 	virtual void Display() = 0;

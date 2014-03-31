@@ -13,13 +13,17 @@
 
 Ex10_21::Ex10_21()
 	: OGLWindow("Example10_21", "Example 10.21 (M)")
+	, wot(0.0f)
+	, hot(0.0f)
 {
 }
 
 Ex10_21::~Ex10_21()
 {
 	glUseProgram(0);
-	glDeleteProgram(object_prog);
+	glDeleteBuffers(1, &vbo);
+	glDeleteProgram(prog);
+	glDeleteVertexArrays(1, &vao);
 }
 
 void Ex10_21::InitGL()
@@ -27,74 +31,68 @@ void Ex10_21::InitGL()
 	if (! LoadGL() )
 		return;
 
-	ShaderInfo  object_shaders[] = {
-		{ GL_VERTEX_SHADER, "Shaders/sh10_07.vert" },
-		{ GL_FRAGMENT_SHADER, "Shaders/sh10_07.frag" },
+	ShaderInfo  shaders[] = {
+		{ GL_VERTEX_SHADER, "Shaders/sh10_21.vert" },
+		{ GL_GEOMETRY_SHADER, "Shaders/sh10_21.geom" },
+		{ GL_FRAGMENT_SHADER, "Shaders/sh10_21.frag" },
 		{ GL_NONE, NULL }
 	};
 
-	object_prog = LoadShaders( object_shaders );
+	prog = LoadShaders( shaders );
+	glLinkProgram(prog);
 
-	glLinkProgram(object_prog);
-
-	object_mat_mvp_loc = glGetUniformLocation(object_prog, "MVPMatrix");
-
-	GLuint object_color_loc = glGetUniformLocation(object_prog, "VertexColor");
-
-	GLuint Scale_loc = glGetUniformLocation(object_prog, "Scale");
-	GLuint Threshold_loc = glGetUniformLocation(object_prog, "Threshold");
-
-	glUseProgram(object_prog);	
-
-	glUniform4fv(object_color_loc, 1, vmath::vec4(1.0f, 0.3f, 0.1f, 0.5f));
-
-	glUniform2fv(Scale_loc, 1, vmath::vec2(50.0f, 70.0f));
-	glUniform2fv(Threshold_loc, 1, vmath::vec2(0.13f, 0.13f));
+	model_matrix_pos = glGetUniformLocation(prog, "model_matrix");
+	projection_matrix_pos = glGetUniformLocation(prog, "projection_matrix");
 
 	object.LoadFromVBM("Media/ninja.vbm", 0, 1, 2);
 }
 
 void Ex10_21::Display()
 {
-	static const vmath::vec3 X(0.3f, 0.0f, 0.0f);
-	static const vmath::vec3 Y(0.0f, 0.3f, 0.0f);
-	static const vmath::vec3 Z(0.0f, 0.0f, 0.3f);
+	if (int(wot / 0.5f) != getWidth() || int(hot / 0.5f) != getHeight())
+	{
+		wot = getWidth() * 0.5f;
+		hot = getHeight() * 0.5f;
 
-	vmath::mat4 tc_matrix(vmath::mat4::identity());
+		glViewportIndexedf(0, 0.0f, 0.0f, wot, hot);
+		glViewportIndexedf(1, wot, 0.0f, wot, hot);
+		glViewportIndexedf(2, 0.0f, hot, wot, hot);
+		glViewportIndexedf(3, wot, hot, wot, hot);
+	}
 
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	glClearDepth(1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	float t = float(GetTickCount() & 0x3FFF) / float(0x3FFF);
+	static const vmath::vec3 X(1.0f, 0.0f, 0.0f);
+	static const vmath::vec3 Y(0.0f, 1.0f, 0.0f);
+	static const vmath::vec3 Z(0.0f, 0.0f, 1.0f);
+
+	glClearColor( 0.3f, 0.1f, 0.2f, 1.0f );
+	glClearDepth( 1.0f );
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+	glUseProgram(prog);
+
+	float aspect = hot / wot;
+
+	vmath::mat4 p(vmath::frustum(-1.0f, 1.0f, aspect, -aspect, 1.0f, 5000.0f));
+	vmath::mat4 m[4];
+
+	for (int i = 0; i < 4; i++)
+	{
+		m[i] = vmath::mat4(vmath::translate(0.0f, 0.0f, 100.0f * sinf(6.28318531f * t + i) - 230.0f) *
+			vmath::rotate(360.0f * t * float(i + 1), X) *
+			vmath::rotate(360.0f * t * float(i + 2), Y) *
+			vmath::rotate(360.0f * t * float(5 - i), Z) *
+			vmath::translate(0.0f, -80.0f, 0.0f));
+	}
+
+	glUniformMatrix4fv(model_matrix_pos, 4, GL_FALSE, m[0]);
+	glUniformMatrix4fv(projection_matrix_pos, 1, GL_FALSE, p);
+
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_FRONT);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
-	glDisable(GL_CULL_FACE);
-
-	float aspect = float(getHeight()) / getWidth();
-
-	glUseProgram(object_prog);
-
-	static float a = -20.0;
-	static bool sign = true; 
-	if (sign)
-	{
-		a += 0.01;
-		if (a >= 80.0) sign = false;
-	}
-	else
-	{
-		a -= 0.01;
-		if (a <= -30.0) sign = true;
-	}
-
-	tc_matrix = vmath::translate(vmath::vec3(0.0f, -120.0f + a, -70.0f)) *
-		vmath::rotate(a, Y);
-
-	tc_matrix = vmath::perspective(35.0f, 1.0f / aspect, 0.1f, 100.0f) * tc_matrix;
-	glUniformMatrix4fv(object_mat_mvp_loc, 1, GL_FALSE, tc_matrix);
-
-	glClear(GL_DEPTH_BUFFER_BIT);
-
 	object.Render();
 
 	glFlush();
@@ -111,4 +109,17 @@ void Ex10_21::keyboard( unsigned char key, int x, int y )
 		OGLWindow::keyboard(key, x, y);
 		break;
 	}
+}
+
+void Ex10_21::Show()
+{
+	wot = 0.0f;
+	hot = 0.0f;
+	OGLWindow::Show();
+}
+
+void Ex10_21::Hide()
+{
+	glViewportIndexedf(0, 0.0f, 0.0f, getWidth(), getHeight());
+	OGLWindow::Hide();
 }

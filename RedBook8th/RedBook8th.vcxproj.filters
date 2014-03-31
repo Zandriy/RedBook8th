@@ -606,12 +606,6 @@
     <None Include="Shaders\teapot.vert">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="Shaders\sh10_07.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\sh10_07.vert">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="Shaders\sh07_lights.frag">
       <Filter>Shaders</Filter>
     </None>
@@ -643,6 +637,15 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\sh10_15_sort.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh10_21.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh10_21.geom">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh10_21.vert">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

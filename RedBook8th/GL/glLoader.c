@@ -800,6 +800,208 @@ int GL_4_0_LoadFuncPointers()
 		glGenTransformFeedbacks && glIsTransformFeedback && glPauseTransformFeedback && glResumeTransformFeedback && 
 		glDrawTransformFeedback && glDrawTransformFeedbackStream && glBeginQueryIndexed && glEndQueryIndexed && glGetQueryIndexediv	) ? 1 : 0;
 }
+/////////////////////////////// GL_VERSION_4_1 ////////////////////////////////
+
+PFNGLRELEASESHADERCOMPILERPROC		pglReleaseShaderCompiler = 0;
+PFNGLSHADERBINARYPROC				pglShaderBinary = 0;
+PFNGLGETSHADERPRECISIONFORMATPROC	pglGetShaderPrecisionFormat = 0;
+PFNGLDEPTHRANGEFPROC					pglDepthRangef = 0;
+PFNGLCLEARDEPTHFPROC					pglClearDepthf = 0;
+PFNGLGETPROGRAMBINARYPROC			pglGetProgramBinary = 0;
+PFNGLPROGRAMBINARYPROC				pglProgramBinary = 0;
+PFNGLPROGRAMPARAMETERIPROC			pglProgramParameteri = 0;
+PFNGLUSEPROGRAMSTAGESPROC			pglUseProgramStages = 0;
+PFNGLACTIVESHADERPROGRAMPROC			pglActiveShaderProgram = 0;
+PFNGLCREATESHADERPROGRAMVPROC		pglCreateShaderProgramv = 0;
+PFNGLBINDPROGRAMPIPELINEPROC			pglBindProgramPipeline = 0;
+PFNGLDELETEPROGRAMPIPELINESPROC		pglDeleteProgramPipelines = 0;
+PFNGLGENPROGRAMPIPELINESPROC			pglGenProgramPipelines = 0;
+PFNGLISPROGRAMPIPELINEPROC			pglIsProgramPipeline = 0;
+PFNGLGETPROGRAMPIPELINEIVPROC		pglGetProgramPipelineiv = 0;
+PFNGLPROGRAMUNIFORM1IPROC			pglProgramUniform1i = 0;
+PFNGLPROGRAMUNIFORM1IVPROC			pglProgramUniform1iv = 0;
+PFNGLPROGRAMUNIFORM1FPROC			pglProgramUniform1f = 0;
+PFNGLPROGRAMUNIFORM1FVPROC			pglProgramUniform1fv = 0;
+PFNGLPROGRAMUNIFORM1DPROC			pglProgramUniform1d = 0;
+PFNGLPROGRAMUNIFORM1DVPROC			pglProgramUniform1dv = 0;
+PFNGLPROGRAMUNIFORM1UIPROC			pglProgramUniform1ui = 0;
+PFNGLPROGRAMUNIFORM1UIVPROC			pglProgramUniform1uiv = 0;
+PFNGLPROGRAMUNIFORM2IPROC			pglProgramUniform2i = 0;
+PFNGLPROGRAMUNIFORM2IVPROC			pglProgramUniform2iv = 0;
+PFNGLPROGRAMUNIFORM2FPROC			pglProgramUniform2f = 0;
+PFNGLPROGRAMUNIFORM2FVPROC			pglProgramUniform2fv = 0;
+PFNGLPROGRAMUNIFORM2DPROC			pglProgramUniform2d = 0;
+PFNGLPROGRAMUNIFORM2DVPROC			pglProgramUniform2dv = 0;
+PFNGLPROGRAMUNIFORM2UIPROC			pglProgramUniform2ui = 0;
+PFNGLPROGRAMUNIFORM2UIVPROC			pglProgramUniform2uiv = 0;
+PFNGLPROGRAMUNIFORM3IPROC			pglProgramUniform3i = 0;
+PFNGLPROGRAMUNIFORM3IVPROC			pglProgramUniform3iv = 0;
+PFNGLPROGRAMUNIFORM3FPROC			pglProgramUniform3f = 0;
+PFNGLPROGRAMUNIFORM3FVPROC			pglProgramUniform3fv = 0;
+PFNGLPROGRAMUNIFORM3DPROC			pglProgramUniform3d = 0;
+PFNGLPROGRAMUNIFORM3DVPROC			pglProgramUniform3dv = 0;
+PFNGLPROGRAMUNIFORM3UIPROC			pglProgramUniform3ui = 0;
+PFNGLPROGRAMUNIFORM3UIVPROC			pglProgramUniform3uiv = 0;
+PFNGLPROGRAMUNIFORM4IPROC			pglProgramUniform4i = 0;
+PFNGLPROGRAMUNIFORM4IVPROC			pglProgramUniform4iv = 0;
+PFNGLPROGRAMUNIFORM4FPROC			pglProgramUniform4f = 0;
+PFNGLPROGRAMUNIFORM4FVPROC			pglProgramUniform4fv = 0;
+PFNGLPROGRAMUNIFORM4DPROC			pglProgramUniform4d = 0;
+PFNGLPROGRAMUNIFORM4DVPROC			pglProgramUniform4dv = 0;
+PFNGLPROGRAMUNIFORM4UIPROC			pglProgramUniform4ui = 0;
+PFNGLPROGRAMUNIFORM4UIVPROC			pglProgramUniform4uiv = 0;
+PFNGLPROGRAMUNIFORMMATRIX2FVPROC		pglProgramUniformMatrix2fv = 0;
+PFNGLPROGRAMUNIFORMMATRIX3FVPROC		pglProgramUniformMatrix3fv = 0;
+PFNGLPROGRAMUNIFORMMATRIX4FVPROC		pglProgramUniformMatrix4fv = 0;
+PFNGLPROGRAMUNIFORMMATRIX2DVPROC		pglProgramUniformMatrix2dv = 0;
+PFNGLPROGRAMUNIFORMMATRIX3DVPROC		pglProgramUniformMatrix3dv = 0;
+PFNGLPROGRAMUNIFORMMATRIX4DVPROC		pglProgramUniformMatrix4dv = 0;
+PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC	pglProgramUniformMatrix2x3fv = 0;
+PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC	pglProgramUniformMatrix3x2fv = 0;
+PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC	pglProgramUniformMatrix2x4fv = 0;
+PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC	pglProgramUniformMatrix4x2fv = 0;
+PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC	pglProgramUniformMatrix3x4fv = 0;
+PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC	pglProgramUniformMatrix4x3fv = 0;
+PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC	pglProgramUniformMatrix2x3dv = 0;
+PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC	pglProgramUniformMatrix3x2dv = 0;
+PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC	pglProgramUniformMatrix2x4dv = 0;
+PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC	pglProgramUniformMatrix4x2dv = 0;
+PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC	pglProgramUniformMatrix3x4dv = 0;
+PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC	pglProgramUniformMatrix4x3dv = 0;
+PFNGLVALIDATEPROGRAMPIPELINEPROC		pglValidateProgramPipeline = 0;
+PFNGLGETPROGRAMPIPELINEINFOLOGPROC	pglGetProgramPipelineInfoLog = 0;	
+PFNGLVERTEXATTRIBL1DPROC				pglVertexAttribL1d = 0;
+PFNGLVERTEXATTRIBL2DPROC				pglVertexAttribL2d = 0;
+PFNGLVERTEXATTRIBL3DPROC				pglVertexAttribL3d = 0;
+PFNGLVERTEXATTRIBL4DPROC				pglVertexAttribL4d = 0;
+PFNGLVERTEXATTRIBL1DVPROC			pglVertexAttribL1dv = 0;
+PFNGLVERTEXATTRIBL2DVPROC			pglVertexAttribL2dv = 0;
+PFNGLVERTEXATTRIBL3DVPROC			pglVertexAttribL3dv = 0;
+PFNGLVERTEXATTRIBL4DVPROC			pglVertexAttribL4dv = 0;
+PFNGLVERTEXATTRIBLPOINTERPROC		pglVertexAttribLPointer = 0;
+PFNGLGETVERTEXATTRIBLDVPROC			pglGetVertexAttribLdv = 0;
+PFNGLVIEWPORTARRAYVPROC				pglViewportArrayv = 0;
+PFNGLVIEWPORTINDEXEDFPROC			pglViewportIndexedf = 0;
+PFNGLVIEWPORTINDEXEDFVPROC			pglViewportIndexedfv = 0;
+PFNGLSCISSORARRAYVPROC				pglScissorArrayv = 0;
+PFNGLSCISSORINDEXEDPROC				pglScissorIndexed = 0;
+PFNGLSCISSORINDEXEDVPROC				pglScissorIndexedv = 0;
+PFNGLDEPTHRANGEARRAYVPROC			pglDepthRangeArrayv = 0;
+PFNGLDEPTHRANGEINDEXEDPROC			pglDepthRangeIndexed = 0;
+PFNGLGETFLOATI_VPROC					pglGetFloati_v = 0;
+PFNGLGETDOUBLEI_VPROC				pglGetDoublei_v = 0;
+
+int GL_4_1_LoadFuncPointers()
+{
+	glReleaseShaderCompiler = (PFNGLRELEASESHADERCOMPILERPROC)wglGetProcAddress("glReleaseShaderCompiler");
+	glShaderBinary = (PFNGLSHADERBINARYPROC)wglGetProcAddress("glShaderBinary");
+	glGetShaderPrecisionFormat= (PFNGLGETSHADERPRECISIONFORMATPROC)wglGetProcAddress("glGetShaderPrecisionFormat");
+	glDepthRangef = (PFNGLDEPTHRANGEFPROC)wglGetProcAddress("glDepthRangef");
+	glClearDepthf = (PFNGLCLEARDEPTHFPROC)wglGetProcAddress("glClearDepthf");
+	glGetProgramBinary = (PFNGLGETPROGRAMBINARYPROC)wglGetProcAddress("glGetProgramBinary");
+	glProgramBinary = (PFNGLPROGRAMBINARYPROC)wglGetProcAddress("glProgramBinary");
+	glProgramParameteri = (PFNGLPROGRAMPARAMETERIPROC)wglGetProcAddress("glProgramParameteri");
+	glUseProgramStages = (PFNGLUSEPROGRAMSTAGESPROC)wglGetProcAddress("glUseProgramStages");
+	glActiveShaderProgram = (PFNGLACTIVESHADERPROGRAMPROC)wglGetProcAddress("glActiveShaderProgram");
+	glCreateShaderProgramv = (PFNGLCREATESHADERPROGRAMVPROC)wglGetProcAddress("glCreateShaderProgramv");
+	glBindProgramPipeline = (PFNGLBINDPROGRAMPIPELINEPROC)wglGetProcAddress("glBindProgramPipeline");
+	glDeleteProgramPipelines = (PFNGLDELETEPROGRAMPIPELINESPROC)wglGetProcAddress("glDeleteProgramPipelines");
+	glGenProgramPipelines = (PFNGLGENPROGRAMPIPELINESPROC)wglGetProcAddress("glGenProgramPipelines");
+	glIsProgramPipeline = (PFNGLISPROGRAMPIPELINEPROC)wglGetProcAddress("glIsProgramPipeline");
+	glGetProgramPipelineiv = (PFNGLGETPROGRAMPIPELINEIVPROC)wglGetProcAddress("glGetProgramPipelineiv");
+	glProgramUniform1i = (PFNGLPROGRAMUNIFORM1IPROC)wglGetProcAddress("glProgramUniform1i");
+	glProgramUniform1iv = (PFNGLPROGRAMUNIFORM1IVPROC)wglGetProcAddress("glProgramUniform1iv");
+	glProgramUniform1f = (PFNGLPROGRAMUNIFORM1FPROC)wglGetProcAddress("glProgramUniform1f");
+	glProgramUniform1fv = (PFNGLPROGRAMUNIFORM1FVPROC)wglGetProcAddress("glProgramUniform1fv");
+	glProgramUniform1d = (PFNGLPROGRAMUNIFORM1DPROC)wglGetProcAddress("glProgramUniform1d");
+	glProgramUniform1dv = (PFNGLPROGRAMUNIFORM1DVPROC)wglGetProcAddress("glProgramUniform1dv");
+	glProgramUniform1ui = (PFNGLPROGRAMUNIFORM1UIPROC)wglGetProcAddress("glProgramUniform1ui");
+	glProgramUniform1uiv = (PFNGLPROGRAMUNIFORM1UIVPROC)wglGetProcAddress("glProgramUniform1uiv");
+	glProgramUniform2i = (PFNGLPROGRAMUNIFORM2IPROC)wglGetProcAddress("glProgramUniform2i");
+	glProgramUniform2iv = (PFNGLPROGRAMUNIFORM2IVPROC)wglGetProcAddress("glProgramUniform2iv");
+	glProgramUniform2f = (PFNGLPROGRAMUNIFORM2FPROC)wglGetProcAddress("glProgramUniform2f");
+	glProgramUniform2fv = (PFNGLPROGRAMUNIFORM2FVPROC)wglGetProcAddress("glProgramUniform2fv");
+	glProgramUniform2d = (PFNGLPROGRAMUNIFORM2DPROC)wglGetProcAddress("glProgramUniform2d");
+	glProgramUniform2dv = (PFNGLPROGRAMUNIFORM2DVPROC)wglGetProcAddress("glProgramUniform2dv");
+	glProgramUniform2ui = (PFNGLPROGRAMUNIFORM2UIPROC)wglGetProcAddress("glProgramUniform2ui");
+	glProgramUniform2uiv = (PFNGLPROGRAMUNIFORM2UIVPROC)wglGetProcAddress("glProgramUniform2uiv");
+	glProgramUniform3i = (PFNGLPROGRAMUNIFORM3IPROC)wglGetProcAddress("glProgramUniform3i");
+	glProgramUniform3iv = (PFNGLPROGRAMUNIFORM3IVPROC)wglGetProcAddress("glProgramUniform3iv");
+	glProgramUniform3f = (PFNGLPROGRAMUNIFORM3FPROC)wglGetProcAddress("glProgramUniform3f");
+	glProgramUniform3fv = (PFNGLPROGRAMUNIFORM3FVPROC)wglGetProcAddress("glProgramUniform3fv");
+	glProgramUniform3d = (PFNGLPROGRAMUNIFORM3DPROC)wglGetProcAddress("glProgramUniform3d");
+	glProgramUniform3dv = (PFNGLPROGRAMUNIFORM3DVPROC)wglGetProcAddress("glProgramUniform3dv");
+	glProgramUniform3ui = (PFNGLPROGRAMUNIFORM3UIPROC)wglGetProcAddress("glProgramUniform3ui");
+	glProgramUniform3uiv = (PFNGLPROGRAMUNIFORM3UIVPROC)wglGetProcAddress("glProgramUniform3uiv");
+	glProgramUniform4i = (PFNGLPROGRAMUNIFORM4IPROC)wglGetProcAddress("glProgramUniform4i");
+	glProgramUniform4iv = (PFNGLPROGRAMUNIFORM4IVPROC)wglGetProcAddress("glProgramUniform4iv");
+	glProgramUniform4f = (PFNGLPROGRAMUNIFORM4FPROC)wglGetProcAddress("glProgramUniform4f");
+	glProgramUniform4fv = (PFNGLPROGRAMUNIFORM4FVPROC)wglGetProcAddress("glProgramUniform4fv");
+	glProgramUniform4d = (PFNGLPROGRAMUNIFORM4DPROC)wglGetProcAddress("glProgramUniform4d");
+	glProgramUniform4dv = (PFNGLPROGRAMUNIFORM4DVPROC)wglGetProcAddress("glProgramUniform4dv");
+	glProgramUniform4ui = (PFNGLPROGRAMUNIFORM4UIPROC)wglGetProcAddress("glProgramUniform4ui");
+	glProgramUniform4uiv = (PFNGLPROGRAMUNIFORM4UIVPROC)wglGetProcAddress("glProgramUniform4uiv");
+	glProgramUniformMatrix2fv = (PFNGLPROGRAMUNIFORMMATRIX2FVPROC)wglGetProcAddress("glProgramUniformMatrix2fv");
+	glProgramUniformMatrix3fv = (PFNGLPROGRAMUNIFORMMATRIX3FVPROC)wglGetProcAddress("glProgramUniformMatrix3fv");
+	glProgramUniformMatrix4fv = (PFNGLPROGRAMUNIFORMMATRIX4FVPROC)wglGetProcAddress("glProgramUniformMatrix4fv");
+	glProgramUniformMatrix2dv = (PFNGLPROGRAMUNIFORMMATRIX2DVPROC)wglGetProcAddress("glProgramUniformMatrix2dv");
+	glProgramUniformMatrix3dv = (PFNGLPROGRAMUNIFORMMATRIX3DVPROC)wglGetProcAddress("glProgramUniformMatrix3dv");
+	glProgramUniformMatrix4dv = (PFNGLPROGRAMUNIFORMMATRIX4DVPROC)wglGetProcAddress("glProgramUniformMatrix4dv");
+	glProgramUniformMatrix2x3fv = (PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC)wglGetProcAddress("glProgramUniformMatrix2x3fv");
+	glProgramUniformMatrix3x2fv = (PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC)wglGetProcAddress("glProgramUniformMatrix3x2fv");
+	glProgramUniformMatrix2x4fv = (PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC)wglGetProcAddress("glProgramUniformMatrix2x4fv");
+	glProgramUniformMatrix4x2fv = (PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC)wglGetProcAddress("glProgramUniformMatrix4x2fv");
+	glProgramUniformMatrix3x4fv = (PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC)wglGetProcAddress("glProgramUniformMatrix3x4fv");
+	glProgramUniformMatrix4x3fv = (PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC)wglGetProcAddress("glProgramUniformMatrix4x3fv");
+	glProgramUniformMatrix2x3dv = (PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC)wglGetProcAddress("glProgramUniformMatrix2x3dv");
+	glProgramUniformMatrix3x2dv = (PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC)wglGetProcAddress("glProgramUniformMatrix3x2dv");
+	glProgramUniformMatrix2x4dv = (PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC)wglGetProcAddress("glProgramUniformMatrix2x4dv");
+	glProgramUniformMatrix4x2dv = (PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC)wglGetProcAddress("glProgramUniformMatrix4x2dv");
+	glProgramUniformMatrix3x4dv = (PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC)wglGetProcAddress("glProgramUniformMatrix3x4dv");
+	glProgramUniformMatrix4x3dv = (PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC)wglGetProcAddress("glProgramUniformMatrix4x3dv");
+	glValidateProgramPipeline = (PFNGLVALIDATEPROGRAMPIPELINEPROC)wglGetProcAddress("glValidateProgramPipeline");
+	glGetProgramPipelineInfoLog = (PFNGLGETPROGRAMPIPELINEINFOLOGPROC)wglGetProcAddress("glGetProgramPipelineInfoLog");
+	glVertexAttribL1d = (PFNGLVERTEXATTRIBL1DPROC)wglGetProcAddress("glVertexAttribL1d");
+	glVertexAttribL2d = (PFNGLVERTEXATTRIBL2DPROC)wglGetProcAddress("glVertexAttribL2d");
+	glVertexAttribL3d = (PFNGLVERTEXATTRIBL3DPROC)wglGetProcAddress("glVertexAttribL3d");
+	glVertexAttribL4d = (PFNGLVERTEXATTRIBL4DPROC)wglGetProcAddress("glVertexAttribL4d");
+	glVertexAttribL1dv = (PFNGLVERTEXATTRIBL1DVPROC)wglGetProcAddress("glVertexAttribL1dv");
+	glVertexAttribL2dv = (PFNGLVERTEXATTRIBL2DVPROC)wglGetProcAddress("glVertexAttribL2dv");
+	glVertexAttribL3dv = (PFNGLVERTEXATTRIBL3DVPROC)wglGetProcAddress("glVertexAttribL3dv");
+	glVertexAttribL4dv = (PFNGLVERTEXATTRIBL4DVPROC)wglGetProcAddress("glVertexAttribL4dv");
+	glVertexAttribLPointer = (PFNGLVERTEXATTRIBLPOINTERPROC)wglGetProcAddress("glVertexAttribLPointer");
+	glGetVertexAttribLdv = (PFNGLGETVERTEXATTRIBLDVPROC)wglGetProcAddress("glGetVertexAttribLdv");
+	glViewportArrayv = (PFNGLVIEWPORTARRAYVPROC)wglGetProcAddress("glViewportArrayv");
+	glViewportIndexedf = (PFNGLVIEWPORTINDEXEDFPROC)wglGetProcAddress("glViewportIndexedf");
+	glViewportIndexedfv = (PFNGLVIEWPORTINDEXEDFVPROC)wglGetProcAddress("glViewportIndexedfv");
+	glScissorArrayv = (PFNGLSCISSORARRAYVPROC)wglGetProcAddress("glScissorArrayv");
+	glScissorIndexed = (PFNGLSCISSORINDEXEDPROC)wglGetProcAddress("glScissorIndexed");
+	glScissorIndexedv = (PFNGLSCISSORINDEXEDVPROC)wglGetProcAddress("glScissorIndexedv");
+	glDepthRangeArrayv = (PFNGLDEPTHRANGEARRAYVPROC)wglGetProcAddress("glDepthRangeArrayv");
+	glDepthRangeIndexed = (PFNGLDEPTHRANGEINDEXEDPROC)wglGetProcAddress("glDepthRangeIndexed");
+	glGetFloati_v = (PFNGLGETFLOATI_VPROC)wglGetProcAddress("glGetFloati_v");
+	glGetDoublei_v = (PFNGLGETDOUBLEI_VPROC)wglGetProcAddress("glGetDoublei_v");
+
+	return (glReleaseShaderCompiler && glShaderBinary && glGetShaderPrecisionFormat && glDepthRangef && glClearDepthf && 
+		glGetProgramBinary && glProgramBinary && glProgramParameteri && glUseProgramStages && glActiveShaderProgram && 
+		glCreateShaderProgramv && glBindProgramPipeline && glDeleteProgramPipelines && glGenProgramPipelines && 
+		glIsProgramPipeline && glGetProgramPipelineiv && glProgramUniform1i && glProgramUniform1iv && glProgramUniform1f && 
+		glProgramUniform1fv && glProgramUniform1d && glProgramUniform1dv && glProgramUniform1ui && glProgramUniform1uiv && 
+		glProgramUniform2i && glProgramUniform2iv && glProgramUniform2f && glProgramUniform2fv && glProgramUniform2d && 
+		glProgramUniform2dv && glProgramUniform2ui && glProgramUniform2uiv && glProgramUniform3i && glProgramUniform3iv && 
+		glProgramUniform3f && glProgramUniform3fv && glProgramUniform3d && glProgramUniform3dv && glProgramUniform3ui && 
+		glProgramUniform3uiv && glProgramUniform4i && glProgramUniform4iv && glProgramUniform4f && glProgramUniform4fv && 
+		glProgramUniform4d && glProgramUniform4dv && glProgramUniform4ui && glProgramUniform4uiv && glProgramUniformMatrix2fv && 
+		glProgramUniformMatrix3fv && glProgramUniformMatrix4fv && glProgramUniformMatrix2dv && glProgramUniformMatrix3dv && 
+		glProgramUniformMatrix4dv && glProgramUniformMatrix2x3fv && glProgramUniformMatrix3x2fv && glProgramUniformMatrix2x4fv && 
+		glProgramUniformMatrix4x2fv && glProgramUniformMatrix3x4fv && glProgramUniformMatrix4x3fv && glProgramUniformMatrix2x3dv && 
+		glProgramUniformMatrix3x2dv && glProgramUniformMatrix2x4dv && glProgramUniformMatrix4x2dv && glProgramUniformMatrix3x4dv && 
+		glProgramUniformMatrix4x3dv && glValidateProgramPipeline && glGetProgramPipelineInfoLog && glVertexAttribL1d && 
+		glVertexAttribL2d && glVertexAttribL3d && glVertexAttribL4d && glVertexAttribL1dv && glVertexAttribL2dv && glVertexAttribL3dv && 
+		glVertexAttribL4dv && glVertexAttribLPointer && glGetVertexAttribLdv && glViewportArrayv && glViewportIndexedf && 
+		glViewportIndexedfv && glScissorArrayv && glScissorIndexed && glScissorIndexedv && glDepthRangeArrayv && glDepthRangeIndexed && 
+		glGetFloati_v && glGetDoublei_v) ? 1 : 0;
+}
 
 /////////////////////////////// GL_VERSION_4_2 ////////////////////////////////
 

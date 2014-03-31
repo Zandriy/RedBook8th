@@ -738,6 +738,189 @@ extern "C" {
 
 	int GL_4_0_LoadFuncPointers();
 
+	/////////////////////////////// GL_VERSION_4_1 ////////////////////////////////
+
+	extern PFNGLRELEASESHADERCOMPILERPROC		pglReleaseShaderCompiler;
+	extern PFNGLSHADERBINARYPROC				pglShaderBinary;
+	extern PFNGLGETSHADERPRECISIONFORMATPROC	pglGetShaderPrecisionFormat;
+	extern PFNGLDEPTHRANGEFPROC					pglDepthRangef;
+	extern PFNGLCLEARDEPTHFPROC					pglClearDepthf;
+	extern PFNGLGETPROGRAMBINARYPROC			pglGetProgramBinary;
+	extern PFNGLPROGRAMBINARYPROC				pglProgramBinary;
+	extern PFNGLPROGRAMPARAMETERIPROC			pglProgramParameteri;
+	extern PFNGLUSEPROGRAMSTAGESPROC			pglUseProgramStages;
+	extern PFNGLACTIVESHADERPROGRAMPROC			pglActiveShaderProgram;
+	extern PFNGLCREATESHADERPROGRAMVPROC		pglCreateShaderProgramv;
+	extern PFNGLBINDPROGRAMPIPELINEPROC			pglBindProgramPipeline;
+	extern PFNGLDELETEPROGRAMPIPELINESPROC		pglDeleteProgramPipelines;
+	extern PFNGLGENPROGRAMPIPELINESPROC			pglGenProgramPipelines;
+	extern PFNGLISPROGRAMPIPELINEPROC			pglIsProgramPipeline;
+	extern PFNGLGETPROGRAMPIPELINEIVPROC		pglGetProgramPipelineiv;
+	extern PFNGLPROGRAMUNIFORM1IPROC			pglProgramUniform1i;
+	extern PFNGLPROGRAMUNIFORM1IVPROC			pglProgramUniform1iv;
+	extern PFNGLPROGRAMUNIFORM1FPROC			pglProgramUniform1f;
+	extern PFNGLPROGRAMUNIFORM1FVPROC			pglProgramUniform1fv;
+	extern PFNGLPROGRAMUNIFORM1DPROC			pglProgramUniform1d;
+	extern PFNGLPROGRAMUNIFORM1DVPROC			pglProgramUniform1dv;
+	extern PFNGLPROGRAMUNIFORM1UIPROC			pglProgramUniform1ui;
+	extern PFNGLPROGRAMUNIFORM1UIVPROC			pglProgramUniform1uiv;
+	extern PFNGLPROGRAMUNIFORM2IPROC			pglProgramUniform2i;
+	extern PFNGLPROGRAMUNIFORM2IVPROC			pglProgramUniform2iv;
+	extern PFNGLPROGRAMUNIFORM2FPROC			pglProgramUniform2f;
+	extern PFNGLPROGRAMUNIFORM2FVPROC			pglProgramUniform2fv;
+	extern PFNGLPROGRAMUNIFORM2DPROC			pglProgramUniform2d;
+	extern PFNGLPROGRAMUNIFORM2DVPROC			pglProgramUniform2dv;
+	extern PFNGLPROGRAMUNIFORM2UIPROC			pglProgramUniform2ui;
+	extern PFNGLPROGRAMUNIFORM2UIVPROC			pglProgramUniform2uiv;
+	extern PFNGLPROGRAMUNIFORM3IPROC			pglProgramUniform3i;
+	extern PFNGLPROGRAMUNIFORM3IVPROC			pglProgramUniform3iv;
+	extern PFNGLPROGRAMUNIFORM3FPROC			pglProgramUniform3f;
+	extern PFNGLPROGRAMUNIFORM3FVPROC			pglProgramUniform3fv;
+	extern PFNGLPROGRAMUNIFORM3DPROC			pglProgramUniform3d;
+	extern PFNGLPROGRAMUNIFORM3DVPROC			pglProgramUniform3dv;
+	extern PFNGLPROGRAMUNIFORM3UIPROC			pglProgramUniform3ui;
+	extern PFNGLPROGRAMUNIFORM3UIVPROC			pglProgramUniform3uiv;
+	extern PFNGLPROGRAMUNIFORM4IPROC			pglProgramUniform4i;
+	extern PFNGLPROGRAMUNIFORM4IVPROC			pglProgramUniform4iv;
+	extern PFNGLPROGRAMUNIFORM4FPROC			pglProgramUniform4f;
+	extern PFNGLPROGRAMUNIFORM4FVPROC			pglProgramUniform4fv;
+	extern PFNGLPROGRAMUNIFORM4DPROC			pglProgramUniform4d;
+	extern PFNGLPROGRAMUNIFORM4DVPROC			pglProgramUniform4dv;
+	extern PFNGLPROGRAMUNIFORM4UIPROC			pglProgramUniform4ui;
+	extern PFNGLPROGRAMUNIFORM4UIVPROC			pglProgramUniform4uiv;
+	extern PFNGLPROGRAMUNIFORMMATRIX2FVPROC		pglProgramUniformMatrix2fv;
+	extern PFNGLPROGRAMUNIFORMMATRIX3FVPROC		pglProgramUniformMatrix3fv;
+	extern PFNGLPROGRAMUNIFORMMATRIX4FVPROC		pglProgramUniformMatrix4fv;
+	extern PFNGLPROGRAMUNIFORMMATRIX2DVPROC		pglProgramUniformMatrix2dv;
+	extern PFNGLPROGRAMUNIFORMMATRIX3DVPROC		pglProgramUniformMatrix3dv;
+	extern PFNGLPROGRAMUNIFORMMATRIX4DVPROC		pglProgramUniformMatrix4dv;
+	extern PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC	pglProgramUniformMatrix2x3fv;
+	extern PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC	pglProgramUniformMatrix3x2fv;
+	extern PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC	pglProgramUniformMatrix2x4fv;
+	extern PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC	pglProgramUniformMatrix4x2fv;
+	extern PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC	pglProgramUniformMatrix3x4fv;
+	extern PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC	pglProgramUniformMatrix4x3fv;
+	extern PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC	pglProgramUniformMatrix2x3dv;
+	extern PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC	pglProgramUniformMatrix3x2dv;
+	extern PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC	pglProgramUniformMatrix2x4dv;
+	extern PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC	pglProgramUniformMatrix4x2dv;
+	extern PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC	pglProgramUniformMatrix3x4dv;
+	extern PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC	pglProgramUniformMatrix4x3dv;
+	extern PFNGLVALIDATEPROGRAMPIPELINEPROC		pglValidateProgramPipeline;
+	extern PFNGLGETPROGRAMPIPELINEINFOLOGPROC	pglGetProgramPipelineInfoLog;	
+	extern PFNGLVERTEXATTRIBL1DPROC				pglVertexAttribL1d;
+	extern PFNGLVERTEXATTRIBL2DPROC				pglVertexAttribL2d;
+	extern PFNGLVERTEXATTRIBL3DPROC				pglVertexAttribL3d;
+	extern PFNGLVERTEXATTRIBL4DPROC				pglVertexAttribL4d;
+	extern PFNGLVERTEXATTRIBL1DVPROC			pglVertexAttribL1dv;
+	extern PFNGLVERTEXATTRIBL2DVPROC			pglVertexAttribL2dv;
+	extern PFNGLVERTEXATTRIBL3DVPROC			pglVertexAttribL3dv;
+	extern PFNGLVERTEXATTRIBL4DVPROC			pglVertexAttribL4dv;
+	extern PFNGLVERTEXATTRIBLPOINTERPROC		pglVertexAttribLPointer;
+	extern PFNGLGETVERTEXATTRIBLDVPROC			pglGetVertexAttribLdv;
+	extern PFNGLVIEWPORTARRAYVPROC				pglViewportArrayv;
+	extern PFNGLVIEWPORTINDEXEDFPROC			pglViewportIndexedf;
+	extern PFNGLVIEWPORTINDEXEDFVPROC			pglViewportIndexedfv;
+	extern PFNGLSCISSORARRAYVPROC				pglScissorArrayv;
+	extern PFNGLSCISSORINDEXEDPROC				pglScissorIndexed;
+	extern PFNGLSCISSORINDEXEDVPROC				pglScissorIndexedv;
+	extern PFNGLDEPTHRANGEARRAYVPROC			pglDepthRangeArrayv;
+	extern PFNGLDEPTHRANGEINDEXEDPROC			pglDepthRangeIndexed;
+	extern PFNGLGETFLOATI_VPROC					pglGetFloati_v;
+	extern PFNGLGETDOUBLEI_VPROC				pglGetDoublei_v;
+
+
+#define glReleaseShaderCompiler			pglReleaseShaderCompiler
+#define glShaderBinary					pglShaderBinary
+#define glGetShaderPrecisionFormat		pglGetShaderPrecisionFormat
+#define glDepthRangef					pglDepthRangef
+#define glClearDepthf					pglClearDepthf
+#define glGetProgramBinary				pglGetProgramBinary
+#define glProgramBinary					pglProgramBinary
+#define glProgramParameteri				pglProgramParameteri
+#define glUseProgramStages				pglUseProgramStages
+#define glActiveShaderProgram			pglActiveShaderProgram
+#define glCreateShaderProgramv			pglCreateShaderProgramv
+#define glBindProgramPipeline			pglBindProgramPipeline
+#define glDeleteProgramPipelines		pglDeleteProgramPipelines
+#define glGenProgramPipelines			pglGenProgramPipelines
+#define glIsProgramPipeline				pglIsProgramPipeline
+#define glGetProgramPipelineiv			pglGetProgramPipelineiv
+#define glProgramUniform1i				pglProgramUniform1i
+#define glProgramUniform1iv				pglProgramUniform1iv
+#define glProgramUniform1f				pglProgramUniform1f
+#define glProgramUniform1fv				pglProgramUniform1fv
+#define glProgramUniform1d				pglProgramUniform1d
+#define glProgramUniform1dv				pglProgramUniform1dv
+#define glProgramUniform1ui				pglProgramUniform1ui
+#define glProgramUniform1uiv			pglProgramUniform1uiv
+#define glProgramUniform2i				pglProgramUniform2i
+#define glProgramUniform2iv				pglProgramUniform2iv
+#define glProgramUniform2f				pglProgramUniform2f
+#define glProgramUniform2fv				pglProgramUniform2fv
+#define glProgramUniform2d				pglProgramUniform2d
+#define glProgramUniform2dv				pglProgramUniform2dv
+#define glProgramUniform2ui				pglProgramUniform2ui
+#define glProgramUniform2uiv			pglProgramUniform2uiv
+#define glProgramUniform3i				pglProgramUniform3i
+#define glProgramUniform3iv				pglProgramUniform3iv
+#define glProgramUniform3f				pglProgramUniform3f
+#define glProgramUniform3fv				pglProgramUniform3fv
+#define glProgramUniform3d				pglProgramUniform3d
+#define glProgramUniform3dv				pglProgramUniform3dv
+#define glProgramUniform3ui				pglProgramUniform3ui
+#define glProgramUniform3uiv			pglProgramUniform3uiv
+#define glProgramUniform4i				pglProgramUniform4i
+#define glProgramUniform4iv				pglProgramUniform4iv
+#define glProgramUniform4f				pglProgramUniform4f
+#define glProgramUniform4fv				pglProgramUniform4fv
+#define glProgramUniform4d				pglProgramUniform4d
+#define glProgramUniform4dv				pglProgramUniform4dv
+#define glProgramUniform4ui				pglProgramUniform4ui
+#define glProgramUniform4uiv			pglProgramUniform4uiv
+#define glProgramUniformMatrix2fv		pglProgramUniformMatrix2fv
+#define glProgramUniformMatrix3fv		pglProgramUniformMatrix3fv
+#define glProgramUniformMatrix4fv		pglProgramUniformMatrix4fv
+#define glProgramUniformMatrix2dv		pglProgramUniformMatrix2dv
+#define glProgramUniformMatrix3dv		pglProgramUniformMatrix3dv
+#define glProgramUniformMatrix4dv		pglProgramUniformMatrix4dv
+#define glProgramUniformMatrix2x3fv		pglProgramUniformMatrix2x3fv
+#define glProgramUniformMatrix3x2fv		pglProgramUniformMatrix3x2fv
+#define glProgramUniformMatrix2x4fv		pglProgramUniformMatrix2x4fv
+#define glProgramUniformMatrix4x2fv		pglProgramUniformMatrix4x2fv
+#define glProgramUniformMatrix3x4fv		pglProgramUniformMatrix3x4fv
+#define glProgramUniformMatrix4x3fv		pglProgramUniformMatrix4x3fv
+#define glProgramUniformMatrix2x3dv		pglProgramUniformMatrix2x3dv
+#define glProgramUniformMatrix3x2dv		pglProgramUniformMatrix3x2dv
+#define glProgramUniformMatrix2x4dv		pglProgramUniformMatrix2x4dv
+#define glProgramUniformMatrix4x2dv		pglProgramUniformMatrix4x2dv
+#define glProgramUniformMatrix3x4dv		pglProgramUniformMatrix3x4dv
+#define glProgramUniformMatrix4x3dv		pglProgramUniformMatrix4x3dv
+#define glValidateProgramPipeline		pglValidateProgramPipeline
+#define glGetProgramPipelineInfoLog		pglGetProgramPipelineInfoLog
+#define glVertexAttribL1d				pglVertexAttribL1d
+#define glVertexAttribL2d				pglVertexAttribL2d
+#define glVertexAttribL3d				pglVertexAttribL3d
+#define glVertexAttribL4d				pglVertexAttribL4d
+#define glVertexAttribL1dv				pglVertexAttribL1dv
+#define glVertexAttribL2dv				pglVertexAttribL2dv
+#define glVertexAttribL3dv				pglVertexAttribL3dv
+#define glVertexAttribL4dv				pglVertexAttribL4dv
+#define glVertexAttribLPointer			pglVertexAttribLPointer
+#define glGetVertexAttribLdv			pglGetVertexAttribLdv
+#define glViewportArrayv				pglViewportArrayv
+#define glViewportIndexedf				pglViewportIndexedf
+#define glViewportIndexedfv				pglViewportIndexedfv
+#define glScissorArrayv					pglScissorArrayv
+#define glScissorIndexed				pglScissorIndexed
+#define glScissorIndexedv				pglScissorIndexedv
+#define glDepthRangeArrayv				pglDepthRangeArrayv
+#define glDepthRangeIndexed				pglDepthRangeIndexed
+#define glGetFloati_v					pglGetFloati_v
+#define glGetDoublei_v					pglGetDoublei_v
+
+	int GL_4_1_LoadFuncPointers();
+
 	/////////////////////////////// GL_VERSION_4_2 ////////////////////////////////
 
 	extern PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC					pglDrawArraysInstancedBaseInstance;
