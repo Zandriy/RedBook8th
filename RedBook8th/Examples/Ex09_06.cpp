@@ -118,7 +118,7 @@ void Ex09_06::keyboard( unsigned char key, int x, int y )
 			  Display();
 			  break;
 	case 'R': 
-		for (int i = 0; i < 5000; ++i)
+		for (int i = 0; i < c_repeat; ++i)
 			Display();
 		break;
 	default:

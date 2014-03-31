@@ -105,7 +105,7 @@ void Ex08_11::keyboard( unsigned char key, int x, int y )
 {
 	switch( key ) {
 	case 'M': 
-		for (int i = 0; i < 5000; ++i)
+		for (int i = 0; i < c_repeat; ++i)
 			Display();
 		break;
 	default:

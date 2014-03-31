@@ -22,9 +22,16 @@ public:
 private:
 	void Display();
 
-	GLuint object_prog;
+	GLuint base_prog;
+	GLint base_mat_model_loc;
+	GLint base_mat_proj_loc;
 
-	GLint object_mat_mvp_loc;
+	GLuint fur_prog;
+	GLint fur_mat_model_loc;
+	GLint fur_mat_proj_loc;
+	GLuint fur_texture;
+
+	bool m_spin, m_fur;
 
 	VBObject object;
 };

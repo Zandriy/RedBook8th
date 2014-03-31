@@ -12,14 +12,17 @@
 #include "Auxiliary/vermilion.h"
 
 Ex10_07::Ex10_07()
-	: OGLWindow("Example10_07", "Example 10.7 (M)")
+	: OGLWindow("Example10_07", "Example 10.7 (F, M, S)")
+	, m_spin(false)
+	, m_fur(true)
 {
 }
 
 Ex10_07::~Ex10_07()
 {
 	glUseProgram(0);
-	glDeleteProgram(object_prog);
+	glDeleteProgram(base_prog);
+	glDeleteProgram(fur_prog);
 }
 
 void Ex10_07::InitGL()
@@ -27,75 +30,126 @@ void Ex10_07::InitGL()
 	if (! LoadGL() )
 		return;
 
-	ShaderInfo  object_shaders[] = {
-		{ GL_VERTEX_SHADER, "Shaders/sh10_07.vert" },
-		{ GL_FRAGMENT_SHADER, "Shaders/sh10_07.frag" },
+	ShaderInfo  base_shaders[] = {
+		{ GL_VERTEX_SHADER, "Shaders/sh10_07_base.vert" },
+		{ GL_FRAGMENT_SHADER, "Shaders/sh10_07_base.frag" },
 		{ GL_NONE, NULL }
 	};
 
-	object_prog = LoadShaders( object_shaders );
+	base_prog = LoadShaders( base_shaders );
 
-	glLinkProgram(object_prog);
+	glLinkProgram(base_prog);
 
-	object_mat_mvp_loc = glGetUniformLocation(object_prog, "MVPMatrix");
+	base_mat_model_loc = glGetUniformLocation(base_prog, "model_matrix");
+	base_mat_proj_loc = glGetUniformLocation(base_prog, "projection_matrix");
 
-	GLuint object_color_loc = glGetUniformLocation(object_prog, "VertexColor");
+	ShaderInfo  fur_shaders[] = {
+		{ GL_VERTEX_SHADER, "Shaders/sh10_07_fur.vert" },
+		{ GL_GEOMETRY_SHADER, "Shaders/sh10_07_fur.geom" },
+		{ GL_FRAGMENT_SHADER, "Shaders/sh10_07_fur.frag" },
+		{ GL_NONE, NULL }
+	};
 
-	GLuint Scale_loc = glGetUniformLocation(object_prog, "Scale");
-	GLuint Threshold_loc = glGetUniformLocation(object_prog, "Threshold");
+	fur_prog = LoadShaders( fur_shaders );
 
-	glUseProgram(object_prog);	
+	glLinkProgram(fur_prog);
 
-	glUniform4fv(object_color_loc, 1, vmath::vec4(1.0f, 0.3f, 0.1f, 0.5f));
+	fur_mat_model_loc = glGetUniformLocation(fur_prog, "model_matrix");
+	fur_mat_proj_loc = glGetUniformLocation(fur_prog, "projection_matrix");
 
-	glUniform2fv(Scale_loc, 1, vmath::vec2(50.0f, 70.0f));
-	glUniform2fv(Threshold_loc, 1, vmath::vec2(0.13f, 0.13f));
+	glUseProgram(fur_prog);
+
+	glGenTextures(1, &fur_texture);
+	unsigned char * tex = (unsigned char *)malloc(1024 * 1024 * 4);
+	memset(tex, 0, 1024 * 1024 * 4);
+
+	int n, m;
+
+	for (n = 0; n < 256; n++)
+	{
+		for (m = 0; m < 1270; m++)
+		{
+			int x = rand() & 0x3FF;
+			int y = rand() & 0x3FF;
+			tex[(y * 1024 + x) * 4 + 0] = (rand() & 0x3F) + 0xC0;
+			tex[(y * 1024 + x) * 4 + 1] = (rand() & 0x3F) + 0xC0;
+			tex[(y * 1024 + x) * 4 + 2] = (rand() & 0x3F) + 0xC0;
+			tex[(y * 1024 + x) * 4 + 3] = n;
+		}
+	}
+
+	glBindTexture(GL_TEXTURE_2D, fur_texture);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1024, 1024, 0, GL_RGBA, GL_UNSIGNED_BYTE, tex);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	free(tex);
 
 	object.LoadFromVBM("Media/ninja.vbm", 0, 1, 2);
 }
 
 void Ex10_07::Display()
 {
-	static const vmath::vec3 X(0.3f, 0.0f, 0.0f);
-	static const vmath::vec3 Y(0.0f, 0.3f, 0.0f);
-	static const vmath::vec3 Z(0.0f, 0.0f, 0.3f);
+	float t = float(GetTickCount() & 0x3FFF) / float(0x3FFF);
+	static const vmath::vec3 X(1.0f, 0.0f, 0.0f);
+	static const vmath::vec3 Y(0.0f, 1.0f, 0.0f);
+	static const vmath::vec3 Z(0.0f, 0.0f, 1.0f);
 
-	vmath::mat4 tc_matrix(vmath::mat4::identity());
-
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClearDepth(1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LEQUAL);
-	glDisable(GL_CULL_FACE);
-
 	float aspect = float(getHeight()) / getWidth();
 
-	glUseProgram(object_prog);
+	vmath::mat4 p(vmath::frustum(-1.0f, 1.0f, aspect, -aspect, 1.0f, 5000.0f));
+	vmath::mat4 m;
 
-	static float a = -20.0;
-	static bool sign = true; 
-	if (sign)
+	if (m_spin)
 	{
-		a += 0.01;
-		if (a >= 80.0) sign = false;
+		m = vmath::mat4(vmath::translate(0.0f, 0.0f,
+			100.0f * sinf(6.28318531f * t) - 130.0f) *
+			vmath::rotate(360.0f * t, X) *
+			vmath::rotate(360.0f * t * 1.0f, Y) *
+			vmath::rotate(180.0f, Z) *
+			vmath::translate(0.0f, -80.0f, 0.0f));
 	}
 	else
 	{
-		a -= 0.01;
-		if (a <= -30.0) sign = true;
+		m = vmath::mat4(vmath::translate(0.0f, 0.0f, - 130.0f) *
+			vmath::rotate(360.0f * t * 1.0f, Y) *
+			vmath::rotate(180.0f, Z) *
+			vmath::translate(0.0f, -80.0f, 0.0f));
 	}
 
-	tc_matrix = vmath::translate(vmath::vec3(0.0f, -120.0f + a, -70.0f)) *
-		vmath::rotate(a, Y);
+	glUseProgram(base_prog);
 
-	tc_matrix = vmath::perspective(35.0f, 1.0f / aspect, 0.1f, 100.0f) * tc_matrix;
-	glUniformMatrix4fv(object_mat_mvp_loc, 1, GL_FALSE, tc_matrix);
+	glUniformMatrix4fv(base_mat_model_loc, 1, GL_FALSE, m[0]);
+	glUniformMatrix4fv(base_mat_proj_loc, 1, GL_FALSE, p);
 
-	glClear(GL_DEPTH_BUFFER_BIT);
+	glDisable(GL_BLEND);
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_FRONT);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
 
 	object.Render();
+
+	if (m_fur)
+	{
+		glUseProgram(fur_prog);
+
+		glUniformMatrix4fv(fur_mat_model_loc, 1, GL_FALSE, m[0]);
+		glUniformMatrix4fv(fur_mat_proj_loc, 1, GL_FALSE, p);
+
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+		glDepthMask(GL_FALSE);
+
+		object.Render();
+	}
+
+	glDepthMask(GL_TRUE);
+	glDisable(GL_BLEND);
 
 	glFlush();
 }
@@ -103,9 +157,17 @@ void Ex10_07::Display()
 void Ex10_07::keyboard( unsigned char key, int x, int y )
 {
 	switch( key ) {
+	case 'F': 
+		m_fur = !m_fur;
+		Display();
+		break;
 	case 'M': 
-		for (int i = 0; i < 5000; ++i)
+		for (int i = 0; i < c_repeat; ++i)
 			Display();
+		break;
+	case 'S': 
+		m_spin = !m_spin;
+		Display();
 		break;
 	default:
 		OGLWindow::keyboard(key, x, y);
