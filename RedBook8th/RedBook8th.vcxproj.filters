@@ -120,9 +120,6 @@
     <ClCompile Include="Examples\Ex08_03.cpp">
       <Filter>Examples</Filter>
     </ClCompile>
-    <ClCompile Include="Examples\ExT.cpp">
-      <Filter>Examples</Filter>
-    </ClCompile>
     <ClCompile Include="Examples\Ex08_07.cpp">
       <Filter>Examples</Filter>
     </ClCompile>
@@ -160,6 +157,18 @@
       <Filter>Examples</Filter>
     </ClCompile>
     <ClCompile Include="Examples\Ex09_08.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex10_07.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex07_lights.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex10_15.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex10_21.cpp">
       <Filter>Examples</Filter>
     </ClCompile>
   </ItemGroup>
@@ -283,9 +292,6 @@
     <ClInclude Include="Examples\Ex08_03.h">
       <Filter>Examples</Filter>
     </ClInclude>
-    <ClInclude Include="Examples\ExT.h">
-      <Filter>Examples</Filter>
-    </ClInclude>
     <ClInclude Include="Examples\Ex08_07.h">
       <Filter>Examples</Filter>
     </ClInclude>
@@ -327,6 +333,18 @@
     </ClInclude>
     <ClInclude Include="Shapes\Teapot.h">
       <Filter>Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex10_07.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex07_lights.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex10_15.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex10_21.h">
+      <Filter>Examples</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -510,12 +528,6 @@
     <None Include="Shaders\sh08_03.vert">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="Shaders\shT.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\shT.vert">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="Shaders\sh08_07.frag">
       <Filter>Shaders</Filter>
     </None>
@@ -592,6 +604,18 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\teapot.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh10_07.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh10_07.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_lights.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh07_lights.vert">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

@@ -39,6 +39,7 @@
 #include "Examples/Ex07_06.h"
 #include "Examples/Ex07_08.h"
 #include "Examples/Ex07_15.h"
+#include "Examples/Ex07_lights.h"
 #include "Examples/Ex08_01.h"
 #include "Examples/Ex08_03.h"
 #include "Examples/Ex08_07.h"
@@ -54,12 +55,14 @@
 #include "Examples/Ex08_21.h"
 #include "Examples/Ex09_06.h"
 #include "Examples/Ex09_08.h"
+#include "Examples/Ex10_07.h"
+#include "Examples/Ex10_15.h"
+#include "Examples/Ex10_21.h"
 
-#include "Examples/ExT.h"
 #include "Examples/ExTest.h"
 
-#define EXAMPLES_QTY 48
-#define CUR_EXAMPLE EXAMPLES_QTY-3
+#define EXAMPLES_QTY 51
+#define CUR_EXAMPLE EXAMPLES_QTY-2
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -254,6 +257,8 @@ int WinParent::InitChilds(int nCmdShow)
 	InitChild(child, r);
 	child = new Ex07_15;
 	InitChild(child, r);
+	child = new Ex07_lights;
+	InitChild(child, r);
 	child = new Ex08_01;
 	InitChild(child, r);
 	child = new Ex08_03;
@@ -284,9 +289,13 @@ int WinParent::InitChilds(int nCmdShow)
 	InitChild(child, r);
 	child = new Ex09_08;
 	InitChild(child, r);
-
-	child = new ExT;
+	child = new Ex10_07;
 	InitChild(child, r);
+	child = new Ex10_15;
+	InitChild(child, r);
+	child = new Ex10_21;
+	InitChild(child, r);
+
 	child = new ExTest;
 	InitChild(child, r);
 

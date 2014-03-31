@@ -102,6 +102,7 @@
     <ClCompile Include="Examples\Ex07_06.cpp" />
     <ClCompile Include="Examples\Ex07_08.cpp" />
     <ClCompile Include="Examples\Ex07_15.cpp" />
+    <ClCompile Include="Examples\Ex07_lights.cpp" />
     <ClCompile Include="Examples\Ex08_01.cpp" />
     <ClCompile Include="Examples\Ex08_03.cpp" />
     <ClCompile Include="Examples\Ex08_07.cpp" />
@@ -117,7 +118,9 @@
     <ClCompile Include="Examples\Ex08_21.cpp" />
     <ClCompile Include="Examples\Ex09_06.cpp" />
     <ClCompile Include="Examples\Ex09_08.cpp" />
-    <ClCompile Include="Examples\ExT.cpp" />
+    <ClCompile Include="Examples\Ex10_07.cpp" />
+    <ClCompile Include="Examples\Ex10_15.cpp" />
+    <ClCompile Include="Examples\Ex10_21.cpp" />
     <ClCompile Include="Examples\ExTest.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
@@ -161,6 +164,7 @@
     <ClInclude Include="Examples\Ex07_06.h" />
     <ClInclude Include="Examples\Ex07_08.h" />
     <ClInclude Include="Examples\Ex07_15.h" />
+    <ClInclude Include="Examples\Ex07_lights.h" />
     <ClInclude Include="Examples\Ex08_01.h" />
     <ClInclude Include="Examples\Ex08_03.h" />
     <ClInclude Include="Examples\Ex08_07.h" />
@@ -176,7 +180,9 @@
     <ClInclude Include="Examples\Ex08_21.h" />
     <ClInclude Include="Examples\Ex09_06.h" />
     <ClInclude Include="Examples\Ex09_08.h" />
-    <ClInclude Include="Examples\ExT.h" />
+    <ClInclude Include="Examples\Ex10_07.h" />
+    <ClInclude Include="Examples\Ex10_15.h" />
+    <ClInclude Include="Examples\Ex10_21.h" />
     <ClInclude Include="Examples\ExTest.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
@@ -232,6 +238,8 @@
     <None Include="Shaders\sh07_06.vert" />
     <None Include="Shaders\sh07_08.frag" />
     <None Include="Shaders\sh07_08.vert" />
+    <None Include="Shaders\sh07_lights.frag" />
+    <None Include="Shaders\sh07_lights.vert" />
     <None Include="Shaders\sh08_01.frag" />
     <None Include="Shaders\sh08_01.vert" />
     <None Include="Shaders\sh08_03.frag" />
@@ -254,12 +262,12 @@
     <None Include="Shaders\sh08_19.frag" />
     <None Include="Shaders\sh08_20.frag" />
     <None Include="Shaders\sh08_21.frag" />
+    <None Include="Shaders\sh10_07.frag" />
+    <None Include="Shaders\sh10_07.vert" />
     <None Include="Shaders\shadowmap_scene.fs.glsl" />
     <None Include="Shaders\shadowmap_scene.vs.glsl" />
     <None Include="Shaders\shadowmap_shadow.fs.glsl" />
     <None Include="Shaders\shadowmap_shadow.vs.glsl" />
-    <None Include="Shaders\shT.frag" />
-    <None Include="Shaders\shT.vert" />
     <None Include="Shaders\shTest.frag" />
     <None Include="Shaders\shTest.vert" />
     <None Include="Shaders\simple.cont" />
