@@ -1,22 +1,22 @@
 /*
-* Ex11_04.h
+* Ex11_29.h
 *
 * Created on: Apr 12, 2014
 * Author: Andrew Zhabura
 */
 
-#ifndef Ex11_04_h
-#define Ex11_04_h
+#ifndef Ex11_29_h
+#define Ex11_29_h
 
 #include "WinApi/OGLWindow.h"
 #include <GL/glLoader.h>
 #include "Auxiliary/vbm.h"
 
-class Ex11_04 : public OGLWindow
+class Ex11_29 : public OGLWindow
 {
 public:
-	Ex11_04();
-	~Ex11_04();
+	Ex11_29();
+	~Ex11_29();
 	void InitGL();
 private:
 	void Display();
@@ -24,13 +24,14 @@ private:
 	// Program to construct the linked list (renders the transparent objects)
 	GLuint  list_build_program;
 
-	// Color palette buffer texture
-	GLuint  image_palette_buffer;
-	GLuint  image_palette_texture;
-
-	// Output image and PBO for clearing it
-	GLuint  output_texture;
-	GLuint  output_texture_clear_buffer;
+	// Head pointer image and PBO for clearing it
+	GLuint  head_pointer_texture;
+	GLuint  head_pointer_clear_buffer;
+	// Atomic counter buffer
+	GLuint  atomic_counter_buffer;
+	// Linked list buffer
+	GLuint  linked_list_buffer;
+	GLuint  linked_list_texture;
 
 	// Program to render the scene
 	GLuint render_scene_prog;
@@ -56,4 +57,4 @@ private:
 	VBObject object;
 };
 
-#endif // Ex11_04_h
+#endif // Ex11_29_h

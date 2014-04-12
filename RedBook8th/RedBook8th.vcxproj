@@ -122,6 +122,7 @@
     <ClCompile Include="Examples\Ex10_15.cpp" />
     <ClCompile Include="Examples\Ex10_21.cpp" />
     <ClCompile Include="Examples\Ex11_04.cpp" />
+    <ClCompile Include="Examples\Ex11_29.cpp" />
     <ClCompile Include="Examples\ExTest.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="Examples\Ex10_15.h" />
     <ClInclude Include="Examples\Ex10_21.h" />
     <ClInclude Include="Examples\Ex11_04.h" />
+    <ClInclude Include="Examples\Ex11_29.h" />
     <ClInclude Include="Examples\ExTest.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
@@ -196,6 +198,8 @@
   <ItemGroup>
     <None Include="Shaders\blit.fs.glsl" />
     <None Include="Shaders\blit.vs.glsl" />
+    <None Include="Shaders\build_lists.fs.glsl" />
+    <None Include="Shaders\build_lists.vs.glsl" />
     <None Include="Shaders\double_write.fs.glsl" />
     <None Include="Shaders\double_write.vs.glsl" />
     <None Include="Shaders\gouraud.frag" />
@@ -210,6 +214,8 @@
     <None Include="Shaders\pointsprites_sphere.vs.glsl" />
     <None Include="Shaders\primitive_restart.fs.glsl" />
     <None Include="Shaders\primitive_restart.vs.glsl" />
+    <None Include="Shaders\resolve_lists.fs.glsl" />
+    <None Include="Shaders\resolve_lists.vs.glsl" />
     <None Include="Shaders\sh02_04.frag" />
     <None Include="Shaders\sh02_04.vert" />
     <None Include="Shaders\sh03_01.frag" />
