@@ -177,6 +177,9 @@
     <ClCompile Include="Examples\Ex11_29.cpp">
       <Filter>Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\Ex11_21.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GL\glcorearb.h" />
@@ -356,6 +359,9 @@
       <Filter>Examples</Filter>
     </ClInclude>
     <ClInclude Include="Examples\Ex11_29.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex11_21.h">
       <Filter>Examples</Filter>
     </ClInclude>
   </ItemGroup>
@@ -682,6 +688,18 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\resolve_lists.vs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\overdraw_count.fs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\overdraw_count.vs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\blit11_21.fs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\blit11_21.vs.glsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

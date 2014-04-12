@@ -1,11 +1,11 @@
 /*
-* Ex11_04.cpp
+* Ex11_21.cpp
 *
 * Created on: Apr 12, 2014
 * Author: Andrew Zhabura
 */
 
-#include "Ex11_04.h"
+#include "Ex11_21.h"
 
 #include "GL/LoadShaders.h"
 #include "Auxiliary/vmath.h"
@@ -14,29 +14,53 @@
 #define MAX_FRAMEBUFFER_WIDTH 2048
 #define MAX_FRAMEBUFFER_HEIGHT 2048
 
-Ex11_04::Ex11_04()
-	: OGLWindow("Example11_04", "Example 11.4 (M, R)")
+Ex11_21::Ex11_21()
+	: OGLWindow("Example11_21", "Example 11.21")
 {
 }
 
-Ex11_04::~Ex11_04()
+Ex11_21::~Ex11_21()
 {
 	glUseProgram(0);
 	glDeleteProgram(render_scene_prog);
-	glDeleteProgram(resolve_program);
 	glDeleteBuffers(1, &quad_vbo);
 	glDeleteVertexArrays(1, &quad_vao);
 }
 
-void Ex11_04::InitGL()
+void Ex11_21::InitGL()
 {
 	if (! LoadGL() )
 		return;
 
 	render_scene_prog = -1;
-	resolve_program = -1;
 
-	InitPrograms();
+	// Create the program for rendering the scene from the viewer's position
+	ShaderInfo scene_shaders[] =
+	{
+		{ GL_VERTEX_SHADER, "Shaders/overdraw_count.vs.glsl" },
+		{ GL_FRAGMENT_SHADER, "Shaders/overdraw_count.fs.glsl" },
+		{ GL_NONE }
+	};
+
+	if (render_scene_prog != -1)
+		glDeleteProgram(render_scene_prog);
+
+	render_scene_prog = LoadShaders(scene_shaders);
+
+	render_scene_uniforms.model_matrix = glGetUniformLocation(render_scene_prog, "model_matrix");
+	render_scene_uniforms.view_matrix = glGetUniformLocation(render_scene_prog, "view_matrix");
+	render_scene_uniforms.projection_matrix = glGetUniformLocation(render_scene_prog, "projection_matrix");
+	render_scene_uniforms.aspect = glGetUniformLocation(render_scene_prog, "aspect");
+	render_scene_uniforms.time = glGetUniformLocation(render_scene_prog, "time");
+
+	ShaderInfo resolve_shaders[] =
+	{
+		{ GL_VERTEX_SHADER, "Shaders/blit11_21.vs.glsl" },
+		{ GL_FRAGMENT_SHADER, "Shaders/blit11_21.fs.glsl" },
+		{ GL_NONE }
+	};
+
+	resolve_program = LoadShaders(resolve_shaders);
 
 	// Create palette texture
 	glGenBuffers(1, &image_palette_buffer);
@@ -53,20 +77,17 @@ void Ex11_04::InitGL()
 	}
 	glUnmapBuffer(GL_TEXTURE_BUFFER);
 
-	// Create head pointer texture
-	glActiveTexture(GL_TEXTURE0);
-	glGenTextures(1, &output_texture);
-	glBindTexture(GL_TEXTURE_2D, output_texture);
+	// Create overdraw counter texture
+	glGenTextures(1, &overdraw_count_buffer);
+	glBindTexture(GL_TEXTURE_2D, overdraw_count_buffer);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, MAX_FRAMEBUFFER_WIDTH, MAX_FRAMEBUFFER_HEIGHT, 0, GL_RGBA, GL_FLOAT, NULL);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_R32UI, MAX_FRAMEBUFFER_WIDTH, MAX_FRAMEBUFFER_HEIGHT, 0, GL_RED_INTEGER, GL_UNSIGNED_INT, NULL);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
-	glBindImageTexture(0, output_texture, 0, GL_TRUE, 0, GL_READ_WRITE, GL_RGBA32F);
-
 	// Create buffer for clearing the head pointer texture
-	glGenBuffers(1, &output_texture_clear_buffer);
-	glBindBuffer(GL_PIXEL_UNPACK_BUFFER, output_texture_clear_buffer);
+	glGenBuffers(1, &overdraw_count_clear_buffer);
+	glBindBuffer(GL_PIXEL_UNPACK_BUFFER, overdraw_count_clear_buffer);
 	glBufferData(GL_PIXEL_UNPACK_BUFFER, MAX_FRAMEBUFFER_WIDTH * MAX_FRAMEBUFFER_HEIGHT * sizeof(GLuint), NULL, GL_STATIC_DRAW);
 
 	data = (vmath::vec4 *)glMapBuffer(GL_PIXEL_UNPACK_BUFFER, GL_WRITE_ONLY);
@@ -96,8 +117,10 @@ void Ex11_04::InitGL()
 	object.LoadFromVBM("Media/torus.vbm", 0, 1, 2);
 }
 
-void Ex11_04::Display()
-{
+void Ex11_21::Display()
+{ 
+	float aspect = float(getHeight()) / getWidth();
+
 	float t;
 
 	unsigned int current_time = GetTickCount();
@@ -107,25 +130,20 @@ void Ex11_04::Display()
 	glDisable(GL_DEPTH_TEST);
 	glDisable(GL_CULL_FACE);
 
-	glClearColor(0.0f, 0.0f, 1.0f, 0.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	// Bind palette buffer
-	glBindImageTexture(0, image_palette_texture, 0, GL_FALSE, 0, GL_READ_ONLY, GL_RGBA32F);
-
 	// Clear output image
-	glBindBuffer(GL_PIXEL_UNPACK_BUFFER, output_texture_clear_buffer);
-	glBindTexture(GL_TEXTURE_2D, output_texture);
-	glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, current_width, current_height, GL_RGBA, GL_FLOAT, NULL);
+	glBindBuffer(GL_PIXEL_UNPACK_BUFFER, overdraw_count_clear_buffer);
+	glBindTexture(GL_TEXTURE_2D, overdraw_count_buffer);
+	glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, current_width, current_height, GL_RED_INTEGER, GL_UNSIGNED_INT, NULL);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	// Bind output image for read-write
-	glBindImageTexture(1, output_texture, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
+	glBindImageTexture(0, overdraw_count_buffer, 0, GL_FALSE, 0, GL_READ_WRITE, GL_R32UI);
 
 	// Render
 	glUseProgram(render_scene_prog);
-
-	float aspect = float(getHeight()) / getWidth();
 
 	vmath::mat4 model_matrix = vmath::translate(0.0f, 0.0f, -20.0f) *
 		vmath::rotate(t * 360.0f, 0.0f, 0.0f, 1.0f) *
@@ -144,61 +162,9 @@ void Ex11_04::Display()
 
 	glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
 
-	glBindImageTexture(0, output_texture, 0, GL_FALSE, 0, GL_READ_ONLY, GL_RGBA32F);
-
 	glBindVertexArray(quad_vao);
 	glUseProgram(resolve_program);
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
 	glFlush();
-}
-
-void Ex11_04::InitPrograms()
-{
-	// Create the program for rendering the scene from the viewer's position
-	ShaderInfo scene_shaders[] =
-	{
-		{ GL_VERTEX_SHADER, "Shaders/double_write.vs.glsl" },
-		{ GL_FRAGMENT_SHADER, "Shaders/double_write.fs.glsl" },
-		{ GL_NONE }
-	};
-
-	if (render_scene_prog != -1)
-		glDeleteProgram(render_scene_prog);
-
-	render_scene_prog = LoadShaders(scene_shaders);
-
-	render_scene_uniforms.model_matrix = glGetUniformLocation(render_scene_prog, "model_matrix");
-	render_scene_uniforms.view_matrix = glGetUniformLocation(render_scene_prog, "view_matrix");
-	render_scene_uniforms.projection_matrix = glGetUniformLocation(render_scene_prog, "projection_matrix");
-	render_scene_uniforms.aspect = glGetUniformLocation(render_scene_prog, "aspect");
-	render_scene_uniforms.time = glGetUniformLocation(render_scene_prog, "time");
-
-	ShaderInfo resolve_shaders[] =
-	{
-		{ GL_VERTEX_SHADER, "Shaders/blit.vs.glsl" },
-		{ GL_FRAGMENT_SHADER, "Shaders/blit.fs.glsl" },
-		{ GL_NONE }
-	};
-
-	if (resolve_program != -1)
-		glDeleteProgram(resolve_program);
-
-	resolve_program = LoadShaders(resolve_shaders);
-}
-
-void Ex11_04::keyboard( unsigned char key, int x, int y )
-{
-	switch( key ) {
-	case 'M': 
-		for (int i = 0; i < c_repeat; ++i)
-			Display();
-			break;
-	case 'R': 
-		InitPrograms();
-		break;
-	default:
-		OGLWindow::keyboard(key, x, y);
-		break;
-	}
 }

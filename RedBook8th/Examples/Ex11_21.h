@@ -1,27 +1,25 @@
 /*
-* Ex11_04.h
+* Ex11_21.h
 *
 * Created on: Apr 12, 2014
 * Author: Andrew Zhabura
 */
 
-#ifndef Ex11_04_h
-#define Ex11_04_h
+#ifndef Ex11_21_h
+#define Ex11_21_h
 
 #include "WinApi/OGLWindow.h"
 #include <GL/glLoader.h>
 #include "Auxiliary/vbm.h"
 
-class Ex11_04 : public OGLWindow
+class Ex11_21 : public OGLWindow
 {
 public:
-	Ex11_04();
-	~Ex11_04();
+	Ex11_21();
+	~Ex11_21();
 	void InitGL();
-	virtual void keyboard( unsigned char key, int x, int y );
 private:
 	void Display();
-	void InitPrograms();
 
 	// Program to construct the linked list (renders the transparent objects)
 	GLuint  list_build_program;
@@ -31,11 +29,11 @@ private:
 	GLuint  image_palette_texture;
 
 	// Output image and PBO for clearing it
-	GLuint  output_texture;
-	GLuint  output_texture_clear_buffer;
+	GLuint  overdraw_count_buffer;
+	GLuint  overdraw_count_clear_buffer;
 
 	// Program to render the scene
-	GLint render_scene_prog;
+	GLuint render_scene_prog;
 	struct
 	{
 		GLint aspect;
@@ -46,7 +44,7 @@ private:
 	} render_scene_uniforms;
 
 	// Program to resolve 
-	GLint resolve_program;
+	GLuint resolve_program;
 
 	// Full Screen Quad
 	GLuint  quad_vbo;
@@ -58,4 +56,4 @@ private:
 	VBObject object;
 };
 
-#endif // Ex11_04_h
+#endif // Ex11_21_h
