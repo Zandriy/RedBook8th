@@ -180,6 +180,15 @@
     <ClCompile Include="Examples\Ex11_21.cpp">
       <Filter>Examples</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\Ex12_01.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex12_07.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\Ex12_11.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GL\glcorearb.h" />
@@ -362,6 +371,15 @@
       <Filter>Examples</Filter>
     </ClInclude>
     <ClInclude Include="Examples\Ex11_21.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex12_01.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex12_07.h">
+      <Filter>Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\Ex12_11.h">
       <Filter>Examples</Filter>
     </ClInclude>
   </ItemGroup>
@@ -700,6 +718,33 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\blit11_21.vs.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh12_01.comp">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh12_01.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh12_01.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh12_07.comp">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh12_07.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh12_07.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh12_11.comp">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh12_11.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sh12_11.vert">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

@@ -951,6 +951,98 @@ extern "C" {
 
 	int GL_4_2_LoadFuncPointers();
 
+	/////////////////////////////// GL_VERSION_4_3 ////////////////////////////////
+
+	extern PFNGLCLEARBUFFERDATAPROC						pglClearBufferData;
+	extern PFNGLCLEARBUFFERSUBDATAPROC					pglClearBufferSubData;
+	extern PFNGLDISPATCHCOMPUTEPROC						pglDispatchCompute;
+	extern PFNGLDISPATCHCOMPUTEINDIRECTPROC				pglDispatchComputeIndirect;
+	extern PFNGLCOPYIMAGESUBDATAPROC					pglCopyImageSubData;
+	extern PFNGLFRAMEBUFFERPARAMETERIPROC				pglFramebufferParameteri;
+	extern PFNGLGETFRAMEBUFFERPARAMETERIVPROC			pglGetFramebufferParameteriv;
+	extern PFNGLGETINTERNALFORMATI64VPROC				pglGetInternalformati64v;
+	extern PFNGLINVALIDATETEXSUBIMAGEPROC				pglInvalidateTexSubImage;
+	extern PFNGLINVALIDATETEXIMAGEPROC					pglInvalidateTexImage;
+	extern PFNGLINVALIDATEBUFFERSUBDATAPROC				pglInvalidateBufferSubData;
+	extern PFNGLINVALIDATEBUFFERDATAPROC				pglInvalidateBufferData;
+	extern PFNGLINVALIDATEFRAMEBUFFERPROC				pglInvalidateFramebuffer;
+	extern PFNGLINVALIDATESUBFRAMEBUFFERPROC			pglInvalidateSubFramebuffer;
+	extern PFNGLMULTIDRAWARRAYSINDIRECTPROC				pglMultiDrawArraysIndirect;
+	extern PFNGLMULTIDRAWELEMENTSINDIRECTPROC			pglMultiDrawElementsIndirect;
+	extern PFNGLGETPROGRAMINTERFACEIVPROC				pglGetProgramInterfaceiv;
+	extern PFNGLGETPROGRAMRESOURCEINDEXPROC				pglGetProgramResourceIndex;
+	extern PFNGLGETPROGRAMRESOURCENAMEPROC				pglGetProgramResourceName;
+	extern PFNGLGETPROGRAMRESOURCEIVPROC				pglGetProgramResourceiv;
+	extern PFNGLGETPROGRAMRESOURCELOCATIONPROC			pglGetProgramResourceLocation;
+	extern PFNGLGETPROGRAMRESOURCELOCATIONINDEXPROC		pglGetProgramResourceLocationIndex;
+	extern PFNGLSHADERSTORAGEBLOCKBINDINGPROC			pglShaderStorageBlockBinding;
+	extern PFNGLTEXBUFFERRANGEPROC						pglTexBufferRange;
+	extern PFNGLTEXSTORAGE2DMULTISAMPLEPROC				pglTexStorage2DMultisample;
+	extern PFNGLTEXSTORAGE3DMULTISAMPLEPROC				pglTexStorage3DMultisample;
+	extern PFNGLTEXTUREVIEWPROC							pglTextureView;
+	extern PFNGLBINDVERTEXBUFFERPROC					pglBindVertexBuffer;
+	extern PFNGLVERTEXATTRIBFORMATPROC					pglVertexAttribFormat;
+	extern PFNGLVERTEXATTRIBIFORMATPROC					pglVertexAttribIFormat;
+	extern PFNGLVERTEXATTRIBLFORMATPROC					pglVertexAttribLFormat;
+	extern PFNGLVERTEXATTRIBBINDINGPROC					pglVertexAttribBinding;
+	extern PFNGLVERTEXBINDINGDIVISORPROC				pglVertexBindingDivisor;
+	extern PFNGLDEBUGMESSAGECONTROLPROC					pglDebugMessageControl;
+	extern PFNGLDEBUGMESSAGEINSERTPROC					pglDebugMessageInsert;
+	extern PFNGLDEBUGMESSAGECALLBACKPROC				pglDebugMessageCallback;
+	extern PFNGLGETDEBUGMESSAGELOGPROC					pglGetDebugMessageLog;
+	extern PFNGLPUSHDEBUGGROUPPROC						pglPushDebugGroup;
+	extern PFNGLPOPDEBUGGROUPPROC						pglPopDebugGroup;
+	extern PFNGLOBJECTLABELPROC							pglObjectLabel;
+	extern PFNGLGETOBJECTLABELPROC						pglGetObjectLabel;
+	extern PFNGLOBJECTPTRLABELPROC						pglObjectPtrLabel;
+	extern PFNGLGETOBJECTPTRLABELPROC					pglGetObjectPtrLabel;
+
+#define glClearBufferData						pglClearBufferData
+#define glClearBufferSubData					pglClearBufferSubData
+#define glDispatchCompute						pglDispatchCompute
+#define glDispatchComputeIndirect				pglDispatchComputeIndirect
+#define glCopyImageSubData						pglCopyImageSubData
+#define glFramebufferParameteri					pglFramebufferParameteri
+#define glGetFramebufferParameteriv				pglGetFramebufferParameteriv
+#define glGetInternalformati64v					pglGetInternalformati64v
+#define glInvalidateTexSubImage					pglInvalidateTexSubImage
+#define glInvalidateTexImage					pglInvalidateTexImage
+#define glInvalidateBufferSubData				pglInvalidateBufferSubData
+#define glInvalidateBufferData					pglInvalidateBufferData
+#define glInvalidateFramebuffer					pglInvalidateFramebuffer
+#define glInvalidateSubFramebuffer				pglInvalidateSubFramebuffer
+#define glMultiDrawArraysIndirect				pglMultiDrawArraysIndirect
+#define glMultiDrawElementsIndirect				pglMultiDrawElementsIndirect
+#define glGetProgramInterfaceiv					pglGetProgramInterfaceiv
+#define glGetProgramResourceIndex				pglGetProgramResourceIndex
+#define glGetProgramResourceName				pglGetProgramResourceName
+#define glGetProgramResourceiv					pglGetProgramResourceiv
+#define glGetProgramResourceLocation			pglGetProgramResourceLocation
+#define glGetProgramResourceLocationIndex		pglGetProgramResourceLocationIndex
+#define glShaderStorageBlockBinding				pglShaderStorageBlockBinding
+#define glTexBufferRange						pglTexBufferRange
+#define glTexStorage2DMultisample				pglTexStorage2DMultisample
+#define glTexStorage3DMultisample				pglTexStorage3DMultisample
+#define glTextureView							pglTextureView
+#define glBindVertexBuffer						pglBindVertexBuffer
+#define glVertexAttribFormat					pglVertexAttribFormat
+#define glVertexAttribIFormat					pglVertexAttribIFormat
+#define glVertexAttribLFormat					pglVertexAttribLFormat
+#define glVertexAttribBinding					pglVertexAttribBinding
+#define glVertexBindingDivisor					pglVertexBindingDivisor
+#define glDebugMessageControl					pglDebugMessageControl
+#define glDebugMessageInsert					pglDebugMessageInsert
+#define glDebugMessageCallback					pglDebugMessageCallback
+#define glGetDebugMessageLog					pglGetDebugMessageLog
+#define glPushDebugGroup						pglPushDebugGroup
+#define glPopDebugGroup							pglPopDebugGroup
+#define glObjectLabel							pglObjectLabel
+#define glGetObjectLabel						pglGetObjectLabel
+#define glObjectPtrLabel						pglObjectPtrLabel
+#define glGetObjectPtrLabel						pglGetObjectPtrLabel
+
+	int GL_4_3_LoadFuncPointers();
+
 #ifdef __cplusplus
 }
 #endif

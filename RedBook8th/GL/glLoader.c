@@ -1037,3 +1037,107 @@ int GL_4_2_LoadFuncPointers()
 		glGetInternalformativ && glGetActiveAtomicCounterBufferiv && glBindImageTexture && glMemoryBarrier && glTexStorage1D && 
 		glTexStorage2D && glTexStorage3D && glDrawTransformFeedbackInstanced && glDrawTransformFeedbackStreamInstanced) ? 1 : 0;
 }
+
+
+/////////////////////////////// GL_VERSION_4_3 ////////////////////////////////
+
+PFNGLCLEARBUFFERDATAPROC					pglClearBufferData = 0;
+PFNGLCLEARBUFFERSUBDATAPROC					pglClearBufferSubData = 0;
+PFNGLDISPATCHCOMPUTEPROC					pglDispatchCompute = 0;
+PFNGLDISPATCHCOMPUTEINDIRECTPROC			pglDispatchComputeIndirect = 0;
+PFNGLCOPYIMAGESUBDATAPROC					pglCopyImageSubData = 0;
+PFNGLFRAMEBUFFERPARAMETERIPROC				pglFramebufferParameteri = 0;
+PFNGLGETFRAMEBUFFERPARAMETERIVPROC			pglGetFramebufferParameteriv = 0;
+PFNGLGETINTERNALFORMATI64VPROC				pglGetInternalformati64v = 0;
+PFNGLINVALIDATETEXSUBIMAGEPROC				pglInvalidateTexSubImage = 0;
+PFNGLINVALIDATETEXIMAGEPROC					pglInvalidateTexImage = 0;
+PFNGLINVALIDATEBUFFERSUBDATAPROC			pglInvalidateBufferSubData = 0;
+PFNGLINVALIDATEBUFFERDATAPROC				pglInvalidateBufferData = 0;
+PFNGLINVALIDATEFRAMEBUFFERPROC				pglInvalidateFramebuffer = 0;
+PFNGLINVALIDATESUBFRAMEBUFFERPROC			pglInvalidateSubFramebuffer = 0;
+PFNGLMULTIDRAWARRAYSINDIRECTPROC			pglMultiDrawArraysIndirect = 0;
+PFNGLMULTIDRAWELEMENTSINDIRECTPROC			pglMultiDrawElementsIndirect = 0;
+PFNGLGETPROGRAMINTERFACEIVPROC				pglGetProgramInterfaceiv = 0;
+PFNGLGETPROGRAMRESOURCEINDEXPROC			pglGetProgramResourceIndex = 0;
+PFNGLGETPROGRAMRESOURCENAMEPROC				pglGetProgramResourceName = 0;
+PFNGLGETPROGRAMRESOURCEIVPROC				pglGetProgramResourceiv = 0;
+PFNGLGETPROGRAMRESOURCELOCATIONPROC			pglGetProgramResourceLocation = 0;
+PFNGLGETPROGRAMRESOURCELOCATIONINDEXPROC	pglGetProgramResourceLocationIndex = 0;
+PFNGLSHADERSTORAGEBLOCKBINDINGPROC			pglShaderStorageBlockBinding = 0;
+PFNGLTEXBUFFERRANGEPROC						pglTexBufferRange = 0;
+PFNGLTEXSTORAGE2DMULTISAMPLEPROC			pglTexStorage2DMultisample = 0;
+PFNGLTEXSTORAGE3DMULTISAMPLEPROC			pglTexStorage3DMultisample = 0;
+PFNGLTEXTUREVIEWPROC						pglTextureView = 0;
+PFNGLBINDVERTEXBUFFERPROC					pglBindVertexBuffer = 0;
+PFNGLVERTEXATTRIBFORMATPROC					pglVertexAttribFormat = 0;
+PFNGLVERTEXATTRIBIFORMATPROC				pglVertexAttribIFormat = 0;
+PFNGLVERTEXATTRIBLFORMATPROC				pglVertexAttribLFormat = 0;
+PFNGLVERTEXATTRIBBINDINGPROC				pglVertexAttribBinding = 0;
+PFNGLVERTEXBINDINGDIVISORPROC				pglVertexBindingDivisor = 0;
+PFNGLDEBUGMESSAGECONTROLPROC				pglDebugMessageControl = 0;
+PFNGLDEBUGMESSAGEINSERTPROC					pglDebugMessageInsert = 0;
+PFNGLDEBUGMESSAGECALLBACKPROC				pglDebugMessageCallback = 0;
+PFNGLGETDEBUGMESSAGELOGPROC					pglGetDebugMessageLog = 0;
+PFNGLPUSHDEBUGGROUPPROC						pglPushDebugGroup = 0;
+PFNGLPOPDEBUGGROUPPROC						pglPopDebugGroup = 0;
+PFNGLOBJECTLABELPROC						pglObjectLabel = 0;
+PFNGLGETOBJECTLABELPROC						pglGetObjectLabel = 0;
+PFNGLOBJECTPTRLABELPROC						pglObjectPtrLabel = 0;
+PFNGLGETOBJECTPTRLABELPROC					pglGetObjectPtrLabel = 0;
+
+int GL_4_3_LoadFuncPointers()
+{
+	glClearBufferData = (PFNGLCLEARBUFFERDATAPROC)wglGetProcAddress("glClearBufferData");
+	glClearBufferSubData = (PFNGLCLEARBUFFERSUBDATAPROC)wglGetProcAddress("glClearBufferSubData");
+	glDispatchCompute = (PFNGLDISPATCHCOMPUTEPROC)wglGetProcAddress("glDispatchCompute");
+	glDispatchComputeIndirect = (PFNGLDISPATCHCOMPUTEINDIRECTPROC)wglGetProcAddress("glDispatchComputeIndirect");
+	glCopyImageSubData = (PFNGLCOPYIMAGESUBDATAPROC)wglGetProcAddress("glCopyImageSubData");
+	glFramebufferParameteri = (PFNGLFRAMEBUFFERPARAMETERIPROC)wglGetProcAddress("glFramebufferParameteri");
+	glGetFramebufferParameteriv = (PFNGLGETFRAMEBUFFERPARAMETERIVPROC)wglGetProcAddress("glGetFramebufferParameteriv");
+	glGetInternalformati64v = (PFNGLGETINTERNALFORMATI64VPROC)wglGetProcAddress("glGetInternalformati64v");
+	glInvalidateTexSubImage = (PFNGLINVALIDATETEXSUBIMAGEPROC)wglGetProcAddress("glInvalidateTexSubImage");
+	glInvalidateTexImage = (PFNGLINVALIDATETEXIMAGEPROC)wglGetProcAddress("glInvalidateTexImage");
+	glInvalidateBufferSubData = (PFNGLINVALIDATEBUFFERSUBDATAPROC)wglGetProcAddress("glInvalidateBufferSubData");
+	glInvalidateBufferData = (PFNGLINVALIDATEBUFFERDATAPROC)wglGetProcAddress("glInvalidateBufferData");
+	glInvalidateFramebuffer = (PFNGLINVALIDATEFRAMEBUFFERPROC)wglGetProcAddress("glInvalidateFramebuffer");
+	glInvalidateSubFramebuffer = (PFNGLINVALIDATESUBFRAMEBUFFERPROC)wglGetProcAddress("glInvalidateSubFramebuffer");
+	glMultiDrawArraysIndirect = (PFNGLMULTIDRAWARRAYSINDIRECTPROC)wglGetProcAddress("glMultiDrawArraysIndirect");
+	glMultiDrawElementsIndirect = (PFNGLMULTIDRAWELEMENTSINDIRECTPROC)wglGetProcAddress("glMultiDrawElementsIndirect");
+	glGetProgramInterfaceiv = (PFNGLGETPROGRAMINTERFACEIVPROC)wglGetProcAddress("glGetProgramInterfaceiv");
+	glGetProgramResourceIndex = (PFNGLGETPROGRAMRESOURCEINDEXPROC)wglGetProcAddress("glGetProgramResourceIndex");
+	glGetProgramResourceName = (PFNGLGETPROGRAMRESOURCENAMEPROC)wglGetProcAddress("glGetProgramResourceName");
+	glGetProgramResourceiv = (PFNGLGETPROGRAMRESOURCEIVPROC)wglGetProcAddress("glGetProgramResourceiv");
+	glGetProgramResourceLocation = (PFNGLGETPROGRAMRESOURCELOCATIONPROC)wglGetProcAddress("glGetProgramResourceLocation");
+	glGetProgramResourceLocationIndex = (PFNGLGETPROGRAMRESOURCELOCATIONINDEXPROC)wglGetProcAddress("glGetProgramResourceLocationIndex");
+	glShaderStorageBlockBinding = (PFNGLSHADERSTORAGEBLOCKBINDINGPROC)wglGetProcAddress("glShaderStorageBlockBinding");
+	glTexBufferRange = (PFNGLTEXBUFFERRANGEPROC)wglGetProcAddress("glTexBufferRange");
+	glTexStorage2DMultisample = (PFNGLTEXSTORAGE2DMULTISAMPLEPROC)wglGetProcAddress("glTexStorage2DMultisample");
+	glTexStorage3DMultisample = (PFNGLTEXSTORAGE3DMULTISAMPLEPROC)wglGetProcAddress("glTexStorage3DMultisample");
+	glTextureView = (PFNGLTEXTUREVIEWPROC)wglGetProcAddress("glTextureView");
+	glBindVertexBuffer = (PFNGLBINDVERTEXBUFFERPROC)wglGetProcAddress("glBindVertexBuffer");
+	glVertexAttribFormat = (PFNGLVERTEXATTRIBFORMATPROC)wglGetProcAddress("glVertexAttribFormat");
+	glVertexAttribIFormat = (PFNGLVERTEXATTRIBIFORMATPROC)wglGetProcAddress("glVertexAttribIFormat");
+	glVertexAttribLFormat = (PFNGLVERTEXATTRIBLFORMATPROC)wglGetProcAddress("glVertexAttribLFormat");
+	glVertexAttribBinding = (PFNGLVERTEXATTRIBBINDINGPROC)wglGetProcAddress("glVertexAttribBinding");
+	glVertexBindingDivisor = (PFNGLVERTEXBINDINGDIVISORPROC)wglGetProcAddress("glVertexBindingDivisor");
+	glDebugMessageControl = (PFNGLDEBUGMESSAGECONTROLPROC)wglGetProcAddress("glDebugMessageControl");
+	glDebugMessageInsert = (PFNGLDEBUGMESSAGEINSERTPROC)wglGetProcAddress("glDebugMessageInsert");
+	glDebugMessageCallback = (PFNGLDEBUGMESSAGECALLBACKPROC)wglGetProcAddress("glDebugMessageCallback");
+	glGetDebugMessageLog = (PFNGLGETDEBUGMESSAGELOGPROC)wglGetProcAddress("glGetDebugMessageLog");
+	glPushDebugGroup = (PFNGLPUSHDEBUGGROUPPROC)wglGetProcAddress("glPushDebugGroup");
+	glPopDebugGroup = (PFNGLPOPDEBUGGROUPPROC)wglGetProcAddress("glPopDebugGroup");
+	glObjectLabel = (PFNGLOBJECTLABELPROC)wglGetProcAddress("glObjectLabel");
+	glGetObjectLabel = (PFNGLGETOBJECTLABELPROC)wglGetProcAddress("glGetObjectLabel");
+	glObjectPtrLabel = (PFNGLOBJECTPTRLABELPROC)wglGetProcAddress("glObjectPtrLabel");
+	glGetObjectPtrLabel = (PFNGLGETOBJECTPTRLABELPROC)wglGetProcAddress("glGetObjectPtrLabel");
+
+	return (glClearBufferData && glClearBufferSubData && glDispatchCompute && glDispatchComputeIndirect && glCopyImageSubData && 
+		glFramebufferParameteri && glGetFramebufferParameteriv && glGetInternalformati64v && glInvalidateTexSubImage && glInvalidateTexImage && 
+		glInvalidateBufferSubData && glInvalidateBufferData && glInvalidateFramebuffer && glInvalidateSubFramebuffer && glMultiDrawArraysIndirect && 
+		glMultiDrawElementsIndirect && glGetProgramInterfaceiv && glGetProgramResourceIndex && glGetProgramResourceName && glGetProgramResourceiv && 
+		glGetProgramResourceLocation && glGetProgramResourceLocationIndex && glShaderStorageBlockBinding && glTexBufferRange && 
+		glTexStorage2DMultisample && glTexStorage3DMultisample && glTextureView && glBindVertexBuffer && glVertexAttribFormat &&
+		glVertexAttribIFormat && glVertexAttribLFormat && glVertexAttribBinding && glVertexBindingDivisor && glDebugMessageControl && 
+		glDebugMessageInsert && glDebugMessageCallback && glGetDebugMessageLog && glPushDebugGroup && glPopDebugGroup && glObjectLabel && 
+		glGetObjectLabel && glObjectPtrLabel && glGetObjectPtrLabel) ? 1 : 0;
+}

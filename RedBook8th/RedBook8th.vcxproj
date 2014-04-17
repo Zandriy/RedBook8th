@@ -124,6 +124,9 @@
     <ClCompile Include="Examples\Ex11_04.cpp" />
     <ClCompile Include="Examples\Ex11_21.cpp" />
     <ClCompile Include="Examples\Ex11_29.cpp" />
+    <ClCompile Include="Examples\Ex12_01.cpp" />
+    <ClCompile Include="Examples\Ex12_07.cpp" />
+    <ClCompile Include="Examples\Ex12_11.cpp" />
     <ClCompile Include="Examples\ExTest.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
@@ -189,6 +192,9 @@
     <ClInclude Include="Examples\Ex11_04.h" />
     <ClInclude Include="Examples\Ex11_21.h" />
     <ClInclude Include="Examples\Ex11_29.h" />
+    <ClInclude Include="Examples\Ex12_01.h" />
+    <ClInclude Include="Examples\Ex12_07.h" />
+    <ClInclude Include="Examples\Ex12_11.h" />
     <ClInclude Include="Examples\ExTest.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
@@ -292,6 +298,15 @@
     <None Include="Shaders\sh10_21.frag" />
     <None Include="Shaders\sh10_21.geom" />
     <None Include="Shaders\sh10_21.vert" />
+    <None Include="Shaders\sh12_01.comp" />
+    <None Include="Shaders\sh12_01.frag" />
+    <None Include="Shaders\sh12_01.vert" />
+    <None Include="Shaders\sh12_07.comp" />
+    <None Include="Shaders\sh12_07.frag" />
+    <None Include="Shaders\sh12_07.vert" />
+    <None Include="Shaders\sh12_11.comp" />
+    <None Include="Shaders\sh12_11.frag" />
+    <None Include="Shaders\sh12_11.vert" />
     <None Include="Shaders\shadowmap_scene.fs.glsl" />
     <None Include="Shaders\shadowmap_scene.vs.glsl" />
     <None Include="Shaders\shadowmap_shadow.fs.glsl" />
