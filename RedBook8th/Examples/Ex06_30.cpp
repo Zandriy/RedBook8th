@@ -158,5 +158,5 @@ void Ex06_30::Display()
 	glBindVertexArray(vao);
 	glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 
-	glFlush();
+	Swap();
 }

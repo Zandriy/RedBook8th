@@ -130,5 +130,5 @@ void Ex03_05::Display()
 	glUniformMatrix4fv(render_model_matrix_loc, 1, GL_FALSE, model_matrix);
 	glDrawArraysInstanced(GL_TRIANGLES, 0, 3, 1);
 
-	glFlush();
+	Swap();
 }

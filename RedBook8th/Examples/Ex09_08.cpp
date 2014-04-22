@@ -94,7 +94,7 @@ void Ex09_08::Display()
 	glDrawElements( GL_PATCHES, NumTeapotVertices,
 		GL_UNSIGNED_INT, BUFFER_OFFSET(0) );
 
-	glFlush();
+	Swap();
 }
 
 void Ex09_08::keyboard( unsigned char key, int x, int y )

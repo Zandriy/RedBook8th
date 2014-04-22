@@ -37,7 +37,7 @@ static vmath::vec3 random_vector(float minmag = 0.0f, float maxmag = 1.0f)
 }
 
 Ex12_07::Ex12_07()
-	: OGLWindow("Example12_07", "Example 12.7")
+	: OGLWindow("Example12_07", "Example 12.7 (M)")
 {
 }
 
@@ -196,7 +196,7 @@ void Ex12_07::Display()
 
 	last_ticks = current_ticks;
 
-	glFlush();
+	Swap();
 }
 
 void Ex12_07::keyboard( unsigned char key, int x, int y )

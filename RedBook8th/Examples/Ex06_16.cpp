@@ -105,7 +105,7 @@ void Ex06_16::Display()
 	glBindVertexArray(vao);
 	glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 
-	glFlush();
+	Swap();
 }
 
 void Ex06_16::keyboard( unsigned char key, int x, int y )

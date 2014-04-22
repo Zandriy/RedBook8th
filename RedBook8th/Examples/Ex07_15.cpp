@@ -200,7 +200,7 @@ void Ex07_15::Display()
 	// Draw
 	DrawScene(false);
 
-	glFlush();
+	Swap();
 }
 
 void Ex07_15::DrawScene(bool depth_only)

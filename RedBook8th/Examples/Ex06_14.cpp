@@ -124,7 +124,7 @@ void Ex06_14::Display()
 	glBindTexture(GL_TEXTURE_2D, tex2);
 	glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 
-	glFlush();
+	Swap();
 }
 
 void Ex06_14::keyboard( unsigned char key, int x, int y )

@@ -117,7 +117,7 @@ void Ex08_19::Display()
 
 	object.Render();
 
-	glFlush();
+	Swap();
 }
 
 void Ex08_19::keyboard( unsigned char key, int x, int y )

@@ -127,7 +127,6 @@
     <ClCompile Include="Examples\Ex12_01.cpp" />
     <ClCompile Include="Examples\Ex12_07.cpp" />
     <ClCompile Include="Examples\Ex12_11.cpp" />
-    <ClCompile Include="Examples\ExTest.cpp" />
     <ClCompile Include="GL\glLoader.c" />
     <ClCompile Include="GL\LoadShaders.cpp" />
     <ClCompile Include="main.cpp" />
@@ -195,7 +194,6 @@
     <ClInclude Include="Examples\Ex12_01.h" />
     <ClInclude Include="Examples\Ex12_07.h" />
     <ClInclude Include="Examples\Ex12_11.h" />
-    <ClInclude Include="Examples\ExTest.h" />
     <ClInclude Include="GL\glcorearb.h" />
     <ClInclude Include="GL\glLoader.h" />
     <ClInclude Include="GL\LoadShaders.h" />
@@ -311,8 +309,6 @@
     <None Include="Shaders\shadowmap_scene.vs.glsl" />
     <None Include="Shaders\shadowmap_shadow.fs.glsl" />
     <None Include="Shaders\shadowmap_shadow.vs.glsl" />
-    <None Include="Shaders\shTest.frag" />
-    <None Include="Shaders\shTest.vert" />
     <None Include="Shaders\simple.cont" />
     <None Include="Shaders\simple.eval" />
     <None Include="Shaders\simple.frag" />

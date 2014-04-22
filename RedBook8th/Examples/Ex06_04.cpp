@@ -84,7 +84,7 @@ void Ex06_04::Display()
 	glClearDepth(1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glFlush();
+	Swap();
 
 	glDisable(GL_CULL_FACE);
 	glUseProgram(base_prog);
@@ -92,5 +92,5 @@ void Ex06_04::Display()
 	glBindVertexArray(vao);
 	glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 
-	glFlush();
+	Swap();
 }

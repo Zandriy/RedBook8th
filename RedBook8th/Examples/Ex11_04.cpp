@@ -150,7 +150,7 @@ void Ex11_04::Display()
 	glUseProgram(resolve_program);
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
-	glFlush();
+	Swap();
 }
 
 void Ex11_04::InitPrograms()

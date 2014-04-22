@@ -130,7 +130,7 @@ void Ex06_10::Display()
 	glBindVertexArray(vao);
 	glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 
-	glFlush();
+	Swap();
 
 	++i;
 	if (i >= 4)

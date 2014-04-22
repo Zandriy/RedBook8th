@@ -183,7 +183,7 @@ void Ex03_11::Display()
 
 	vmath::lookat(vmath::vec3(0.0f, 0.0f, 0.0f), vmath::vec3(1.0f, 0.0f, 0.0f), vmath::vec3(0.0f, 1.0f, 0.0f));
 
-	glFlush();
+	Swap();
 }
 
 void Ex03_11::keyboard( unsigned char key, int x, int y )

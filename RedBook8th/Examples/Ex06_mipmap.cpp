@@ -136,5 +136,5 @@ void Ex06_mipmap::Display()
 	glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, NULL);
 	glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, BUFFER_OFFSET(8 * sizeof(GLushort)));
 
-	glFlush();
+	Swap();
 }

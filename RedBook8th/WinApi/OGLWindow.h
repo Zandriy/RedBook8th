@@ -42,7 +42,9 @@ protected:
 private:
 	BOOL InitWindowClass(HINSTANCE hInstance);
 	HWND InitInstance(HINSTANCE hInstance, HWND hParent, bool doubleBuf, int x, int y, int w, int h);
-	bool CreateContext(bool doubleBuf);
+	bool CreateContext();
+	bool CreateCoreContext();
+	void GetGLVersion(int* major, int* minor);
 
 	const char* m_ClassName;
 	const char* m_WindowTitle;
@@ -50,11 +52,15 @@ private:
 	HWND m_hWnd;
 	HDC m_hDC;
 	HGLRC m_Context;
+	HGLRC m_tempContext;
 	int m_curPixelFormat;
 	PIXELFORMATDESCRIPTOR m_pfd;
-	bool m_glLoaded;
 	int m_width;
 	int m_height;
+
+	static bool m_glLoaded;
+	static int m_major;
+	static int m_minor;
 };
 
 #endif // OGLWindow

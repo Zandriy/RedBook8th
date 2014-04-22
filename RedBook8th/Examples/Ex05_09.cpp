@@ -221,7 +221,7 @@ void Ex05_09::Display()
 
 	frame_count++;
 
-	glFlush();
+	Swap();
 }
 
 void Ex05_09::keyboard( unsigned char key, int x, int y )

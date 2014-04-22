@@ -67,7 +67,7 @@ void Ex04_01::Display()
 	glBindVertexArray( VAOs[Triangles] );
 	glDrawArrays( GL_TRIANGLES, 0, NumVertices );
 
-	glFlush();
+	Swap();
 }
 
 void Ex04_01::keyboard( unsigned char key, int x, int y )

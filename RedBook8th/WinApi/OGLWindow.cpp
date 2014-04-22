@@ -12,14 +12,21 @@
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
+#define MAJOR 4
+#define MINOR 3
+
+bool OGLWindow::m_glLoaded = false;
+int OGLWindow::m_major = 0;
+int OGLWindow::m_minor = 0;
+
 OGLWindow::OGLWindow(const char* name, const char* title)
 	: m_ClassName(name)
 	, m_WindowTitle(title)
 	, m_hWnd(NULL)
 	, m_hDC(NULL)
 	, m_Context(NULL)
+	, m_tempContext(NULL)
 	, m_curPixelFormat(0)
-	, m_glLoaded(false)
 {
 }
 
@@ -86,7 +93,7 @@ HWND OGLWindow::InitInstance(HINSTANCE hInstance, HWND hParent, bool doubleBuf, 
 		hInstance,           // handle to application instance 
 		(LPVOID) NULL);      // no Window-creation data 
 
-	if ( !CreateContext(doubleBuf) )
+	if ( !CreateContext() )
 	{
 		DestroyWindow(m_hWnd);
 		m_hWnd = NULL;
@@ -131,7 +138,7 @@ void OGLWindow::Reshape(int width, int height)
 	m_height = height;
 }
 
-bool OGLWindow::CreateContext(bool doubleBuf)
+bool OGLWindow::CreateContext()
 {
 	if ( m_Context )
 		return false;
@@ -143,11 +150,10 @@ bool OGLWindow::CreateContext(bool doubleBuf)
 	ZeroMemory( &m_pfd, sizeof( m_pfd ) );
 	m_pfd.nSize = sizeof( m_pfd );
 	m_pfd.nVersion = 1;
-	m_pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL;
-	if (doubleBuf) m_pfd.dwFlags |= PFD_DOUBLEBUFFER;
+	m_pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER;
 	m_pfd.iPixelType = PFD_TYPE_RGBA;
-	m_pfd.cColorBits = 24;
-	m_pfd.cDepthBits = 16;
+	m_pfd.cColorBits = 32;
+	m_pfd.cDepthBits = 32;
 	m_pfd.iLayerType = PFD_MAIN_PLANE;
 	m_curPixelFormat = ChoosePixelFormat( m_hDC, &m_pfd );
 
@@ -171,7 +177,48 @@ bool OGLWindow::CreateContext(bool doubleBuf)
 		return false;
 
 	// create the render context (RC)
-	m_Context = wglCreateContext( m_hDC );
+	m_tempContext = wglCreateContext( m_hDC );
+
+	if ( !m_tempContext )
+		return false;
+
+	return CreateCoreContext();
+}
+
+bool OGLWindow::CreateCoreContext()
+{
+	if ( !m_tempContext )
+		return false;
+
+	bool makeCurResult = wglMakeCurrent( m_hDC, m_tempContext );
+
+	bool bCore = GL_LoadCreateWinCoreContext();
+
+	if (!bCore)
+		return false;
+
+	GetGLVersion(&m_major, &m_minor);
+
+	if( !makeCurResult || m_major < MAJOR || ( m_major == MAJOR && m_minor < MINOR ) )
+	{
+		wglMakeCurrent(NULL,NULL); 
+		wglDeleteContext(m_tempContext);
+		return false;
+	}
+
+	int attribs[] =
+	{
+		WGL_CONTEXT_MAJOR_VERSION_ARB, m_major,
+		WGL_CONTEXT_MINOR_VERSION_ARB, m_minor, 
+		WGL_CONTEXT_FLAGS_ARB, WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB,
+		WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
+		0
+	};
+
+	m_Context = wglCreateContextAttribsARB(m_hDC,0, attribs);
+
+	wglMakeCurrent(NULL,NULL); 
+	wglDeleteContext(m_tempContext);
 
 	if ( !m_Context )
 		return false;
@@ -206,6 +253,27 @@ bool OGLWindow::LoadGL()
 			&& b40 && b41 && b42 && b43;
 	}
 	 return m_glLoaded;
+}
+
+void OGLWindow::GetGLVersion(int* major, int* minor)
+{
+	// for all versions
+	char* ver = (char*)glGetString(GL_VERSION); // ver = "3.2.0"
+
+	*major = ver[0] - '0';
+	if( *major >= 3)
+	{
+		// for GL 3.x
+		glGetIntegerv(GL_MAJOR_VERSION, major); // major = 3
+		glGetIntegerv(GL_MINOR_VERSION, minor); // minor = 2
+	}
+	else
+	{
+		*minor = ver[2] - '0';
+	}
+
+	// GLSL
+	ver = (char*)glGetString(GL_SHADING_LANGUAGE_VERSION); // ver = "1.50 NVIDIA via Cg compiler"
 }
 
 void OGLWindow::keyboard( unsigned char key, int x, int y ) 

@@ -95,7 +95,7 @@ void Ex10_21::Display()
 	glDepthFunc(GL_LEQUAL);
 	object.Render();
 
-	glFlush();
+	Swap();
 }
 
 void Ex10_21::keyboard( unsigned char key, int x, int y )

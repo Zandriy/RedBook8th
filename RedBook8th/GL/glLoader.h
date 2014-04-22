@@ -15,9 +15,12 @@
 #define GL_POINT_SPRITE 0x8861 
 #endif
 
+#define WGL_WGLEXT_PROTOTYPES 1
+
+#include <GL/glext.h>
+#include <GL/wglext.h>
 
 #pragma comment(lib,"OpenGL32.lib")
-//#pragma comment(lib,"glu32.lib")
 
 // enum
 // {
@@ -30,6 +33,14 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+	/////////////////////////////// WGL ////////////////////////////////
+
+	extern PFNWGLCREATECONTEXTATTRIBSARBPROC		pwglCreateContextAttribsARB;
+
+#define wglCreateContextAttribsARB		pwglCreateContextAttribsARB
+
+	int GL_LoadCreateWinCoreContext();
 
 	/////////////////////////////// GL_VERSION_1_2 ////////////////////////////////
 

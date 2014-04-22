@@ -78,12 +78,12 @@ void Ex08_08::Display()
 	static bool sign = true; 
 	if (sign)
 	{
-		a += 0.01;
+		a += 0.05;
 		if (a >= 80.0) sign = false;
 	}
 	else
 	{
-		a -= 0.01;
+		a -= 0.05;
 		if (a <= -30.0) sign = true;
 	}
 
@@ -97,7 +97,7 @@ void Ex08_08::Display()
 
 	object.Render();
 
-	glFlush();
+	Swap();
 }
 
 void Ex08_08::keyboard( unsigned char key, int x, int y )

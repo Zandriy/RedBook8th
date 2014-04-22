@@ -103,7 +103,7 @@ void Ex09_06::Display()
 
 	glDrawArrays( GL_PATCHES, 0, NumVertices );
 
-	glFlush();
+	Swap();
 }
 
 void Ex09_06::keyboard( unsigned char key, int x, int y )

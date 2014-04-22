@@ -86,5 +86,5 @@ void Ex03_01::Display()
 	glBindVertexArray(VAOs[Triangles]);
 	glDrawArrays(GL_TRIANGLE_FAN, 0, NumVertices);
 
-	glFlush();
+	Swap();
 }

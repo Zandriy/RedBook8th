@@ -120,7 +120,7 @@ void Ex07_05::Display()
 
 	object.Render();
 
-	glFlush();
+	Swap();
 }
 
 void Ex07_05::keyboard( unsigned char key, int x, int y )

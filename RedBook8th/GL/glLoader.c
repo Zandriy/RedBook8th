@@ -7,6 +7,17 @@
 
 #include "glLoader.h"
 
+/////////////////////////////// WGL ////////////////////////////////
+
+PFNWGLCREATECONTEXTATTRIBSARBPROC		pwglCreateContextAttribsARB = 0;
+
+int GL_LoadCreateWinCoreContext()
+{
+	wglCreateContextAttribsARB	= (PFNWGLCREATECONTEXTATTRIBSARBPROC)wglGetProcAddress("wglCreateContextAttribsARB");
+
+	return wglCreateContextAttribsARB ? 1 : 0;
+}
+
 /////////////////////////////// GL_VERSION_1_2 ////////////////////////////////
 
 PFNGLDRAWRANGEELEMENTSPROC		pglDrawRangeElements = 0;

@@ -115,7 +115,7 @@ void Ex06_29::Display()
 	glUniformMatrix4fv(render_model_matrix_loc, 1, GL_FALSE, model_matrix);
 	glDrawArrays(GL_POINTS, 0, POINT_COUNT);
 
-	glFlush();
+	Swap();
 }
 
 void Ex06_29::keyboard( unsigned char key, int x, int y )

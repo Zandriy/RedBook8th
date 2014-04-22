@@ -151,7 +151,7 @@ void Ex10_07::Display()
 	glDepthMask(GL_TRUE);
 	glDisable(GL_BLEND);
 
-	glFlush();
+	Swap();
 }
 
 void Ex10_07::keyboard( unsigned char key, int x, int y )

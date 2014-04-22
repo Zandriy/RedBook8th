@@ -145,7 +145,7 @@ void Ex03_07::Display()
 	glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, (const GLvoid *)(9 * sizeof(GLushort)));
 #endif
 
-	glFlush();
+	Swap();
 }
 
 void Ex03_07::keyboard( unsigned char key, int x, int y )

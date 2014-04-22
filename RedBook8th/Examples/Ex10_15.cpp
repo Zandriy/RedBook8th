@@ -147,7 +147,7 @@ void Ex10_15::Display()
 	glBindVertexArray(vao[1]);
 	glDrawTransformFeedbackStream(GL_TRIANGLES, xfb, 1);
 
-	glFlush();
+	Swap();
 }
 
 void Ex10_15::keyboard( unsigned char key, int x, int y )

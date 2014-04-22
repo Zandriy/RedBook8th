@@ -65,10 +65,8 @@
 #include "Examples/Ex12_07.h"
 #include "Examples/Ex12_11.h"
 
-#include "Examples/ExTest.h"
-
-#define EXAMPLES_QTY 57
-#define CUR_EXAMPLE EXAMPLES_QTY-2
+#define EXAMPLES_QTY 56
+#define CUR_EXAMPLE EXAMPLES_QTY-1
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -312,9 +310,6 @@ int WinParent::InitChilds(int nCmdShow)
 	child = new Ex12_07;
 	InitChild(child, r);
 	child = new Ex12_11;
-	InitChild(child, r);
-
-	child = new ExTest;
 	InitChild(child, r);
 
 	if (m_childArr.size() != EXAMPLES_QTY)

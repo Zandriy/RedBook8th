@@ -161,7 +161,7 @@ void Ex06_mip_filters::Display()
 	glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, NULL);
 	glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, BUFFER_OFFSET(8 * sizeof(GLushort)));
 
-	glFlush();
+	Swap();
 }
 
 void Ex06_mip_filters::keyboard( unsigned char key, int x, int y )

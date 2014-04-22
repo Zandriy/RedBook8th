@@ -59,5 +59,5 @@ void Ex01::Display()
 	glBindVertexArray(VAOs[Triangles]);
 	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
 
-	glFlush();
+	Swap();
 }

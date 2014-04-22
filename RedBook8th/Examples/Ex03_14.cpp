@@ -176,7 +176,7 @@ void Ex03_14::Display()
 	// Render INSTANCE_COUNT objects
 	object.Render(0, INSTANCE_COUNT);
 
-	glFlush();
+	Swap();
 }
 
 void Ex03_14::keyboard( unsigned char key, int x, int y )

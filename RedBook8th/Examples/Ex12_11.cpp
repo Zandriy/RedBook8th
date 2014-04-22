@@ -102,5 +102,5 @@ void Ex12_11::Display()
 	glUseProgram(render_prog);
 	glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 
-	glFlush();
+	Swap();
 }

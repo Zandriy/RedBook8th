@@ -96,9 +96,6 @@
     <ClCompile Include="Examples\Ex07_03.cpp">
       <Filter>Examples</Filter>
     </ClCompile>
-    <ClCompile Include="Examples\ExTest.cpp">
-      <Filter>Examples</Filter>
-    </ClCompile>
     <ClCompile Include="Examples\Ex07_04.cpp">
       <Filter>Examples</Filter>
     </ClCompile>
@@ -284,9 +281,6 @@
       <Filter>Examples</Filter>
     </ClInclude>
     <ClInclude Include="Examples\Ex07_03.h">
-      <Filter>Examples</Filter>
-    </ClInclude>
-    <ClInclude Include="Examples\ExTest.h">
       <Filter>Examples</Filter>
     </ClInclude>
     <ClInclude Include="Examples\Ex07_04.h">
@@ -508,12 +502,6 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\sh07_03.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\shTest.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\shTest.vert">
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\sh07_04.frag">

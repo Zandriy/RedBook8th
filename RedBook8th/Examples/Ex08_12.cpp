@@ -133,7 +133,7 @@ void Ex08_12::Display()
 	glBindVertexArray(vao);
 	glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 
-	glFlush();
+	Swap();
 }
 
 void Ex08_12::keyboard( unsigned char key, int x, int y )
